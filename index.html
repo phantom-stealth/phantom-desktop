@@ -19,21 +19,21 @@
 
   <style>
     :root {
-      --bg-dark: #07090E;
-      --bg-surface: #0C101A;
-      --bg-card: #111726;
-      --bg-raised: #182035;
-      --border-subtle: #1C263D;
-      --border-glow: #2E3E66;
-      --brand-primary: #3B82F6;
-      --brand-glow: rgba(59, 130, 246, 0.45);
-      --brand-purple: #8B5CF6;
-      --brand-cyan: #06B6D4;
-      --brand-green: #10B981;
+      --bg-dark: #010E27;
+      --bg-surface: #020E25;
+      --bg-card: #071636;
+      --bg-raised: #0B204C;
+      --border-subtle: #142E66;
+      --border-glow: #005FF9;
+      --brand-primary: #005FF9;
+      --brand-glow: rgba(0, 95, 249, 0.55);
+      --brand-purple: #9647DB;
+      --brand-cyan: #00E5FF;
+      --brand-green: #059669;
       --brand-amber: #F59E0B;
-      --text-primary: #F8FAFC;
-      --text-secondary: #94A3B8;
-      --text-tertiary: #64748B;
+      --text-primary: #FFFFFF;
+      --text-secondary: #E5EFFE;
+      --text-tertiary: #B8C8E8;
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
       --radius-sm: 6px;
@@ -59,10 +59,10 @@
       line-height: 1.6;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.09) 0%, transparent 45%),
-        radial-gradient(circle at 90% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 50% 70%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
-        radial-gradient(circle at 80% 90%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
+        radial-gradient(circle at 12% 10%, rgba(0, 95, 249, 0.22) 0%, transparent 45%),
+        radial-gradient(circle at 88% 18%, rgba(150, 71, 219, 0.20) 0%, transparent 45%),
+        radial-gradient(circle at 50% 65%, rgba(0, 86, 226, 0.14) 0%, transparent 50%),
+        radial-gradient(circle at 80% 90%, rgba(5, 150, 105, 0.10) 0%, transparent 40%);
       background-attachment: fixed;
     }
 
@@ -79,13 +79,13 @@
 
     /* Top Banner */
     .top-announcement {
-      background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2));
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 8px 16px;
+      background: linear-gradient(90deg, #0033AB 0%, #005FF9 50%, #9647DB 100%);
+      border-bottom: 1px solid rgba(229, 239, 254, 0.2);
+      padding: 9px 16px;
       text-align: center;
-      font-size: 13px;
-      font-weight: 500;
-      color: var(--text-primary);
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -112,7 +112,7 @@
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(7, 9, 14, 0.85);
+      background: rgba(2, 14, 37, 0.92);
       backdrop-filter: blur(20px);
       -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-subtle);
@@ -1148,32 +1148,41 @@
         <span><svg width="14" height="14" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Auto-Update Enabled</span>
       </div>
 
-      <!-- Live Mockup Showcase Tabs -->
+      <!-- Live Mockup Showcase Tabs (All 11 Core Feature Suites) -->
       <div class="showcase-container">
-        <div class="showcase-nav">
+        <div class="showcase-nav" style="flex-wrap: wrap; justify-content: center; gap: 8px;">
           <button class="showcase-tab active" onclick="switchShowcase('profiles', this)">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
-            Browser Profiles
+            🌐 Browser Profiles
           </button>
           <button class="showcase-tab" onclick="switchShowcase('proxy', this)">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            31-Target Proxy Verifier
+            🛡️ 31-Target Proxy Verifier
           </button>
           <button class="showcase-tab" onclick="switchShowcase('mobile', this)">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
-            Mobile AVD Fleet (PiP)
+            📱 Mobile AVD Fleet (PiP)
           </button>
           <button class="showcase-tab" onclick="switchShowcase('email', this)">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-            Temp Email & OTP Hub
+            📬 Temp Email &amp; OTP Hub
           </button>
           <button class="showcase-tab" onclick="switchShowcase('ai', this)">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
-            Unified AI Gateway
+            ✨ Claude AI Chatbot
           </button>
           <button class="showcase-tab" onclick="switchShowcase('social', this)">
-            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-            Social Growth Suite
+            🚀 Social Growth &amp; TikTok
+          </button>
+          <button class="showcase-tab" onclick="switchShowcase('rpa', this)">
+            ⚡ Visual RPA &amp; Synchronizer
+          </button>
+          <button class="showcase-tab" onclick="switchShowcase('outreach', this)">
+            ✉️ OutreachFlow Cold Email
+          </button>
+          <button class="showcase-tab" onclick="switchShowcase('maxcare', this)">
+            🔥 MaxCare &amp; Account Raising
+          </button>
+          <button class="showcase-tab" onclick="switchShowcase('persona', this)">
+            🎭 Persona Identity Builder
+          </button>
+          <button class="showcase-tab" onclick="switchShowcase('security', this)">
+            🔒 Security &amp; Command Center
           </button>
         </div>
 
@@ -1198,11 +1207,11 @@
         </div>
         <div class="stat-card">
           <h3 class="gradient-text">100/100</h3>
-          <p>CreepJS & Incolumitas Score</p>
+          <p>CreepJS &amp; Incolumitas Score</p>
         </div>
         <div class="stat-card">
-          <h3 class="gradient-text">0 ms</h3>
-          <p>WebRTC & DNS Leak Latency</p>
+          <h3 class="gradient-text">58+</h3>
+          <p>Integrated Stealth &amp; Growth Tools</p>
         </div>
       </div>
     </div>
@@ -1212,7 +1221,7 @@
   <section class="diff-section" id="architecture">
     <div class="container">
       <div class="section-head">
-        <span class="section-tag">Next-Gen Architecture</span>
+        <span class="section-tag" style="background: rgba(0, 95, 249, 0.2); color: #E5EFFE; border: 1px solid #005FF9;">Next-Gen Multilogin-Grade Architecture</span>
         <h2>Why Legacy Antidetect Browsers Fail (And How Phantom Fixes It)</h2>
         <p>Tools built in 2018-2022 rely on basic script injections that modern anti-bot algorithms (Cloudflare Turnstile, DataDome, Akamai, PerimeterX) instantly flag. Here is how Phantom re-engineers browser privacy from the core.</p>
       </div>
@@ -1234,62 +1243,58 @@
 
         <div class="diff-card">
           <div class="diff-icon">🛡️</div>
-          <h3>Fail-Closed WebRTC & DNS</h3>
+          <h3>Fail-Closed WebRTC &amp; DNS</h3>
           <p>Proxies that leak private IP addresses or IPv6 via WebRTC get banned instantly. Phantom strictly enforces <code>--force-webrtc-ip-handling-policy=disable_non_proxied_udp</code> and DNS route isolation, preventing egress leaks forever.</p>
           <span class="diff-badge success">Zero WebRTC or DNS Leaks</span>
         </div>
 
         <div class="diff-card">
           <div class="diff-icon">📱</div>
-          <h3>Native AVD & Mobile Emulation</h3>
+          <h3>Native AVD &amp; Mobile Emulation</h3>
           <p>While other platforms give you a phone user-agent in desktop Chrome, Phantom provides realistic mobile AVD emulation with live touch ripple coordinates, hardware gyro/battery simulation, and a floating Picture-in-Picture dock.</p>
           <span class="diff-badge success">True Mobile Fingerprinting</span>
         </div>
 
         <div class="diff-card">
           <div class="diff-icon">📬</div>
-          <h3>Integrated Temp Email & OTP</h3>
+          <h3>Integrated Temp Email &amp; OTP</h3>
           <p>No more paying third-party temporary email providers or switching apps. Phantom features a built-in Temp Email engine supporting private catch-all domains, SimpleLogin REST APIs, and instant 4-8 digit OTP extraction.</p>
           <span class="diff-badge success">Automated Account Creation</span>
         </div>
 
         <div class="diff-card">
-          <div class="diff-icon">🤖</div>
-          <h3>Multi-Provider AI Gateway</h3>
-          <p>Unify OpenAI, Anthropic, Gemini, Groq, DeepSeek R1, and GitHub Models into your automation workflows. Local credential sink with zero mock tokens and real-time token throughput streaming.</p>
-          <span class="diff-badge success">Autonomous AI Workflows</span>
+          <div class="diff-icon">✨</div>
+          <h3>Claude Conversational AI Hub</h3>
+          <p>Collaborate with a dedicated Claude-style conversational AI assistant connected to Claude 3.5 Sonnet, Claude 4.6 Opus, GPT-4o, Gemini 2.5 Pro, and DeepSeek R1 to draft personas, viral hooks, and outreach copy.</p>
+          <span class="diff-badge success">Conversational Fleet Intelligence</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Detailed Feature Deep Dives -->
+  <!-- Detailed Feature Deep Dives (All 11 Software Suites) -->
   <section class="features-deep-dive" id="features">
     <div class="container">
       <div class="section-head">
-        <span class="section-tag">Deep Feature Walkthrough</span>
-        <h2>Engineered for Scale, Stealth, and Speed</h2>
-        <p>Every tool your growth, marketing, e-commerce, or crypto team needs to operate without friction.</p>
+        <span class="section-tag" style="background: rgba(150, 71, 219, 0.22); color: #E5EFFE; border: 1px solid #9647DB;">Complete Software Suite Walkthrough</span>
+        <h2>Every Feature Built Into Phantom OS — Visualized</h2>
+        <p>Explore all 11 specialized engineering, stealth, growth, and automation suites included inside the Phantom desktop application.</p>
       </div>
 
       <!-- Feature 1: Browser Profiles -->
       <div class="feature-row">
         <div class="feature-info">
-          <span class="feature-badge" style="background: rgba(59, 130, 246, 0.15); color: #60A5FA;">Core Stealth</span>
+          <span class="feature-badge" style="background: rgba(0, 95, 249, 0.22); color: #E5EFFE; border: 1px solid #005FF9;">01 • Core Anti-Detect Vault</span>
           <h3>Isolate 1,000+ Browser Profiles with Unique Hardware Identities</h3>
-          <p>Each profile operates in complete isolation with independent cookie jars, local storage, indexedDB, and cache partitions. Launch Chrome 134, macOS, Windows 11, or Android profiles with 1 click.</p>
+          <p>Each profile operates in complete isolation with independent cookie jars, local storage, indexedDB, and cache partitions. Launch Chrome 134, macOS, Windows 11, Linux, or Android profiles with 1 click.</p>
           <ul class="feature-bullets">
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>W3C Spec Compliance:</strong> Authentic battery charging times, media devices with 64-char lowercase hex IDs, and connection downlink capped at 10.</span>
+              <span><strong>Country Flags &amp; OS/Browser Badges:</strong> Instant visual identification of proxy geolocation (🇺🇸 US, 🇬🇧 UK, 🇩🇪 DE, 🇫🇷 FR, 🇯🇵 JP), OS platform, and browser engine.</span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>1-Click Chrome Extensions:</strong> Install extensions directly from the Chrome Web Store without disabled button lockouts.</span>
-            </li>
-            <li>
-              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Real-Time SSE Telemetry:</strong> Live window monitoring, instant closed-state detection, and automatic keep-alive protection.</span>
+              <span><strong>1-Click Chrome Extensions &amp; Groups:</strong> Organize profiles into team workspaces, folders, and bulk-assign extensions or residential proxies.</span>
             </li>
           </ul>
         </div>
@@ -1301,21 +1306,17 @@
       <!-- Feature 2: Proxy Verifier -->
       <div class="feature-row reverse">
         <div class="feature-info">
-          <span class="feature-badge" style="background: rgba(16, 185, 129, 0.15); color: #34D399;">Network Intelligence</span>
-          <h3>31-Target Proxy Verifier & Live GPS Radar Map</h3>
+          <span class="feature-badge" style="background: rgba(5, 150, 105, 0.22); color: #6EE7B7; border: 1px solid #059669;">02 • Network &amp; Geo Intelligence</span>
+          <h3>31-Target Proxy Verifier &amp; Live GPS Radar Map</h3>
           <p>Never burn an account with a dirty or blacklisted proxy again. Phantom tests your proxy against 8 major DNSBL reputation engines and 31 real target endpoints in under 4 seconds.</p>
           <ul class="feature-bullets">
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>8 DNSBL Blacklists:</strong> Real-time reverse DNS queries against Spamhaus ZEN, SORBS, SpamCop, Barracuda, DroneBL, and Tor Exit Node lists.</span>
+              <span><strong>8 DNSBL Blacklists &amp; Fraud Score:</strong> Real-time reverse DNS queries against Spamhaus ZEN, SORBS, SpamCop, Barracuda, DroneBL, and Tor Exit Node lists.</span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Anti-Bot Challenges:</strong> Live Google Search <code>/sorry/</code> CAPTCHA checks, Cloudflare Turnstile, Akamai, and DataDome probes.</span>
-            </li>
-            <li>
-              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Interactive GPS Radar:</strong> OpenStreetMap visual pin, latitude/longitude display, and ISP gateway radius estimation.</span>
+              <span><strong>Interactive GPS Radar:</strong> OpenStreetMap visual pin, latitude/longitude verification, and automatic timezone/locale matching.</span>
             </li>
           </ul>
         </div>
@@ -1327,21 +1328,17 @@
       <!-- Feature 3: Mobile Fleet -->
       <div class="feature-row">
         <div class="feature-info">
-          <span class="feature-badge" style="background: rgba(139, 92, 246, 0.15); color: #A78BFA;">Mobile Automation</span>
+          <span class="feature-badge" style="background: rgba(150, 71, 219, 0.22); color: #E9D5FF; border: 1px solid #9647DB;">03 • Cloud Phone &amp; AVD Emulation</span>
           <h3>Native Mobile AVD Fleet with Picture-in-Picture Dock</h3>
-          <p>Run native Android and iOS emulation side-by-side. Interact with real mobile web and app environments without burning mobile battery or renting expensive cloud devices.</p>
+          <p>Run native Android and iOS emulation side-by-side. Interact with real mobile web and app environments without burning mobile battery or renting expensive cloud phones.</p>
           <ul class="feature-bullets">
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Flagship Presets:</strong> Samsung Galaxy S24 Ultra, Google Pixel 8 Pro, OnePlus 12, Apple iPhone 16 Pro, iPad Pro M4.</span>
+              <span><strong>Flagship Device Presets:</strong> Samsung Galaxy S24 Ultra, Google Pixel 8 Pro, OnePlus 12, Apple iPhone 16 Pro, iPad Pro M4.</span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Picture-in-Picture Mini Dock:</strong> Collapse phone displays into a floating 240px x 420px live PiP dock while you work anywhere in the app.</span>
-            </li>
-            <li>
-              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Headless &harr; Windowed Switch:</strong> Toggle between headless background speed and live interactive windowed screen previews with touch ripples.</span>
+              <span><strong>Picture-in-Picture Mini Dock:</strong> Collapse phone displays into a floating live PiP dock while managing other tabs across the app.</span>
             </li>
           </ul>
         </div>
@@ -1353,21 +1350,17 @@
       <!-- Feature 4: Temp Email -->
       <div class="feature-row reverse">
         <div class="feature-info">
-          <span class="feature-badge" style="background: rgba(6, 182, 212, 0.15); color: #38BDF8;">Account Creation</span>
-          <h3>Private Domain Temp Email & SimpleLogin OTP Engine</h3>
-          <p>Generate thousands of private inboxes on your own catch-all domains or SimpleLogin aliases. Incoming messages are parsed in real time to automatically extract 4-8 digit OTP codes.</p>
+          <span class="feature-badge" style="background: rgba(0, 229, 255, 0.18); color: #67E8F9; border: 1px solid #00E5FF;">04 • Instant Verification &amp; SMS/OTP</span>
+          <h3>Private Domain Temp Email, SimpleLogin &amp; SMS OTP Hub</h3>
+          <p>Generate thousands of private inboxes on your own catch-all domains or SimpleLogin aliases. Incoming messages and SMS verifications are parsed in real time to auto-extract 4-8 digit OTP codes.</p>
           <ul class="feature-bullets">
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Private Catch-All Domains:</strong> Add unlimited custom domains with Cloudflare Email Routing or direct MX webhooks.</span>
+              <span><strong>Private Catch-All &amp; SimpleLogin:</strong> Unlimited custom domains + SimpleLogin REST API integration for instant alias creation.</span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>SimpleLogin REST Integration:</strong> Connect your SimpleLogin API key to generate aliases, manage domain pools, and route cleanly.</span>
-            </li>
-            <li>
-              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Instant OTP Extraction:</strong> Auto-detects verification codes from Discord, Tinder, X, Instagram, Steam, and Google with 1-click copy.</span>
+              <span><strong>Instant OTP Auto-Fill:</strong> Extracts verification codes from TikTok, Instagram, X, Discord, Google, and Amazon with 1-click copy.</span>
             </li>
           </ul>
         </div>
@@ -1376,55 +1369,157 @@
         </div>
       </div>
 
-      <!-- Feature 5: AI Gateway -->
+      <!-- Feature 5: Claude AI Chatbot -->
       <div class="feature-row">
         <div class="feature-info">
-          <span class="feature-badge" style="background: rgba(245, 158, 11, 0.15); color: #FBBF24;">Intelligence Layer</span>
-          <h3>Unified AI Gateway with Multi-Model Auto-Routing</h3>
-          <p>Connect your automation pipelines to top-tier foundation models. Eliminate vendor lock-in with intelligent fallback routing and real-time token throughput streaming.</p>
+          <span class="feature-badge" style="background: rgba(217, 119, 87, 0.22); color: #FDBA74; border: 1px solid #D97757;">05 • Conversational AI Assistant</span>
+          <h3>Claude-Style Conversational AI Assistant &amp; Model Hub</h3>
+          <p>A warm, intuitive Claude.ai conversational interface built directly into Phantom. Brainstorm growth strategies, generate realistic persona backstories, write viral social hooks, and audit proxy setups in natural language.</p>
           <ul class="feature-bullets">
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>7+ Provider Sinks:</strong> Native support for OpenAI (GPT-4o, o3-mini), Anthropic Claude 3.5, Google Gemini, Groq, DeepSeek R1/V3, and GitHub Models.</span>
+              <span><strong>Multi-Model Switcher:</strong> Switch seamlessly between Claude 3.5 Sonnet, Claude 4.6 Opus, OpenAI GPT-4o, Gemini 2.5 Pro, and DeepSeek R1.</span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Zero Fake Tokens:</strong> No synthetic fallback tokens. True credential validation against local encrypted key sinks.</span>
-            </li>
-            <li>
-              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Lightning Throughput:</strong> Benchmark up to 142 tokens/second on Groq Llama 3.3 for high-speed automated decision making.</span>
+              <span><strong>1-Click Strategy Prompts:</strong> Instant suggestion cards for Anti-Detect Personas, Viral Social Hooks, Stealth Audits, and Outreach Sequences.</span>
             </li>
           </ul>
         </div>
         <div class="feature-visual">
-          <img src="assets/screenshots/ai-gateway.jpg" alt="Phantom AI Gateway">
+          <img src="assets/screenshots/claude-chatbot.jpg" alt="Phantom Claude AI Conversational Chatbot">
         </div>
       </div>
 
       <!-- Feature 6: Social Growth -->
       <div class="feature-row reverse">
         <div class="feature-info">
-          <span class="feature-badge" style="background: rgba(236, 72, 153, 0.15); color: #F472B6;">Audience Expansion</span>
-          <h3>Multi-Account Social Media & Dating Fleet Manager</h3>
-          <p>Scale multi-account reach without repetitive manual work. Schedule, repurpose, and monitor account health across 68+ automation nodes from a single screen.</p>
+          <span class="feature-badge" style="background: rgba(254, 44, 85, 0.22); color: #FDA4AF; border: 1px solid #FE2C55;">06 • Social Media &amp; Video Studio</span>
+          <h3>Social Media Growth Hub, TikTok Studio Pro &amp; 1-Click Syndication</h3>
+          <p>Manage and grow hundreds of TikTok, Instagram, Facebook, YouTube Shorts, X/Twitter, Reddit, and Telegram accounts with authentic platform workflows and multi-account scheduling.</p>
           <ul class="feature-bullets">
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>1-Click Multi-Platform Repurposing:</strong> Auto-format and publish content simultaneously to TikTok, Instagram Reels, Facebook, X, and YouTube Shorts.</span>
+              <span><strong>Cross-Platform Video Clipper &amp; Syndication:</strong> Repurpose vertical 9:16 shorts across TikTok, Reels, and YouTube Shorts with unique metadata per profile.</span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Dating App Cleanliness Intelligence:</strong> Pre-scan proxies for prior dating bot farm flags and bans across Tinder, Bumble, Hinge, and Match.</span>
-            </li>
-            <li>
-              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Warm-Up Automation:</strong> Automated activity curves, humanized mouse bezier curves, and realistic session intervals prevent sudden shadowbans.</span>
+              <span><strong>Multi-Account Calendar Timeline:</strong> Visual drag-and-drop content calendar with real-time engagement velocity tracking.</span>
             </li>
           </ul>
         </div>
         <div class="feature-visual">
           <img src="assets/screenshots/social-growth.jpg" alt="Phantom Social Growth Suite">
+        </div>
+      </div>
+
+      <!-- Feature 7: Visual RPA & Window Synchronizer -->
+      <div class="feature-row">
+        <div class="feature-info">
+          <span class="feature-badge" style="background: rgba(0, 95, 249, 0.22); color: #93C5FD; border: 1px solid #005FF9;">07 • No-Code Automation &amp; Sync</span>
+          <h3>Visual RPA Workflow Builder, Marketplace &amp; Multi-Window Synchronizer</h3>
+          <p>Design human-like browser automations using drag-and-drop visual nodes, or replicate your mouse clicks, scrolling, and keystrokes across dozens of live stealth windows simultaneously.</p>
+          <ul class="feature-bullets">
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Human Bezier Mouse &amp; Typing Jitter:</strong> Every click and keystroke uses randomized micro-delays and natural curve physics to defeat behavioral biometrics.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Real-Time Multi-Window Grid Sync:</strong> Control 1 master window and watch 8 to 50 follower profiles execute identical actions with custom jitter offsets.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/screenshots/rpa-synchronizer.jpg" alt="Phantom Visual RPA Builder and Window Synchronizer">
+        </div>
+      </div>
+
+      <!-- Feature 8: OutreachFlow Cold Email & Lead Scraper -->
+      <div class="feature-row reverse">
+        <div class="feature-info">
+          <span class="feature-badge" style="background: rgba(150, 71, 219, 0.22); color: #D8B4FE; border: 1px solid #9647DB;">08 • Outbound CRM &amp; Deliverability</span>
+          <h3>OutreachFlow Cold Email, B2B Lead Scraper &amp; Sender Warming</h3>
+          <p>Turn your stealth fleet into a high-converting outbound machine. Scrape verified B2B leads, warm up sender mailboxes to 99.4% inbox placement, and run multi-touch email + LinkedIn sequences.</p>
+          <ul class="feature-bullets">
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Autonomous Peer-to-Peer Email Warming:</strong> Automated inbox conversations, spam-folder rescue, and sender reputation scoring.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Visual Sequence &amp; Template Studio:</strong> Conditional branching workflows with live open, click, and reply rate analytics.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/screenshots/outreach-crm.jpg" alt="Phantom OutreachFlow Cold Email & Lead Scraper">
+        </div>
+      </div>
+
+      <!-- Feature 9: MaxCare Suite & Account Raising -->
+      <div class="feature-row">
+        <div class="feature-info">
+          <span class="feature-badge" style="background: rgba(5, 150, 105, 0.22); color: #6EE7B7; border: 1px solid #059669;">09 • Account Farming &amp; Trust Score</span>
+          <h3>MaxCare Account Raising (FB/IG/X/TT) &amp; Dating Fleet Automation</h3>
+          <p>Build aged, high-trust accounts automatically. MaxCare simulates organic daily human browsing, cookie accumulation, newsfeed scrolling, and natural interactions across major social and dating networks.</p>
+          <ul class="feature-bullets">
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>7-Day Automated Warm-Up Curves:</strong> Gradual progression from passive reading to likes, comments, and profile completion with 98%+ trust scores.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Cookie Depth &amp; Activity Telemetry:</strong> Track cookie history age, session health, and geo-verified residential proxy consistency per account.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/screenshots/maxcare-raising.jpg" alt="Phantom MaxCare Account Raising and Dating Fleet">
+        </div>
+      </div>
+
+      <!-- Feature 10: Digital Persona Identity Studio -->
+      <div class="feature-row reverse">
+        <div class="feature-info">
+          <span class="feature-badge" style="background: rgba(0, 95, 249, 0.22); color: #93C5FD; border: 1px solid #005FF9;">10 • Cohesive Identity Engineering</span>
+          <h3>Digital Persona Builder &amp; Biographical Backstory Studio</h3>
+          <p>Maintain 100% human consistency across every account. Generate complete digital identities with regional names, biographical backstories, writing tone radar profiles, and matching hardware fingerprints.</p>
+          <ul class="feature-bullets">
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Writing Tone &amp; Dialect Alignment:</strong> Ensure AI-assisted messages match each persona's vocabulary, formality, and regional cadence.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>1-Click Profile Binding:</strong> Bind any persona directly to a browser profile, proxy location, and temp email inbox in one click.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/screenshots/persona-builder.jpg" alt="Phantom Digital Persona Identity Builder">
+        </div>
+      </div>
+
+      <!-- Feature 11: Security Evasion, Threat Monitor & Command Center -->
+      <div class="feature-row">
+        <div class="feature-info">
+          <span class="feature-badge" style="background: rgba(150, 71, 219, 0.22); color: #E9D5FF; border: 1px solid #9647DB;">11 • Enterprise Security &amp; Telemetry</span>
+          <h3>Antidetect Evasion Matrix, Threat Monitor, ROI Tracker &amp; SOC2 Compliance</h3>
+          <p>Full enterprise observability across your entire operation. Monitor W3C prototype shield status against CreepJS, Pixelscan, and IPHey while tracking campaign ROI, usage quotas, and SOC2 audit logs.</p>
+          <ul class="feature-bullets">
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Noise Verification Matrix:</strong> Live verification of WebRTC, Canvas, WebGL, AudioContext, and ClientRects fingerprint shields.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Real-Time Fleet ROI &amp; SOC2 Audit Trail:</strong> Track revenue per profile, proxy bandwidth costs, IP blocklists, and team access logs.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/screenshots/security-command.jpg" alt="Phantom Security Evasion and Command Center">
         </div>
       </div>
 
@@ -1954,7 +2049,7 @@
   </footer>
 
   <script>
-    // Showcase switcher
+    // Showcase switcher (All 11 Software Suites)
     const showcaseData = {
       profiles: {
         src: 'assets/screenshots/browser-profiles.jpg',
@@ -1973,12 +2068,32 @@
         alt: 'Phantom Temp Email and SimpleLogin OTP Manager'
       },
       ai: {
-        src: 'assets/screenshots/ai-gateway.jpg',
-        alt: 'Phantom Unified AI Gateway and Autonomous Agent Hub'
+        src: 'assets/screenshots/claude-chatbot.jpg',
+        alt: 'Phantom Claude AI Conversational Chatbot Assistant'
       },
       social: {
         src: 'assets/screenshots/social-growth.jpg',
         alt: 'Phantom Multi-Account Social Media Growth Suite'
+      },
+      rpa: {
+        src: 'assets/screenshots/rpa-synchronizer.jpg',
+        alt: 'Phantom Visual RPA Workflow Builder and Window Synchronizer'
+      },
+      outreach: {
+        src: 'assets/screenshots/outreach-crm.jpg',
+        alt: 'Phantom OutreachFlow Cold Email & Lead Scraper Studio'
+      },
+      maxcare: {
+        src: 'assets/screenshots/maxcare-raising.jpg',
+        alt: 'Phantom MaxCare Account Raising & Dating Fleet Manager'
+      },
+      persona: {
+        src: 'assets/screenshots/persona-builder.jpg',
+        alt: 'Phantom Digital Persona Identity Builder & Backstory Studio'
+      },
+      security: {
+        src: 'assets/screenshots/security-command.jpg',
+        alt: 'Phantom Antidetect Security Evasion & Command Center'
       }
     };
 
