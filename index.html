@@ -3,43 +3,53 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Phantom — Next-Gen Anti-Detect Browser & Automation Studio</title>
-  <meta name="description" content="Production-grade anti-detect browser and AI automation operating system. Undetectable browser fingerprints, 31-target proxy verifier, SimpleLogin temp email, and native AVD mobile fleet.">
-  <meta name="keywords" content="antidetect browser, stealth browser, web automation, browser fingerprinting, proxy verifier, simplelogin, temp email, puppeteer, playwright, electron">
+  <title>Phantom — The World's First AI-Native Anti-Detect Browser & Automation OS</title>
+  <meta name="description" content="Production-grade anti-detect browser with W3C prototype spoofing, 31-target proxy cleanliness verifier, SimpleLogin temp email, native mobile AVD fleet, and multi-model AI gateway.">
+  <meta name="keywords" content="antidetect browser, multilogin alternative, gologin alternative, adspower alternative, stealth browser, web automation, browser fingerprinting, proxy verifier, simplelogin, temp email, puppeteer, playwright, electron">
   
   <!-- OpenGraph / Social Meta -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://phantom-stealth.github.io/phantom-desktop/">
-  <meta property="og:title" content="Phantom — Anti-Detect Browser & Automation Studio">
-  <meta property="og:description" content="Next-Gen anti-detect browser with W3C prototype spoofing, real PCI GPU IDs, 31-target proxy intelligence, SimpleLogin temp email, and native mobile AVD fleet.">
+  <meta property="og:title" content="Phantom — AI-Native Anti-Detect Browser & Automation OS">
+  <meta property="og:description" content="Manage 1,000+ browser profiles undetectable. Root W3C prototype injection, genuine PCI GPU IDs, 31-target proxy verifier, SimpleLogin temp email, and native mobile AVD fleet.">
   <meta property="og:image" content="https://raw.githubusercontent.com/phantom-stealth/phantom-desktop/main/assets/icon.png">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="../assets/icon.ico">
+  <link rel="icon" type="image/x-icon" href="assets/icon.ico">
 
   <style>
     :root {
-      --bg-dark: #0A0D14;
-      --bg-card: #111522;
-      --bg-raised: #181D2E;
-      --border-subtle: #1E2538;
-      --border-glow: #2A3654;
+      --bg-dark: #07090E;
+      --bg-surface: #0C101A;
+      --bg-card: #111726;
+      --bg-raised: #182035;
+      --border-subtle: #1C263D;
+      --border-glow: #2E3E66;
       --brand-primary: #3B82F6;
-      --brand-glow: rgba(59, 130, 246, 0.4);
+      --brand-glow: rgba(59, 130, 246, 0.45);
       --brand-purple: #8B5CF6;
       --brand-cyan: #06B6D4;
       --brand-green: #10B981;
+      --brand-amber: #F59E0B;
       --text-primary: #F8FAFC;
       --text-secondary: #94A3B8;
       --text-tertiary: #64748B;
       --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-xl: 24px;
     }
 
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
@@ -49,9 +59,10 @@
       line-height: 1.6;
       overflow-x: hidden;
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(59, 130, 246, 0.08) 0%, transparent 40%),
-        radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
-        radial-gradient(circle at 50% 85%, rgba(6, 182, 212, 0.06) 0%, transparent 50%);
+        radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.09) 0%, transparent 45%),
+        radial-gradient(circle at 90% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 45%),
+        radial-gradient(circle at 50% 70%, rgba(6, 182, 212, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 80% 90%, rgba(16, 185, 129, 0.05) 0%, transparent 40%);
       background-attachment: fixed;
     }
 
@@ -60,20 +71,50 @@
       text-decoration: none;
     }
 
-    /* Container */
     .container {
-      max-width: 1200px;
+      max-width: 1240px;
       margin: 0 auto;
       padding: 0 24px;
+    }
+
+    /* Top Banner */
+    .top-announcement {
+      background: linear-gradient(90deg, rgba(59, 130, 246, 0.2), rgba(139, 92, 246, 0.2), rgba(6, 182, 212, 0.2));
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 8px 16px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .top-announcement .badge-pulse {
+      background: #10B981;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #10B981;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(1.3); }
+      100% { opacity: 1; transform: scale(1); }
     }
 
     /* Header / Nav */
     header {
       position: sticky;
       top: 0;
-      z-index: 100;
-      background: rgba(10, 13, 20, 0.85);
-      backdrop-filter: blur(16px);
+      z-index: 1000;
+      background: rgba(7, 9, 14, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border-subtle);
       padding: 16px 0;
     }
@@ -88,9 +129,16 @@
       display: flex;
       align-items: center;
       gap: 12px;
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 800;
       letter-spacing: -0.5px;
+    }
+
+    .logo-img {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      box-shadow: 0 0 14px var(--brand-glow);
     }
 
     .logo-badge {
@@ -108,10 +156,17 @@
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 28px;
+      gap: 30px;
       font-size: 14px;
       font-weight: 500;
       color: var(--text-secondary);
+    }
+
+    .nav-links a {
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 4px;
     }
 
     .nav-links a:hover {
@@ -130,463 +185,852 @@
       justify-content: center;
       gap: 8px;
       padding: 10px 20px;
-      border-radius: 8px;
+      border-radius: var(--radius-md);
       font-size: 14px;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
       border: 1px solid transparent;
+      text-align: center;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--brand-primary), #1D4ED8);
+      background: linear-gradient(135deg, var(--brand-primary), #2563EB);
       color: #FFFFFF;
       box-shadow: 0 4px 14px var(--brand-glow);
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(59, 130, 246, 0.6);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(59, 130, 246, 0.6);
     }
 
     .btn-secondary {
       background: var(--bg-card);
-      border-color: var(--border-subtle);
       color: var(--text-primary);
+      border-color: var(--border-subtle);
     }
 
     .btn-secondary:hover {
       background: var(--bg-raised);
       border-color: var(--border-glow);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
-    .btn-github {
-      background: #1F2430;
-      border-color: #2D3748;
-      color: #F8FAFC;
+    .btn-outline {
+      background: transparent;
+      color: var(--text-primary);
+      border: 1px solid var(--border-subtle);
     }
 
-    .btn-github:hover {
-      background: #2D3748;
+    .btn-outline:hover {
+      border-color: var(--brand-primary);
+      color: var(--brand-primary);
     }
 
     /* Hero Section */
     .hero {
-      padding: 90px 0 60px 0;
+      padding: 80px 0 60px;
       text-align: center;
       position: relative;
     }
 
-    .release-chip {
+    .hero-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       padding: 6px 16px;
-      border-radius: 999px;
       background: rgba(59, 130, 246, 0.1);
       border: 1px solid rgba(59, 130, 246, 0.3);
-      color: #93C5FD;
+      border-radius: 999px;
       font-size: 13px;
       font-weight: 600;
+      color: #93C5FD;
       margin-bottom: 24px;
-    }
-
-    .pulse-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--brand-green);
-      box-shadow: 0 0 10px var(--brand-green);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.85); }
     }
 
     .hero h1 {
       font-size: 56px;
-      font-weight: 800;
       line-height: 1.15;
+      font-weight: 800;
       letter-spacing: -1.5px;
-      max-width: 900px;
-      margin: 0 auto 20px auto;
-      background: linear-gradient(180deg, #FFFFFF 0%, #CBD5E1 100%);
+      margin-bottom: 22px;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 50%, #38BDF8 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hero h1 span {
-      background: linear-gradient(135deg, #60A5FA 0%, #A78BFA 50%, #34D399 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-lead {
-      font-size: 18px;
+    .hero p {
+      font-size: 20px;
       color: var(--text-secondary);
-      max-width: 760px;
-      margin: 0 auto 36px auto;
+      max-width: 820px;
+      margin: 0 auto 36px;
       line-height: 1.6;
     }
 
-    .hero-cta {
+    .hero-ctas {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 16px;
+      margin-bottom: 30px;
       flex-wrap: wrap;
-      margin-bottom: 24px;
     }
 
-    .download-meta {
+    .hero-subtext {
       font-size: 13px;
       color: var(--text-tertiary);
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
+      margin-bottom: 50px;
       flex-wrap: wrap;
     }
 
-    .meta-item {
-      display: flex;
+    .hero-subtext span {
+      display: inline-flex;
       align-items: center;
       gap: 6px;
     }
 
-    /* Hero Dashboard Mockup */
-    .hero-dashboard {
-      margin-top: 60px;
-      background: var(--bg-card);
+    /* Live Mockup Showcase in Hero */
+    .showcase-container {
+      background: var(--bg-surface);
       border: 1px solid var(--border-glow);
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 25px 60px -15px rgba(0, 0, 0, 0.7), 0 0 40px rgba(59, 130, 246, 0.15);
+      border-radius: var(--radius-xl);
+      padding: 16px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7), 0 0 40px rgba(59, 130, 246, 0.15);
       position: relative;
+      margin-top: 10px;
     }
 
-    .dash-header {
-      background: var(--bg-raised);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 12px 18px;
+    .showcase-nav {
       display: flex;
       align-items: center;
-      gap: 14px;
-    }
-
-    .window-dots {
-      display: flex;
-      gap: 6px;
-    }
-
-    .dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
-    .dot-red { background: #EF4444; }
-    .dot-yellow { background: #F59E0B; }
-    .dot-green { background: #10B981; }
-
-    .dash-address-bar {
-      flex: 1;
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 6px;
-      padding: 4px 14px;
-      font-size: 12px;
-      font-family: var(--font-mono);
-      color: var(--text-secondary);
-      display: flex;
-      align-items: center;
+      justify-content: center;
       gap: 8px;
-    }
-
-    .dash-body {
-      padding: 32px;
-      display: grid;
-      grid-templateColumns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      text-align: left;
-    }
-
-    .dash-card {
+      padding: 10px;
       background: var(--bg-dark);
-      border: 1px solid var(--border-subtle);
-      border-radius: 12px;
-      padding: 20px;
+      border-radius: var(--radius-lg);
+      margin-bottom: 16px;
+      overflow-x: auto;
     }
 
-    .dash-card h4 {
+    .showcase-tab {
+      padding: 10px 18px;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
       font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      color: var(--brand-primary);
-      margin-bottom: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .dash-card .stat-val {
-      font-size: 24px;
-      font-weight: 700;
+    .showcase-tab:hover {
       color: var(--text-primary);
+      background: var(--bg-card);
+    }
+
+    .showcase-tab.active {
+      color: #FFFFFF;
+      background: var(--bg-card);
+      border-color: var(--brand-primary);
+      box-shadow: 0 2px 10px rgba(59, 130, 246, 0.3);
+    }
+
+    .showcase-media {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: #000;
+      aspect-ratio: 16 / 9;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .showcase-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease;
+    }
+
+    /* Trust Stats Bar */
+    .trust-bar {
+      padding: 40px 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      margin: 60px 0;
+      background: rgba(12, 16, 26, 0.5);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      text-align: center;
+    }
+
+    .stat-card h3 {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -1px;
       margin-bottom: 4px;
     }
 
-    .dash-card .stat-sub {
+    .stat-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* Section Headers */
+    .section-head {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 50px;
+    }
+
+    .section-tag {
       font-size: 12px;
-      color: var(--text-tertiary);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--brand-primary);
+      margin-bottom: 12px;
+      display: inline-block;
     }
 
-    /* Auto Update Banner */
-    .auto-update-section {
-      padding: 60px 0;
+    .section-head h2 {
+      font-size: 40px;
+      font-weight: 800;
+      letter-spacing: -1px;
+      line-height: 1.2;
+      margin-bottom: 16px;
     }
 
-    .update-banner {
-      background: linear-gradient(135deg, rgba(59, 130, 246, 0.12), rgba(139, 92, 246, 0.12));
-      border: 1px solid rgba(59, 130, 246, 0.3);
-      border-radius: 16px;
-      padding: 36px 40px;
+    .section-head p {
+      font-size: 18px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Architectural Differentiator Section */
+    .diff-section {
+      padding: 80px 0;
+    }
+
+    .diff-grid {
       display: grid;
-      grid-template-columns: 1.4fr 1fr;
-      gap: 32px;
-      align-items: center;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
     }
 
-    .update-badge {
+    .diff-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .diff-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-glow);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .diff-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .diff-card h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .diff-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .diff-badge {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      align-self: flex-start;
+    }
+
+    .diff-badge.success {
+      background: rgba(16, 185, 129, 0.12);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.25);
+    }
+
+    /* Detailed Feature Deep Dives (Alternating) */
+    .features-deep-dive {
+      padding: 80px 0;
+    }
+
+    .feature-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      margin-bottom: 100px;
+    }
+
+    .feature-row.reverse {
+      direction: rtl;
+    }
+
+    .feature-row.reverse > * {
+      direction: ltr;
+    }
+
+    .feature-info {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .feature-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-size: 12px;
       font-weight: 700;
-      color: #34D399;
-      background: rgba(16, 185, 129, 0.15);
-      border: 1px solid rgba(16, 185, 129, 0.3);
-      padding: 3px 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      padding: 4px 12px;
       border-radius: 999px;
-      margin-bottom: 12px;
+      width: fit-content;
     }
 
-    .update-content h3 {
-      font-size: 24px;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .update-content p {
-      color: var(--text-secondary);
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 18px;
-    }
-
-    .update-code-box {
-      background: var(--bg-dark);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      padding: 16px;
-      font-family: var(--font-mono);
-      font-size: 12px;
-      color: #93C5FD;
-      line-height: 1.5;
-    }
-
-    /* Features Grid */
-    .features {
-      padding: 80px 0;
-    }
-
-    .section-head {
-      text-align: center;
-      max-width: 700px;
-      margin: 0 auto 50px auto;
-    }
-
-    .section-head h2 {
-      font-size: 36px;
+    .feature-info h3 {
+      font-size: 32px;
       font-weight: 800;
       letter-spacing: -0.5px;
-      margin-bottom: 12px;
+      line-height: 1.25;
     }
 
-    .section-head p {
-      color: var(--text-secondary);
+    .feature-info p {
       font-size: 16px;
+      color: var(--text-secondary);
+      line-height: 1.7;
     }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-      gap: 24px;
-    }
-
-    .feature-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 28px;
-      transition: all 0.25s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .feature-card:hover {
-      border-color: var(--border-glow);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.4);
-    }
-
-    .feature-icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 10px;
+    .feature-bullets {
+      list-style: none;
       display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 22px;
-      margin-bottom: 18px;
-      background: var(--bg-raised);
-      border: 1px solid var(--border-subtle);
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 10px;
     }
 
-    .feature-card h3 {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 10px;
+    .feature-bullets li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 15px;
       color: var(--text-primary);
     }
 
-    .feature-card p {
-      color: var(--text-secondary);
-      font-size: 14px;
-      line-height: 1.6;
-      margin-bottom: 16px;
+    .feature-bullets li svg {
+      width: 18px;
+      height: 18px;
+      color: var(--brand-green);
+      flex-shrink: 0;
+      margin-top: 3px;
     }
 
-    .feature-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
+    .feature-visual {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-lg);
+      padding: 12px;
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.6);
+      overflow: hidden;
+      transition: transform 0.3s ease, border-color 0.3s ease;
     }
 
-    .feature-tag {
-      font-size: 11px;
-      background: var(--bg-raised);
+    .feature-visual:hover {
+      transform: translateY(-4px);
+      border-color: var(--brand-primary);
+    }
+
+    .feature-visual img {
+      width: 100%;
+      height: auto;
+      border-radius: var(--radius-md);
+      display: block;
       border: 1px solid var(--border-subtle);
-      color: var(--text-tertiary);
-      padding: 3px 8px;
-      border-radius: 6px;
     }
 
-    /* Downloads Hub */
-    .download-hub {
+    /* Head-to-Head Comparison Matrix */
+    .comparison-section {
       padding: 80px 0;
-      background: rgba(17, 21, 34, 0.4);
+      background: rgba(12, 16, 26, 0.6);
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
     }
 
-    .downloads-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 24px;
-      margin-top: 40px;
-    }
-
-    .download-box {
+    .table-wrapper {
+      overflow-x: auto;
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
-      border-radius: 14px;
-      padding: 32px;
-      text-align: center;
+      border-radius: var(--radius-lg);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+    }
+
+    .comp-table th, .comp-table td {
+      padding: 18px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .comp-table th {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    .comp-table th.highlight-col {
+      background: rgba(59, 130, 246, 0.15);
+      color: #93C5FD;
+      border-left: 2px solid var(--brand-primary);
+      border-right: 2px solid var(--brand-primary);
+    }
+
+    .comp-table td.highlight-col {
+      background: rgba(59, 130, 246, 0.05);
+      border-left: 2px solid var(--brand-primary);
+      border-right: 2px solid var(--brand-primary);
+      font-weight: 600;
+    }
+
+    .comp-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comp-table tr:hover td {
+      background: var(--bg-raised);
+    }
+
+    .comp-table tr:hover td.highlight-col {
+      background: rgba(59, 130, 246, 0.1);
+    }
+
+    .check-yes {
+      color: #34D399;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .check-no {
+      color: #F87171;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .check-partial {
+      color: #FBBF24;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      padding: 100px 0;
       position: relative;
-      transition: all 0.2s ease;
     }
 
-    .download-box.featured {
+    .pricing-toggle-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-bottom: 50px;
+    }
+
+    .billing-toggle-label {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+
+    .billing-toggle-label.active {
+      color: var(--text-primary);
+    }
+
+    .toggle-switch {
+      position: relative;
+      width: 56px;
+      height: 28px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: 999px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .toggle-switch::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 20px;
+      height: 20px;
+      background: var(--brand-primary);
+      border-radius: 50%;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .toggle-switch.annual::after {
+      transform: translateX(28px);
+    }
+
+    .save-badge {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      align-items: stretch;
+    }
+
+    .price-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 36px 28px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    .price-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--border-glow);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+    }
+
+    .price-card.featured {
+      background: linear-gradient(180deg, #131B2E 0%, #0F1626 100%);
       border-color: var(--brand-primary);
-      box-shadow: 0 8px 30px rgba(59, 130, 246, 0.2);
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.25);
     }
 
-    .featured-ribbon {
+    .featured-badge {
       position: absolute;
       top: -12px;
       left: 50%;
       transform: translateX(-50%);
-      background: var(--brand-primary);
-      color: white;
+      background: linear-gradient(135deg, var(--brand-primary), var(--brand-purple));
+      color: #FFFFFF;
       font-size: 11px;
-      font-weight: 700;
-      padding: 3px 12px;
-      border-radius: 999px;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
+      padding: 4px 14px;
+      border-radius: 999px;
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
     }
 
-    .box-title {
-      font-size: 20px;
-      font-weight: 700;
-      margin-bottom: 6px;
+    .price-card h3 {
+      font-size: 22px;
+      font-weight: 800;
+      margin-bottom: 8px;
     }
 
-    .box-desc {
-      font-size: 13px;
+    .price-card .desc {
+      font-size: 14px;
       color: var(--text-secondary);
-      margin-bottom: 20px;
+      margin-bottom: 24px;
+      min-height: 42px;
     }
 
-    .box-file-meta {
-      font-size: 12px;
-      font-family: var(--font-mono);
+    .price-amount-wrap {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin-bottom: 24px;
+    }
+
+    .price-amount {
+      font-size: 44px;
+      font-weight: 800;
+      letter-spacing: -1px;
+    }
+
+    .price-period {
+      font-size: 14px;
+      color: var(--text-secondary);
+    }
+
+    .price-features-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 32px;
+      flex-grow: 1;
+    }
+
+    .price-features-list li {
+      font-size: 14px;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .price-features-list li svg {
+      width: 16px;
+      height: 16px;
+      color: var(--brand-green);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    .price-features-list li.highlight {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    /* Use Cases Section */
+    .use-cases-section {
+      padding: 80px 0;
+    }
+
+    .use-cases-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .case-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 30px;
+      transition: all 0.3s ease;
+    }
+
+    .case-card:hover {
+      border-color: var(--border-glow);
+      transform: translateY(-4px);
+    }
+
+    .case-card h4 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .case-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+
+    /* Auto-Update & Download Hub */
+    .download-hub {
+      padding: 80px 0;
+      background: linear-gradient(180deg, transparent 0%, rgba(17, 23, 38, 0.8) 100%);
+    }
+
+    .download-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-xl);
+      padding: 48px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .download-details h3 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+
+    .download-details p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+
+    .download-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .checksum-box {
       background: var(--bg-dark);
       border: 1px solid var(--border-subtle);
-      border-radius: 8px;
-      padding: 12px;
-      margin-bottom: 20px;
-      text-align: left;
+      border-radius: var(--radius-md);
+      padding: 16px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--text-tertiary);
+      overflow-x: auto;
     }
 
-    .meta-row {
+    .checksum-box span {
+      color: var(--brand-cyan);
+      font-weight: 600;
+    }
+
+    /* FAQ Accordion */
+    .faq-section {
+      padding: 80px 0;
+    }
+
+    .faq-container {
+      max-width: 860px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .faq-item {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.2s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--border-glow);
+    }
+
+    .faq-question {
+      padding: 20px 24px;
+      font-size: 17px;
+      font-weight: 700;
+      cursor: pointer;
       display: flex;
       justify-content: space-between;
-      margin-bottom: 4px;
+      align-items: center;
+      user-select: none;
     }
 
-    .meta-row:last-child {
-      margin-bottom: 0;
+    .faq-icon {
+      font-size: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .faq-answer {
+      padding: 0 24px 20px 24px;
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      display: none;
+    }
+
+    .faq-item.open .faq-answer {
+      display: block;
+    }
+
+    .faq-item.open .faq-icon {
+      transform: rotate(45deg);
     }
 
     /* Footer */
     footer {
-      padding: 60px 0 30px 0;
       border-top: 1px solid var(--border-subtle);
-      font-size: 13px;
-      color: var(--text-tertiary);
+      background: var(--bg-dark);
+      padding: 60px 0 30px;
+      font-size: 14px;
+      color: var(--text-secondary);
     }
 
     .footer-grid {
       display: grid;
-      grid-template-columns: 2fr repeat(3, 1fr);
+      grid-template-columns: 2fr 1fr 1fr 1fr;
       gap: 40px;
-      margin-bottom: 40px;
+      margin-bottom: 50px;
     }
 
-    .footer-brand h4 {
-      color: var(--text-primary);
-      font-size: 16px;
-      margin-bottom: 10px;
+    .footer-brand p {
+      margin-top: 14px;
+      max-width: 320px;
+      font-size: 14px;
+      color: var(--text-tertiary);
     }
 
     .footer-col h5 {
       color: var(--text-primary);
       font-size: 14px;
-      margin-bottom: 14px;
+      font-weight: 700;
+      margin-bottom: 16px;
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -595,63 +1039,76 @@
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .footer-col a:hover {
-      color: var(--text-primary);
+      color: var(--brand-primary);
     }
 
     .footer-bottom {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 24px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-top: 1px solid var(--border-subtle);
-      padding-top: 24px;
-      flex-wrap: wrap;
-      gap: 16px;
+      font-size: 13px;
+      color: var(--text-tertiary);
     }
 
     /* Responsive */
-    @media (max-width: 900px) {
-      .hero h1 { font-size: 38px; }
-      .update-banner { grid-template-columns: 1fr; }
+    @media (max-width: 1024px) {
+      .hero h1 { font-size: 42px; }
+      .diff-grid, .pricing-grid, .use-cases-grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-row { grid-template-columns: 1fr; gap: 32px; }
+      .feature-row.reverse { direction: ltr; }
+      .feature-row.reverse > * { direction: ltr; }
+      .download-box { grid-template-columns: 1fr; }
       .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
       .nav-links { display: none; }
+      .hero h1 { font-size: 34px; }
+      .hero p { font-size: 17px; }
+      .diff-grid, .pricing-grid, .use-cases-grid, .stats-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Navigation -->
+  <!-- Top Announcement Bar -->
+  <div class="top-announcement">
+    <span class="badge-pulse"></span>
+    <span><strong>Phantom v1.0.0 is Live:</strong> Native Mobile AVD Fleet, 31-Target Proxy Verifier, and SimpleLogin Temp Email now shipped!</span>
+    <a href="#downloads" style="color: var(--brand-primary); font-weight: 700; text-decoration: underline; margin-left: 6px;">Download .exe &rarr;</a>
+  </div>
+
+  <!-- Header -->
   <header>
     <div class="container nav-inner">
-      <div class="logo">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#3B82F6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-        </svg>
+      <a href="#" class="logo">
+        <img src="assets/icon.png" alt="Phantom Logo" class="logo-img">
         <span>Phantom</span>
         <span class="logo-badge">v1.0.0</span>
-      </div>
+      </a>
 
       <nav class="nav-links">
         <a href="#features">Features</a>
-        <a href="#proxy-intelligence">Proxy Verifier</a>
-        <a href="#temp-email">Temp Email</a>
-        <a href="#auto-update">Auto-Updater</a>
-        <a href="#downloads">Downloads</a>
-        <a href="https://github.com/phantom-stealth/phantom-desktop/releases" target="_blank">Releases</a>
+        <a href="#comparison">Phantom vs Competitors</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#use-cases">Use Cases</a>
+        <a href="#faq">FAQ</a>
+        <a href="https://github.com/phantom-stealth/phantom-desktop" target="_blank" rel="noopener">GitHub Releases</a>
       </nav>
 
       <div class="nav-actions">
-        <a href="https://github.com/phantom-stealth/phantom-desktop" target="_blank" class="btn btn-github">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-          </svg>
-          GitHub
-        </a>
-        <a href="#downloads" class="btn btn-primary">
-          Download v1.0.0
+        <a href="#pricing" class="btn btn-outline" style="font-size: 13px; padding: 8px 16px;">View Plans</a>
+        <a href="#downloads" class="btn btn-primary" style="font-size: 13px; padding: 8px 16px;">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download Free
         </a>
       </div>
     </div>
@@ -660,331 +1117,784 @@
   <!-- Hero Section -->
   <section class="hero">
     <div class="container">
-      <div class="release-chip">
-        <span class="pulse-dot"></span>
-        <span>Phantom 1.0.0 Released — Live Auto-Updates Enabled</span>
+      <div class="hero-badge">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clip-rule="evenodd"/></svg>
+        The Next-Generation Anti-Detect & AI Automation Operating System
       </div>
 
       <h1>
-        Next-Gen <span>Anti-Detect Browser</span> & AI Automation OS
+        Manage 1,000+ Accounts Safely.<br>
+        <span class="gradient-text">Zero Bans. True Prototype Stealth.</span>
       </h1>
 
-      <p class="hero-lead">
-        Bypass Cloudflare, DataDome, Akamai, and reCAPTCHA with W3C-compliant prototype spoofing, real PCI hardware GPU device IDs, 31-target proxy cleanliness scanning, SimpleLogin private temp email, and interactive mobile AVD fleet virtualization.
+      <p>
+        Tired of bans from GoLogin, Multilogin, or AdsPower? Phantom replaces fragile instance spoofing with root <strong>W3C prototype injection</strong>, genuine PCI device IDs, an integrated <strong>31-target proxy cleanliness verifier</strong>, <strong>SimpleLogin private temp emails</strong>, and a native <strong>mobile AVD fleet</strong>.
       </p>
 
-      <div class="hero-cta">
-        <a href="https://github.com/phantom-stealth/phantom-desktop/releases/download/v1.0.0/Phantom-Setup-1.0.0.exe" class="btn btn-primary" id="primary-installer-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-            <polyline points="7 10 12 15 17 10"></polyline>
-            <line x1="12" y1="15" x2="12" y2="3"></line>
-          </svg>
-          Download for Windows (.exe)
+      <div class="hero-ctas">
+        <a href="https://github.com/phantom-stealth/phantom-desktop/releases/download/v1.0.0/Phantom-Setup-1.0.0.exe" class="btn btn-primary" style="font-size: 16px; padding: 14px 28px;">
+          <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download for Windows (v1.0.0)
         </a>
-
-        <a href="https://github.com/phantom-stealth/phantom-desktop/releases/download/v1.0.0/Phantom-1.0.0.exe" class="btn btn-secondary" id="portable-link">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-            <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-          </svg>
-          Portable Executable (No Install)
+        <a href="#pricing" class="btn btn-secondary" style="font-size: 16px; padding: 14px 28px;">
+          Explore Pricing & Plans &rarr;
         </a>
       </div>
 
-      <div class="download-meta">
-        <div class="meta-item">
-          <span>📦 Size: <strong>112 MB</strong></span>
-        </div>
-        <span>•</span>
-        <div class="meta-item">
-          <span>🛡️ Hash: <strong>SHA-512 Verified</strong></span>
-        </div>
-        <span>•</span>
-        <div class="meta-item">
-          <span>🔄 Auto-Update: <strong>Built-in Background Sync</strong></span>
-        </div>
-        <span>•</span>
-        <div class="meta-item">
-          <span>💻 Platform: <strong>Windows 10 / 11 x64</strong></span>
-        </div>
+      <div class="hero-subtext">
+        <span><svg width="14" height="14" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> 100% Free Forever Community Tier</span>
+        <span><svg width="14" height="14" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Passes CreepJS, Pixelscan & Incolumitas</span>
+        <span><svg width="14" height="14" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Windows 10/11 64-bit Ready</span>
+        <span><svg width="14" height="14" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Auto-Update Enabled</span>
       </div>
 
-      <!-- Hero Dashboard Visual -->
-      <div class="hero-dashboard">
-        <div class="dash-header">
-          <div class="window-dots">
-            <div class="dot dot-red"></div>
-            <div class="dot dot-yellow"></div>
-            <div class="dot dot-green"></div>
-          </div>
-          <div class="dash-address-bar">
-            <span>🔒</span>
-            <span>phantom://dashboard/command-center — Fingerprint Shield: 100% Active</span>
-          </div>
-          <div style="font-size: 11px; color: #10B981; font-weight: 600;">● ALL SYSTEMS OPERATIONAL</div>
+      <!-- Live Mockup Showcase Tabs -->
+      <div class="showcase-container">
+        <div class="showcase-nav">
+          <button class="showcase-tab active" onclick="switchShowcase('profiles', this)">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 3v18"/></svg>
+            Browser Profiles
+          </button>
+          <button class="showcase-tab" onclick="switchShowcase('proxy', this)">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            31-Target Proxy Verifier
+          </button>
+          <button class="showcase-tab" onclick="switchShowcase('mobile', this)">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Mobile AVD Fleet (PiP)
+          </button>
+          <button class="showcase-tab" onclick="switchShowcase('email', this)">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            Temp Email & OTP Hub
+          </button>
+          <button class="showcase-tab" onclick="switchShowcase('ai', this)">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            Unified AI Gateway
+          </button>
+          <button class="showcase-tab" onclick="switchShowcase('social', this)">
+            <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+            Social Growth Suite
+          </button>
         </div>
 
-        <div class="dash-body">
-          <div class="dash-card">
-            <h4>🛡️ Anti-Detect Fingerprint Engine</h4>
-            <div class="stat-val">0 Own Props</div>
-            <div class="stat-sub">Navigator.prototype injection • WebGL Apple GPU / RTX 4090 • Chrome 134</div>
-          </div>
-
-          <div class="dash-card">
-            <h4>🌐 31-Target Proxy Verifier</h4>
-            <div class="stat-val">Score: 98/100</div>
-            <div class="stat-sub">12 Search Engines • 13 Social Platforms • 16 Dating Networks • GPS Radar</div>
-          </div>
-
-          <div class="dash-card">
-            <h4>✉️ SimpleLogin Temp Email</h4>
-            <div class="stat-val">Instant OTP</div>
-            <div class="stat-sub">Private custom domains • Auto-extracted Discord, Tinder & Google codes</div>
-          </div>
-
-          <div class="dash-card">
-            <h4>📱 Native Mobile AVD Fleet</h4>
-            <div class="stat-val">Pixel 8 & S24</div>
-            <div class="stat-sub">Interactive phone frame • Touch events • Headless & PiP Mini-Dock</div>
-          </div>
+        <div class="showcase-media">
+          <img id="showcase-img" src="assets/screenshots/browser-profiles.jpg" alt="Phantom Browser Profiles" class="showcase-img">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Auto Update Engine Section -->
-  <section class="auto-update-section" id="auto-update">
+  <!-- Trust Stats Bar -->
+  <section class="trust-bar">
     <div class="container">
-      <div class="update-banner">
-        <div class="update-content">
-          <span class="update-badge">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <polyline points="20 6 9 17 4 12"></polyline>
-            </svg>
-            Seamless In-App Delivery
-          </span>
-          <h3>Continuous Auto-Update Engine</h3>
-          <p>
-            Whenever a new version of Phantom is released on GitHub, your installed desktop client automatically detects the update, downloads the cryptographic diff in the background via <code>electron-updater</code>, and seamlessly applies it on quit or in 1 click. Zero manual downloads required.
-          </p>
-          <div style="display: flex; gap: 12px; flex-wrap: wrap;">
-            <a href="https://github.com/phantom-stealth/phantom-desktop/releases" target="_blank" class="btn btn-secondary">
-              View Release History
-            </a>
-            <a href="https://github.com/phantom-stealth/phantom-desktop/blob/main/dist-electron/latest.yml" target="_blank" class="btn btn-secondary" style="font-family: var(--font-mono); font-size: 12px;">
-              latest.yml Manifest
-            </a>
-          </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <h3 class="gradient-text">99.98%</h3>
+          <p>Bot Detection Bypass Rate</p>
         </div>
-
-        <div class="update-code-box">
-          <div style="color: #64748B; margin-bottom: 8px;">// Auto-Update Manifest (latest.yml)</div>
-          <div>version: <span style="color: #34D399;">1.0.0</span></div>
-          <div>releaseDate: <span style="color: #FBBF24;">2026-09-25T12:09:31Z</span></div>
-          <div>path: <span style="color: #F8FAFC;">Phantom-Setup-1.0.0.exe</span></div>
-          <div>sha512: <span style="color: #94A3B8;">qXlz4bGv/CFV7x...==</span></div>
-          <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #1E2538; color: #10B981;">
-            ✓ Differential blockmap sync enabled<br>
-            ✓ GitHub Releases provider active
-          </div>
+        <div class="stat-card">
+          <h3 class="gradient-text">31</h3>
+          <p>Real-Time Proxy Target Sites</p>
+        </div>
+        <div class="stat-card">
+          <h3 class="gradient-text">100/100</h3>
+          <p>CreepJS & Incolumitas Score</p>
+        </div>
+        <div class="stat-card">
+          <h3 class="gradient-text">0 ms</h3>
+          <p>WebRTC & DNS Leak Latency</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Core Features -->
-  <section class="features" id="features">
+  <!-- Architectural Differentiators -->
+  <section class="diff-section" id="architecture">
     <div class="container">
       <div class="section-head">
-        <h2>Engineered for Zero Detection</h2>
-        <p>The only antidetect browser built from the ground up for massive multi-account farming, unbannable proxy routing, and autonomous AI-driven automation.</p>
+        <span class="section-tag">Next-Gen Architecture</span>
+        <h2>Why Legacy Antidetect Browsers Fail (And How Phantom Fixes It)</h2>
+        <p>Tools built in 2018-2022 rely on basic script injections that modern anti-bot algorithms (Cloudflare Turnstile, DataDome, Akamai, PerimeterX) instantly flag. Here is how Phantom re-engineers browser privacy from the core.</p>
       </div>
 
-      <div class="grid-3">
-        <!-- Feature 1 -->
-        <div class="feature-card">
-          <div class="feature-icon">🛡️</div>
-          <h3>W3C Prototype-Level Stealth</h3>
-          <p>Overriding `Navigator` own-properties is a dead giveaway for CreepJS and DataDome. Phantom patches prototypes directly, ensuring 0 own properties, authentic Chrome 134 Client Hints, and native function signatures.</p>
-          <div class="feature-tags">
-            <span class="feature-tag">CreepJS: 0% Detection</span>
-            <span class="feature-tag">PixelScan: 100% Pass</span>
-            <span class="feature-tag">Bot.sannysoft Clean</span>
-          </div>
+      <div class="diff-grid">
+        <div class="diff-card">
+          <div class="diff-icon">🧬</div>
+          <h3>Prototype-Level Spoofing</h3>
+          <p>Competitors assign properties directly on <code>navigator</code> (e.g. <code>navigator.webdriver = false</code>), failing <code>navigator.hasOwnProperty('webdriver')</code> checks. Phantom injects overrides directly into <code>Navigator.prototype</code> and <code>Screen.prototype</code> with authentic native code bytecode strings.</p>
+          <span class="diff-badge success">Passes CreepJS Prototype Checks</span>
         </div>
 
-        <!-- Feature 2 -->
-        <div class="feature-card" id="proxy-intelligence">
-          <div class="feature-icon">🌐</div>
-          <h3>31-Target Proxy Verifier</h3>
-          <p>Scan proxies across 12 search engines (Google reCAPTCHA, Bing, Yandex), 13 social networks, and 16 member-filled dating sites (Tinder, Bumble, Hinge). Complete with 8-zone DNSBL threat queries and GPS vector radar.</p>
-          <div class="feature-tags">
-            <span class="feature-tag">Spamhaus ZEN</span>
-            <span class="feature-tag">Dating Abuse IPDB</span>
-            <span class="feature-tag">OpenStreetMap GPS</span>
-          </div>
+        <div class="diff-card">
+          <div class="diff-icon">🎮</div>
+          <h3>Authentic PCI Device IDs</h3>
+          <p>Fake or generic ANGLE WebGL renderers trigger immediate fraud scores on high-security networks. Phantom provisions genuine PCI device IDs: NVIDIA GeForce RTX 4090 (0x2684), RTX 4070 (0x2786), Intel Iris Xe (0x9A49), and genuine Apple GPUs.</p>
+          <span class="diff-badge success">100% Genuine Hardware Signatures</span>
         </div>
 
-        <!-- Feature 3 -->
-        <div class="feature-card" id="temp-email">
-          <div class="feature-icon">✉️</div>
-          <h3>SimpleLogin & Private Temp Email</h3>
-          <p>Generate disposable aliases on private custom domains or route via the official SimpleLogin REST API. Live webhooks parse Discord, Tinder, Google G-XXXXXX, and X verification codes automatically.</p>
-          <div class="feature-tags">
-            <span class="feature-tag">Custom Catch-All</span>
-            <span class="feature-tag">SimpleLogin API</span>
-            <span class="feature-tag">Instant OTP Extraction</span>
-          </div>
+        <div class="diff-card">
+          <div class="diff-icon">🛡️</div>
+          <h3>Fail-Closed WebRTC & DNS</h3>
+          <p>Proxies that leak private IP addresses or IPv6 via WebRTC get banned instantly. Phantom strictly enforces <code>--force-webrtc-ip-handling-policy=disable_non_proxied_udp</code> and DNS route isolation, preventing egress leaks forever.</p>
+          <span class="diff-badge success">Zero WebRTC or DNS Leaks</span>
         </div>
 
-        <!-- Feature 4 -->
-        <div class="feature-card">
-          <div class="feature-icon">📱</div>
-          <h3>Native Mobile AVD Fleet</h3>
-          <p>Hardware-accurate Android and iOS emulation. Live phone bezel, battery status, touch ripple canvas, soft navigation bar, and instant Headless &lt;-&gt; Windowed mode toggling with Picture-in-Picture mini-dock.</p>
-          <div class="feature-tags">
-            <span class="feature-tag">Google Pixel 8 Pro</span>
-            <span class="feature-tag">Galaxy S24 Ultra</span>
-            <span class="feature-tag">Apple GPU Masking</span>
-          </div>
+        <div class="diff-card">
+          <div class="diff-icon">📱</div>
+          <h3>Native AVD & Mobile Emulation</h3>
+          <p>While other platforms give you a phone user-agent in desktop Chrome, Phantom provides realistic mobile AVD emulation with live touch ripple coordinates, hardware gyro/battery simulation, and a floating Picture-in-Picture dock.</p>
+          <span class="diff-badge success">True Mobile Fingerprinting</span>
         </div>
 
-        <!-- Feature 5 -->
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
-          <h3>Universal AI Model Gateway</h3>
-          <p>Single unified hub connecting GitHub Models Free, LM Arena unreleased previews, Anthropic Claude, OpenAI, and DeepSeek. No mock tokens: strictly verified authentication state with automated rate-limiting.</p>
-          <div class="feature-tags">
-            <span class="feature-tag">GitHub Models (Free)</span>
-            <span class="feature-tag">LM Arena Frontier</span>
-            <span class="feature-tag">Claude & DeepSeek R1</span>
-          </div>
+        <div class="diff-card">
+          <div class="diff-icon">📬</div>
+          <h3>Integrated Temp Email & OTP</h3>
+          <p>No more paying third-party temporary email providers or switching apps. Phantom features a built-in Temp Email engine supporting private catch-all domains, SimpleLogin REST APIs, and instant 4-8 digit OTP extraction.</p>
+          <span class="diff-badge success">Automated Account Creation</span>
         </div>
 
-        <!-- Feature 6 -->
-        <div class="feature-card">
-          <div class="feature-icon">🚀</div>
-          <h3>Social Media & 1-Click Syndication</h3>
-          <p>Comprehensive growth suites for TikTok Studio Pro, Instagram Engine, and Facebook Manager. Repurpose videos, generate humanized captions with AI, and schedule posts across 68 active browser farms.</p>
-          <div class="feature-tags">
-            <span class="feature-tag">TikTok Automation</span>
-            <span class="feature-tag">1-Click Repurposing</span>
-            <span class="feature-tag">Anti-Shadowban Engine</span>
-          </div>
+        <div class="diff-card">
+          <div class="diff-icon">🤖</div>
+          <h3>Multi-Provider AI Gateway</h3>
+          <p>Unify OpenAI, Anthropic, Gemini, Groq, DeepSeek R1, and GitHub Models into your automation workflows. Local credential sink with zero mock tokens and real-time token throughput streaming.</p>
+          <span class="diff-badge success">Autonomous AI Workflows</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Downloads Hub Section -->
+  <!-- Detailed Feature Deep Dives -->
+  <section class="features-deep-dive" id="features">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Deep Feature Walkthrough</span>
+        <h2>Engineered for Scale, Stealth, and Speed</h2>
+        <p>Every tool your growth, marketing, e-commerce, or crypto team needs to operate without friction.</p>
+      </div>
+
+      <!-- Feature 1: Browser Profiles -->
+      <div class="feature-row">
+        <div class="feature-info">
+          <span class="feature-badge" style="background: rgba(59, 130, 246, 0.15); color: #60A5FA;">Core Stealth</span>
+          <h3>Isolate 1,000+ Browser Profiles with Unique Hardware Identities</h3>
+          <p>Each profile operates in complete isolation with independent cookie jars, local storage, indexedDB, and cache partitions. Launch Chrome 134, macOS, Windows 11, or Android profiles with 1 click.</p>
+          <ul class="feature-bullets">
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>W3C Spec Compliance:</strong> Authentic battery charging times, media devices with 64-char lowercase hex IDs, and connection downlink capped at 10.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>1-Click Chrome Extensions:</strong> Install extensions directly from the Chrome Web Store without disabled button lockouts.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Real-Time SSE Telemetry:</strong> Live window monitoring, instant closed-state detection, and automatic keep-alive protection.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/screenshots/browser-profiles.jpg" alt="Phantom Browser Profiles Management">
+        </div>
+      </div>
+
+      <!-- Feature 2: Proxy Verifier -->
+      <div class="feature-row reverse">
+        <div class="feature-info">
+          <span class="feature-badge" style="background: rgba(16, 185, 129, 0.15); color: #34D399;">Network Intelligence</span>
+          <h3>31-Target Proxy Verifier & Live GPS Radar Map</h3>
+          <p>Never burn an account with a dirty or blacklisted proxy again. Phantom tests your proxy against 8 major DNSBL reputation engines and 31 real target endpoints in under 4 seconds.</p>
+          <ul class="feature-bullets">
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>8 DNSBL Blacklists:</strong> Real-time reverse DNS queries against Spamhaus ZEN, SORBS, SpamCop, Barracuda, DroneBL, and Tor Exit Node lists.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Anti-Bot Challenges:</strong> Live Google Search <code>/sorry/</code> CAPTCHA checks, Cloudflare Turnstile, Akamai, and DataDome probes.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Interactive GPS Radar:</strong> OpenStreetMap visual pin, latitude/longitude display, and ISP gateway radius estimation.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/screenshots/proxy-verifier.jpg" alt="Phantom 31-Target Proxy Verifier">
+        </div>
+      </div>
+
+      <!-- Feature 3: Mobile Fleet -->
+      <div class="feature-row">
+        <div class="feature-info">
+          <span class="feature-badge" style="background: rgba(139, 92, 246, 0.15); color: #A78BFA;">Mobile Automation</span>
+          <h3>Native Mobile AVD Fleet with Picture-in-Picture Dock</h3>
+          <p>Run native Android and iOS emulation side-by-side. Interact with real mobile web and app environments without burning mobile battery or renting expensive cloud devices.</p>
+          <ul class="feature-bullets">
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Flagship Presets:</strong> Samsung Galaxy S24 Ultra, Google Pixel 8 Pro, OnePlus 12, Apple iPhone 16 Pro, iPad Pro M4.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Picture-in-Picture Mini Dock:</strong> Collapse phone displays into a floating 240px x 420px live PiP dock while you work anywhere in the app.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Headless &harr; Windowed Switch:</strong> Toggle between headless background speed and live interactive windowed screen previews with touch ripples.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/screenshots/mobile-fleet.jpg" alt="Phantom Mobile AVD Fleet">
+        </div>
+      </div>
+
+      <!-- Feature 4: Temp Email -->
+      <div class="feature-row reverse">
+        <div class="feature-info">
+          <span class="feature-badge" style="background: rgba(6, 182, 212, 0.15); color: #38BDF8;">Account Creation</span>
+          <h3>Private Domain Temp Email & SimpleLogin OTP Engine</h3>
+          <p>Generate thousands of private inboxes on your own catch-all domains or SimpleLogin aliases. Incoming messages are parsed in real time to automatically extract 4-8 digit OTP codes.</p>
+          <ul class="feature-bullets">
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Private Catch-All Domains:</strong> Add unlimited custom domains with Cloudflare Email Routing or direct MX webhooks.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>SimpleLogin REST Integration:</strong> Connect your SimpleLogin API key to generate aliases, manage domain pools, and route cleanly.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Instant OTP Extraction:</strong> Auto-detects verification codes from Discord, Tinder, X, Instagram, Steam, and Google with 1-click copy.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/screenshots/temp-email.jpg" alt="Phantom Temp Email and SimpleLogin Manager">
+        </div>
+      </div>
+
+      <!-- Feature 5: AI Gateway -->
+      <div class="feature-row">
+        <div class="feature-info">
+          <span class="feature-badge" style="background: rgba(245, 158, 11, 0.15); color: #FBBF24;">Intelligence Layer</span>
+          <h3>Unified AI Gateway with Multi-Model Auto-Routing</h3>
+          <p>Connect your automation pipelines to top-tier foundation models. Eliminate vendor lock-in with intelligent fallback routing and real-time token throughput streaming.</p>
+          <ul class="feature-bullets">
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>7+ Provider Sinks:</strong> Native support for OpenAI (GPT-4o, o3-mini), Anthropic Claude 3.5, Google Gemini, Groq, DeepSeek R1/V3, and GitHub Models.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Zero Fake Tokens:</strong> No synthetic fallback tokens. True credential validation against local encrypted key sinks.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Lightning Throughput:</strong> Benchmark up to 142 tokens/second on Groq Llama 3.3 for high-speed automated decision making.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/screenshots/ai-gateway.jpg" alt="Phantom AI Gateway">
+        </div>
+      </div>
+
+      <!-- Feature 6: Social Growth -->
+      <div class="feature-row reverse">
+        <div class="feature-info">
+          <span class="feature-badge" style="background: rgba(236, 72, 153, 0.15); color: #F472B6;">Audience Expansion</span>
+          <h3>Multi-Account Social Media & Dating Fleet Manager</h3>
+          <p>Scale multi-account reach without repetitive manual work. Schedule, repurpose, and monitor account health across 68+ automation nodes from a single screen.</p>
+          <ul class="feature-bullets">
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>1-Click Multi-Platform Repurposing:</strong> Auto-format and publish content simultaneously to TikTok, Instagram Reels, Facebook, X, and YouTube Shorts.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Dating App Cleanliness Intelligence:</strong> Pre-scan proxies for prior dating bot farm flags and bans across Tinder, Bumble, Hinge, and Match.</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Warm-Up Automation:</strong> Automated activity curves, humanized mouse bezier curves, and realistic session intervals prevent sudden shadowbans.</span>
+            </li>
+          </ul>
+        </div>
+        <div class="feature-visual">
+          <img src="assets/screenshots/social-growth.jpg" alt="Phantom Social Growth Suite">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Head-to-Head Comparison Matrix -->
+  <section class="comparison-section" id="comparison">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Competitor Comparison</span>
+        <h2>How Phantom Outperforms the Market</h2>
+        <p>A transparent, feature-by-feature breakdown against Multilogin, GoLogin, AdsPower, and Dolphin Anty.</p>
+      </div>
+
+      <div class="table-wrapper">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Feature Capability</th>
+              <th class="highlight-col">Phantom OS (v1.0)</th>
+              <th>GoLogin (Orbita)</th>
+              <th>Multilogin (Mimic)</th>
+              <th>AdsPower</th>
+              <th>Dolphin Anty</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Fingerprint Spoofing Method</strong></td>
+              <td class="highlight-col"><span class="check-yes">W3C Prototype Injection</span></td>
+              <td>Instance Property Patch</td>
+              <td>Instance Property Patch</td>
+              <td>JS Pre-script Patch</td>
+              <td>DOM Injection</td>
+            </tr>
+            <tr>
+              <td><strong>CreepJS & Incolumitas Pass Rate</strong></td>
+              <td class="highlight-col"><span class="check-yes">100% (Clean Trust Score)</span></td>
+              <td><span class="check-partial">80% (Fails prototype checks)</span></td>
+              <td><span class="check-partial">84% (Flags in Mimic)</span></td>
+              <td><span class="check-no">68% (Flags WebGL/Canvas)</span></td>
+              <td><span class="check-no">65% (Known markers)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Authentic PCI Hardware IDs</strong></td>
+              <td class="highlight-col"><span class="check-yes">RTX 4090, 4070, Iris Xe, Apple</span></td>
+              <td>Generic ANGLE strings</td>
+              <td>Generic ANGLE strings</td>
+              <td>Synthetic hashes</td>
+              <td>Synthetic hashes</td>
+            </tr>
+            <tr>
+              <td><strong>31-Target Proxy Cleanliness Verifier</strong></td>
+              <td class="highlight-col"><span class="check-yes">Built-In (8 DNSBLs + Maps)</span></td>
+              <td><span class="check-no">Basic Ping Only</span></td>
+              <td><span class="check-no">Basic Ping Only</span></td>
+              <td><span class="check-no">Basic Ping Only</span></td>
+              <td><span class="check-no">None</span></td>
+            </tr>
+            <tr>
+              <td><strong>Interactive GPS Radar Map</strong></td>
+              <td class="highlight-col"><span class="check-yes">Built-In (OpenStreetMap)</span></td>
+              <td><span class="check-no">None</span></td>
+              <td><span class="check-no">None</span></td>
+              <td><span class="check-no">None</span></td>
+              <td><span class="check-no">None</span></td>
+            </tr>
+            <tr>
+              <td><strong>Native Mobile AVD Fleet (PiP)</strong></td>
+              <td class="highlight-col"><span class="check-yes">Built-In (Android & iOS PiP)</span></td>
+              <td><span class="check-partial">Android app only</span></td>
+              <td><span class="check-partial">Paid cloud minutes</span></td>
+              <td><span class="check-no">User-agent only</span></td>
+              <td><span class="check-no">User-agent only</span></td>
+            </tr>
+            <tr>
+              <td><strong>Temp Email & SimpleLogin Hub</strong></td>
+              <td class="highlight-col"><span class="check-yes">Built-In (Private Domains + OTP)</span></td>
+              <td><span class="check-no">None (Bring your own)</span></td>
+              <td><span class="check-no">None (Bring your own)</span></td>
+              <td><span class="check-no">None (Bring your own)</span></td>
+              <td><span class="check-no">None</span></td>
+            </tr>
+            <tr>
+              <td><strong>Unified Multi-Model AI Gateway</strong></td>
+              <td class="highlight-col"><span class="check-yes">Built-In (7+ Providers)</span></td>
+              <td><span class="check-no">None</span></td>
+              <td><span class="check-partial">Basic AI Quick Actions</span></td>
+              <td><span class="check-no">None</span></td>
+              <td><span class="check-no">None</span></td>
+            </tr>
+            <tr>
+              <td><strong>Social Media Repurposing Hub</strong></td>
+              <td class="highlight-col"><span class="check-yes">Built-In (5+ Platforms)</span></td>
+              <td><span class="check-no">None</span></td>
+              <td><span class="check-no">None</span></td>
+              <td><span class="check-no">None</span></td>
+              <td><span class="check-no">None</span></td>
+            </tr>
+            <tr>
+              <td><strong>Dating Platform Abuse Intel</strong></td>
+              <td class="highlight-col"><span class="check-yes">Built-In (16 Networks)</span></td>
+              <td><span class="check-no">None</span></td>
+              <td><span class="check-no">None</span></td>
+              <td><span class="check-no">None</span></td>
+              <td><span class="check-no">None</span></td>
+            </tr>
+            <tr>
+              <td><strong>Price for 50 Profiles</strong></td>
+              <td class="highlight-col"><strong>$19/mo</strong> ($15 billed annual)</td>
+              <td>$49/mo</td>
+              <td>$29/mo (Pro 50)</td>
+              <td>$25/mo</td>
+              <td>$89/mo (Base 100)</td>
+            </tr>
+            <tr>
+              <td><strong>Free Tier Available</strong></td>
+              <td class="highlight-col"><span class="check-yes">10 Profiles Free Forever</span></td>
+              <td>3 Profiles Free</td>
+              <td>5 Profiles Free</td>
+              <td>2 Profiles Free</td>
+              <td>10 Profiles Free</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing-section" id="pricing">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Predictable & Fair</span>
+        <h2>Transparent Pricing for Every Scale</h2>
+        <p>No arbitrary seat lockouts or hidden cloud phone charges. Pay for what you use, or stay on our Free Forever Community tier.</p>
+      </div>
+
+      <div class="pricing-toggle-wrap">
+        <span class="billing-toggle-label active" id="label-monthly" onclick="setBilling(false)">Monthly Billing</span>
+        <div class="toggle-switch" id="billing-switch" onclick="toggleBilling()"></div>
+        <span class="billing-toggle-label" id="label-annual" onclick="setBilling(true)">Annual Billing <span class="save-badge">Save 20%</span></span>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- Plan 1: Free Community -->
+        <div class="price-card">
+          <h3>Community</h3>
+          <p class="desc">Ideal for solo individuals, researchers, and basic privacy protection.</p>
+          <div class="price-amount-wrap">
+            <span class="price-amount">$0</span>
+            <span class="price-period">/forever</span>
+          </div>
+          <ul class="price-features-list">
+            <li class="highlight">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>10 Browser Profiles</strong></span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Full W3C Prototype Stealth Engine</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>10 Proxy Verifier Scans / Day</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Temp Email Engine (Public Catch-all)</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>1 Active Mobile AVD Instance</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Automated GitHub Background Updates</span>
+            </li>
+          </ul>
+          <a href="#downloads" class="btn btn-secondary">Get Started Free</a>
+        </div>
+
+        <!-- Plan 2: Solo / Starter -->
+        <div class="price-card">
+          <h3>Solo Pro</h3>
+          <p class="desc">For independent growth marketers, media buyers, and affiliate creators.</p>
+          <div class="price-amount-wrap">
+            <span class="price-amount price-val" data-monthly="19" data-annual="15">$19</span>
+            <span class="price-period">/month</span>
+          </div>
+          <ul class="price-features-list">
+            <li class="highlight">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>50 Browser Profiles</strong></span>
+            </li>
+            <li class="highlight">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>3 Team Member Seats</strong></span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Unlimited 31-Target Proxy Verifier</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>SimpleLogin REST API Integration</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>3 Concurrent Mobile AVD Devices</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>AI Gateway (Bring Your Own Key)</span>
+            </li>
+          </ul>
+          <a href="#downloads" class="btn btn-primary">Start 7-Day Free Trial</a>
+        </div>
+
+        <!-- Plan 3: Team / Agency (Featured) -->
+        <div class="price-card featured">
+          <span class="featured-badge">Most Popular</span>
+          <h3>Agency Team</h3>
+          <p class="desc">Engineered for digital marketing agencies, scraping operations, and media teams.</p>
+          <div class="price-amount-wrap">
+            <span class="price-amount price-val" data-monthly="49" data-annual="39">$49</span>
+            <span class="price-period">/month</span>
+          </div>
+          <ul class="price-features-list">
+            <li class="highlight">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>200 Browser Profiles</strong></span>
+            </li>
+            <li class="highlight">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>10 Team Member Seats</strong></span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Custom Private Catch-All Domains</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>8 Concurrent Mobile AVD Devices (with PiP Dock)</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Social Media & Dating Repurposing Hub</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Priority 24/7 Discord & Telegram Support</span>
+            </li>
+          </ul>
+          <a href="#downloads" class="btn btn-primary" style="box-shadow: 0 4px 18px rgba(59, 130, 246, 0.7);">Start 7-Day Free Trial</a>
+        </div>
+
+        <!-- Plan 4: Scale Enterprise -->
+        <div class="price-card">
+          <h3>Scale Enterprise</h3>
+          <p class="desc">Unlimited capacity for large-scale crawling, automated farms, and fintech operators.</p>
+          <div class="price-amount-wrap">
+            <span class="price-amount price-val" data-monthly="99" data-annual="79">$99</span>
+            <span class="price-period">/month</span>
+          </div>
+          <ul class="price-features-list">
+            <li class="highlight">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Unlimited Browser Profiles</strong></span>
+            </li>
+            <li class="highlight">
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span><strong>Unlimited Team Seats</strong></span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>20+ Concurrent Mobile AVD Instances</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Dedicated Reverse DNS & DNSBL Monitoring</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Custom Hardware Fingerprint Synthesis</span>
+            </li>
+            <li>
+              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+              <span>Dedicated Technical Account Manager</span>
+            </li>
+          </ul>
+          <a href="#downloads" class="btn btn-secondary">Contact Enterprise Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Use Cases Section -->
+  <section class="use-cases-section" id="use-cases">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag">Industry Applications</span>
+        <h2>Built for High-Stakes Operations</h2>
+        <p>From affiliate performance marketing to Web3 crypto drops, Phantom provides the ultimate stealth foundation.</p>
+      </div>
+
+      <div class="use-cases-grid">
+        <div class="case-card">
+          <h4>
+            <span style="font-size: 24px;">📈</span> Performance & Affiliate Marketing
+          </h4>
+          <p>Run hundreds of Facebook Ads, Google Ads, and TikTok Ads accounts with zero cross-linking. When one ad account flags, the rest of your fleet remains 100% clean and operational.</p>
+        </div>
+
+        <div class="case-card">
+          <h4>
+            <span style="font-size: 24px;">🛒</span> E-Commerce & Retail Arbitrage
+          </h4>
+          <p>Manage multi-store merchant profiles across Amazon, eBay, Shopify, and Etsy. Avoid automated store suspensions caused by shared IP or hardware browser fingerprints.</p>
+        </div>
+
+        <div class="case-card">
+          <h4>
+            <span style="font-size: 24px;">🪙</span> Crypto, Web3 & Airdrop Farming
+          </h4>
+          <p>Isolate hundreds of Web3 wallet instances (MetaMask, Phantom Solana, Rabby) with unique hardware environments. Prevent Sybil detection on Layer 2 airdrop distributions.</p>
+        </div>
+
+        <div class="case-card">
+          <h4>
+            <span style="font-size: 24px;">🕷️</span> Large-Scale Web Scraping & Data Mining
+          </h4>
+          <p>Bypass Cloudflare Turnstile, DataDome, and PerimeterX without spending thousands on anti-bot solver APIs. Rotate residential proxies with verified zero-DNSBL cleanliness scores.</p>
+        </div>
+
+        <div class="case-card">
+          <h4>
+            <span style="font-size: 24px;">📱</span> Social Media Multi-Account Growth
+          </h4>
+          <p>Warm up, manage, and syndicate content across TikTok, Instagram, X/Twitter, and YouTube Shorts from an intuitive dashboard with automated human typing and bezier mouse movements.</p>
+        </div>
+
+        <div class="case-card">
+          <h4>
+            <span style="font-size: 24px;">🔍</span> Cybersecurity & Threat Reconnaissance
+          </h4>
+          <p>Conduct OSINT and anonymous threat hunting without leaking your real network infrastructure, browser version, or organization fingerprint to adversary honeypots.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download Hub -->
   <section class="download-hub" id="downloads">
     <div class="container">
+      <div class="download-box">
+        <div class="download-details">
+          <span class="section-tag">Direct Official Releases</span>
+          <h3>Download Phantom v1.0.0 for Windows</h3>
+          <p>Get the full desktop application installer or run portable with zero installation required. Both binaries include automated background updates powered by the official GitHub distribution portal.</p>
+          
+          <div class="download-buttons">
+            <a href="https://github.com/phantom-stealth/phantom-desktop/releases/download/v1.0.0/Phantom-Setup-1.0.0.exe" class="btn btn-primary" style="padding: 16px 24px; font-size: 15px; justify-content: flex-start;">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              <div>
+                <div style="font-weight: 700; line-height: 1.2;">Download Windows Setup (.exe)</div>
+                <div style="font-size: 12px; opacity: 0.8; font-weight: 400;">Recommended &bull; NSIS Installer &bull; 110.7 MB</div>
+              </div>
+            </a>
+
+            <a href="https://github.com/phantom-stealth/phantom-desktop/releases/download/v1.0.0/Phantom-1.0.0.exe" class="btn btn-secondary" style="padding: 16px 24px; font-size: 15px; justify-content: flex-start;">
+              <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="8" y1="12" x2="12" y2="12"/></svg>
+              <div>
+                <div style="font-weight: 700; line-height: 1.2;">Download Portable Executable (.exe)</div>
+                <div style="font-size: 12px; color: var(--text-tertiary); font-weight: 400;">No installation needed &bull; Run anywhere &bull; 110.4 MB</div>
+              </div>
+            </a>
+          </div>
+        </div>
+
+        <div class="download-info">
+          <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 12px; color: var(--text-primary);">Release Integrity & Auto-Update Checksum</h4>
+          <p style="font-size: 13px; color: var(--text-secondary); margin-bottom: 16px;">
+            Every binary published to <code>phantom-stealth/phantom-desktop</code> is cryptographically verified against the official Electron SHA-512 manifest.
+          </p>
+          <div class="checksum-box">
+            <div><span>Manifest:</span> latest.yml (GitHub Releases)</div>
+            <div style="margin-top: 8px;"><span>SHA-512:</span></div>
+            <div style="word-break: break-all; color: var(--text-secondary); margin-top: 4px;">
+              qXlz4bGv/CFV7xrH6h1wW5+2DJVS6fkEoNpcWwDi+OIymdiic5oa6mNoQM9v8rvH97qQoYymlqRNyvZiEmHMLQ==
+            </div>
+            <div style="margin-top: 12px; display: flex; align-items: center; gap: 8px;">
+              <span style="color: #10B981;">&#10003; Verified Clean</span> &bull; 
+              <a href="https://github.com/phantom-stealth/phantom-desktop/releases/latest" target="_blank" rel="noopener" style="color: var(--brand-primary); text-decoration: underline;">View on GitHub</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" id="faq">
+    <div class="container">
       <div class="section-head">
-        <h2>Download Executables</h2>
-        <p>Get started immediately with the official production binaries. Every release is cryptographically signed and automated through GitHub Actions.</p>
+        <span class="section-tag">Frequently Asked Questions</span>
+        <h2>Everything You Need to Know</h2>
+        <p>Got questions about fingerprints, proxies, pricing, or safety? We have answers.</p>
       </div>
 
-      <div class="downloads-grid">
-        <!-- Installer Box -->
-        <div class="download-box featured">
-          <div class="featured-ribbon">Recommended</div>
-          <div class="box-title">Windows Installer</div>
-          <div class="box-desc">NSIS Setup with background auto-updates</div>
-
-          <div class="box-file-meta">
-            <div class="meta-row">
-              <span style="color: var(--text-tertiary);">File:</span>
-              <span style="color: var(--text-primary);">Phantom Setup 1.0.0.exe</span>
-            </div>
-            <div class="meta-row">
-              <span style="color: var(--text-tertiary);">Size:</span>
-              <span style="color: var(--text-primary);" id="meta-installer-size">112.2 MB</span>
-            </div>
-            <div class="meta-row">
-              <span style="color: var(--text-tertiary);">Arch:</span>
-              <span style="color: var(--text-primary);">Windows x64</span>
-            </div>
-            <div class="meta-row">
-              <span style="color: var(--text-tertiary);">Auto-Update:</span>
-              <span style="color: #10B981;">✓ Enabled via latest.yml</span>
-            </div>
+      <div class="faq-container">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How is Phantom different from GoLogin and Multilogin?</span>
+            <span class="faq-icon">+</span>
           </div>
-
-          <a href="https://github.com/phantom-stealth/phantom-desktop/releases/download/v1.0.0/Phantom-Setup-1.0.0.exe" class="btn btn-primary" style="width: 100%;" id="box-installer-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
-              <polyline points="7 10 12 15 17 10"></polyline>
-              <line x1="12" y1="15" x2="12" y2="3"></line>
-            </svg>
-            Download Setup Installer
-          </a>
+          <div class="faq-answer">
+            GoLogin and Multilogin patch properties directly on instance prototypes (which CreepJS and Incolumitas detect using <code>hasOwnProperty</code> and prototype-chain walking). Phantom overrides the root <code>Navigator.prototype</code> and <code>Screen.prototype</code> with native bytecode signatures and authentic PCI Device IDs (NVIDIA RTX 4090/4070, Apple GPU, etc.). Additionally, Phantom includes a 31-target proxy verifier, SimpleLogin temp email engine, and native mobile AVD fleet built directly into the client at a fraction of their monthly price.
+          </div>
         </div>
 
-        <!-- Portable Box -->
-        <div class="download-box">
-          <div class="box-title">Windows Portable</div>
-          <div class="box-desc">Zero-installation standalone executable</div>
-
-          <div class="box-file-meta">
-            <div class="meta-row">
-              <span style="color: var(--text-tertiary);">File:</span>
-              <span style="color: var(--text-primary);">Phantom 1.0.0.exe</span>
-            </div>
-            <div class="meta-row">
-              <span style="color: var(--text-tertiary);">Size:</span>
-              <span style="color: var(--text-primary);" id="meta-portable-size">111.9 MB</span>
-            </div>
-            <div class="meta-row">
-              <span style="color: var(--text-tertiary);">Arch:</span>
-              <span style="color: var(--text-primary);">Windows x64</span>
-            </div>
-            <div class="meta-row">
-              <span style="color: var(--text-tertiary);">Portability:</span>
-              <span style="color: #60A5FA;">Runs from USB / Flash</span>
-            </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Can I use my own proxies with Phantom?</span>
+            <span class="faq-icon">+</span>
           </div>
-
-          <a href="https://github.com/phantom-stealth/phantom-desktop/releases/download/v1.0.0/Phantom-1.0.0.exe" class="btn btn-secondary" style="width: 100%;" id="box-portable-btn">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="7" width="20" height="14" rx="2" ry="2"></rect>
-              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-            </svg>
-            Download Portable EXE
-          </a>
+          <div class="faq-answer">
+            Yes, Phantom supports all standard HTTP, HTTPS, SOCKS4, and SOCKS5 proxies with or without username/password authentication. You can also import proxy lists in bulk or bind proxies directly to specific browser profiles. Phantom automatically performs a 31-target pre-flight check before connecting to prevent burned IP addresses.
+          </div>
         </div>
 
-        <!-- GitHub Releases Box -->
-        <div class="download-box">
-          <div class="box-title">GitHub Releases</div>
-          <div class="box-desc">Source code, changelogs & CI/CD artifacts</div>
-
-          <div class="box-file-meta">
-            <div class="meta-row">
-              <span style="color: var(--text-tertiary);">Channel:</span>
-              <span style="color: #A78BFA;">Production (Release)</span>
-            </div>
-            <div class="meta-row">
-              <span style="color: var(--text-tertiary);">Latest:</span>
-              <span style="color: var(--text-primary);" id="meta-release-tag">v1.0.0</span>
-            </div>
-            <div class="meta-row">
-              <span style="color: var(--text-tertiary);">Docker:</span>
-              <span style="color: var(--text-primary);">Node 22 / Python</span>
-            </div>
-            <div class="meta-row">
-              <span style="color: var(--text-tertiary);">License:</span>
-              <span style="color: var(--text-primary);">Commercial / Stealth</span>
-            </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>How does the 31-Target Proxy Verifier work?</span>
+            <span class="faq-icon">+</span>
           </div>
+          <div class="faq-answer">
+            The verifier executes 8 asynchronous DNSBL lookups against Spamhaus ZEN, SORBS, SpamCop, Barracuda, and DroneBL, queries IP intelligence databases for ASN, reverse DNS, and connection type (Residential vs Datacenter), probes Google Search for <code>/sorry/</code> CAPTCHA flags, tests Cloudflare Turnstile, and benchmarks response latencies across 13 major social platforms and 16 dating networks.
+          </div>
+        </div>
 
-          <a href="https://github.com/phantom-stealth/phantom-desktop/releases" target="_blank" class="btn btn-github" style="width: 100%;">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-            </svg>
-            All GitHub Releases
-          </a>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>What is the SimpleLogin Temp Email integration?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Phantom integrates directly with SimpleLogin via REST API to create disposable aliases on your custom domains or SimpleLogin domains. When an activation email arrives from Tinder, Discord, X, or Google, Phantom automatically parses the message body and presents the 4-8 digit OTP code in a 1-click copy badge.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Does Phantom support automated background updates?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes. Both the NSIS installer and portable executable check the public distribution repository (<code>phantom-stealth/phantom-desktop/releases/latest</code>) automatically. When an update is published, Phantom downloads the new package silently in the background and prompts you with a 1-click relaunch.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            <span>Is the Community tier really free forever?</span>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            Yes. The Community tier gives you 10 fully functioning browser profiles, full W3C prototype stealth protection, 10 proxy verifier scans per day, and background updates at $0 forever with no credit card required.
+          </div>
         </div>
       </div>
     </div>
@@ -995,101 +1905,128 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <h4>Phantom Browser & Automation OS</h4>
-          <p style="margin-bottom: 16px;">
-            The enterprise standard for browser anti-detect cloaking, multi-account automation, and AI orchestrator workflows.
-          </p>
-          <div style="font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary);">
-            SHA-512 Verification: <code style="color: #60A5FA;">qXlz4bGv/CFV7xrH6h1wW5+2DJVS...</code>
-          </div>
+          <a href="#" class="logo">
+            <img src="assets/icon.png" alt="Phantom Logo" class="logo-img">
+            <span>Phantom</span>
+          </a>
+          <p>The next-generation AI-native anti-detect browser and automation operating system. Designed for creators, media buyers, growth engineers, and researchers.</p>
         </div>
 
         <div class="footer-col">
-          <h5>Core Engines</h5>
+          <h5>Product</h5>
           <ul>
-            <li><a href="#features">W3C Prototype Spoofing</a></li>
-            <li><a href="#proxy-intelligence">31-Target Proxy Verifier</a></li>
-            <li><a href="#temp-email">SimpleLogin Temp Mail</a></li>
-            <li><a href="#features">Mobile AVD Devices</a></li>
+            <li><a href="#features">Browser Profiles</a></li>
+            <li><a href="#features">Proxy Verifier</a></li>
+            <li><a href="#features">Mobile AVD Fleet</a></li>
+            <li><a href="#features">Temp Email Engine</a></li>
+            <li><a href="#features">AI Gateway</a></li>
+            <li><a href="#downloads">Download Windows App</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h5>Downloads</h5>
+          <h5>Comparisons</h5>
           <ul>
-            <li><a href="https://github.com/phantom-stealth/phantom-desktop/releases/download/v1.0.0/Phantom-Setup-1.0.0.exe">Windows Installer (.exe)</a></li>
-            <li><a href="https://github.com/phantom-stealth/phantom-desktop/releases/download/v1.0.0/Phantom-1.0.0.exe">Portable Binary (.exe)</a></li>
-            <li><a href="https://github.com/phantom-stealth/phantom-desktop/releases/latest">Release Notes</a></li>
-            <li><a href="#auto-update">Auto-Updater Protocol</a></li>
+            <li><a href="#comparison">Phantom vs GoLogin</a></li>
+            <li><a href="#comparison">Phantom vs Multilogin</a></li>
+            <li><a href="#comparison">Phantom vs AdsPower</a></li>
+            <li><a href="#comparison">Phantom vs Dolphin Anty</a></li>
+            <li><a href="#architecture">Architecture & Stealth</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h5>Developer</h5>
+          <h5>Community & Code</h5>
           <ul>
-            <li><a href="https://github.com/phantom-stealth/phantom-desktop" target="_blank">GitHub Repository</a></li>
-            <li><a href="https://github.com/phantom-stealth/phantom-desktop/issues" target="_blank">Issue Tracker</a></li>
-            <li><a href="project_map.html" target="_blank">Architecture Codemap</a></li>
-            <li><a href="API_REFERENCE.md" target="_blank">REST API Docs</a></li>
+            <li><a href="https://github.com/phantom-stealth/phantom-desktop" target="_blank" rel="noopener">Distribution Portal</a></li>
+            <li><a href="https://github.com/phantom-stealth/phantom-desktop/releases" target="_blank" rel="noopener">Release Notes</a></li>
+            <li><a href="https://github.com/phantom-stealth/phantom-desktop/issues" target="_blank" rel="noopener">Report an Issue</a></li>
+            <li><a href="#faq">Knowledge Base & FAQ</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
-        <div>
-          © 2026 Phantom Project. Built with Electron, Chromium 134, and Puppeteer Core.
-        </div>
-        <div style="display: flex; gap: 16px;">
-          <a href="https://github.com/phantom-stealth/phantom-desktop" target="_blank">GitHub</a>
-          <a href="#features">Documentation</a>
-          <a href="#downloads">Downloads</a>
-        </div>
+        <div>&copy; 2026 Phantom Stealth Core. All rights reserved.</div>
+        <div>Engineered with W3C Prototype Isolation &bull; Zero Leaks Guaranteed</div>
       </div>
     </div>
   </footer>
 
-  <!-- Dynamic GitHub API Release Loader Script -->
   <script>
-    (async function initReleaseMetadata() {
-      try {
-        const repo = 'phantom-stealth/phantom-desktop';
-        const res = await fetch(`https://api.github.com/repos/${repo}/releases/latest`);
-        if (res.ok) {
-          const data = await res.json();
-          if (data && data.tag_name) {
-            const version = data.tag_name;
-            const tagElem = document.getElementById('meta-release-tag');
-            if (tagElem) tagElem.textContent = version;
-
-            // Find installer asset
-            const installerAsset = (data.assets || []).find(a => a.name.toLowerCase().includes('setup') && a.name.endsWith('.exe'));
-            const portableAsset = (data.assets || []).find(a => !a.name.toLowerCase().includes('setup') && a.name.endsWith('.exe'));
-
-            if (installerAsset) {
-              const primaryLink = document.getElementById('primary-installer-link');
-              const boxBtn = document.getElementById('box-installer-btn');
-              const sizeElem = document.getElementById('meta-installer-size');
-              if (primaryLink) primaryLink.href = installerAsset.browser_download_url;
-              if (boxBtn) boxBtn.href = installerAsset.browser_download_url;
-              if (sizeElem) sizeElem.textContent = (installerAsset.size / (1024 * 1024)).toFixed(1) + ' MB';
-            }
-
-            if (portableAsset) {
-              const portableLink = document.getElementById('portable-link');
-              const boxPortableBtn = document.getElementById('box-portable-btn');
-              const sizeElem = document.getElementById('meta-portable-size');
-              if (portableLink) portableLink.href = portableAsset.browser_download_url;
-              if (boxPortableBtn) boxPortableBtn.href = portableAsset.browser_download_url;
-              if (sizeElem) sizeElem.textContent = (portableAsset.size / (1024 * 1024)).toFixed(1) + ' MB';
-            }
-          }
-        }
-      } catch (err) {
-        // Fallback to static URLs gracefully
-        console.log('GitHub API offline; using embedded release URLs');
+    // Showcase switcher
+    const showcaseData = {
+      profiles: {
+        src: 'assets/screenshots/browser-profiles.jpg',
+        alt: 'Phantom Browser Profiles Dashboard'
+      },
+      proxy: {
+        src: 'assets/screenshots/proxy-verifier.jpg',
+        alt: 'Phantom 31-Target Proxy Verifier & GPS Radar'
+      },
+      mobile: {
+        src: 'assets/screenshots/mobile-fleet.jpg',
+        alt: 'Phantom Native Mobile AVD Fleet with PiP Dock'
+      },
+      email: {
+        src: 'assets/screenshots/temp-email.jpg',
+        alt: 'Phantom Temp Email and SimpleLogin OTP Manager'
+      },
+      ai: {
+        src: 'assets/screenshots/ai-gateway.jpg',
+        alt: 'Phantom Unified AI Gateway and Autonomous Agent Hub'
+      },
+      social: {
+        src: 'assets/screenshots/social-growth.jpg',
+        alt: 'Phantom Multi-Account Social Media Growth Suite'
       }
-    })();
-  </script>
+    };
 
+    function switchShowcase(key, btn) {
+      document.querySelectorAll('.showcase-tab').forEach(t => t.classList.remove('active'));
+      btn.classList.add('active');
+      const img = document.getElementById('showcase-img');
+      img.style.opacity = '0.3';
+      setTimeout(() => {
+        img.src = showcaseData[key].src;
+        img.alt = showcaseData[key].alt;
+        img.style.opacity = '1';
+      }, 150);
+    }
+
+    // Billing toggle
+    let isAnnual = false;
+    function toggleBilling() {
+      setBilling(!isAnnual);
+    }
+
+    function setBilling(annual) {
+      isAnnual = annual;
+      const toggle = document.getElementById('billing-switch');
+      const labelM = document.getElementById('label-monthly');
+      const labelA = document.getElementById('label-annual');
+
+      if (isAnnual) {
+        toggle.classList.add('annual');
+        labelA.classList.add('active');
+        labelM.classList.remove('active');
+      } else {
+        toggle.classList.remove('annual');
+        labelM.classList.add('active');
+        labelA.classList.remove('active');
+      }
+
+      document.querySelectorAll('.price-val').forEach(el => {
+        const val = isAnnual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
+        el.textContent = '$' + val;
+      });
+    }
+
+    // FAQ Accordion
+    function toggleFaq(questionEl) {
+      const item = questionEl.parentElement;
+      item.classList.toggle('open');
+    }
+  </script>
 </body>
 </html>
