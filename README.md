@@ -100,7 +100,7 @@ Phantom includes built-in differential background updates powered by `electron-u
 Every release is signed and packaged with cryptographic hashes:
 - **Manifest:** [`latest.yml`](https://github.com/phantom-stealth/phantom-desktop/releases/latest/download/latest.yml)
 - **Differential Map:** [`Phantom Setup 1.0.0.exe.blockmap`](https://github.com/phantom-stealth/phantom-desktop/releases/latest/download/Phantom-Setup-1.0.0.exe.blockmap)
-- **SHA-512:** `qXlz4bGv/CFV7xrH6h1wW5+2DJVS6fkEoNpcWwDi+OIymdiic5oa6mNoQM9v8rvH97qQoYymlqRNyvZiEmHMLQ==`
+- **SHA-512:** `B9nG8ZPCIqeTk5bNSFGjSe4R124HP883B8q6W5ORa1lIIququDmAZsB4uTcpYSparo50VIu3F/oNTHafRmvfkg==`
 
 To report an issue or suggest a feature, please open an issue on the [Issue Tracker](https://github.com/phantom-stealth/phantom-desktop/issues).
 
