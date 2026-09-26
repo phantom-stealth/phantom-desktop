@@ -123,15 +123,19 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: clamp(12px, 1.8vw, 24px);
+      flex-wrap: nowrap;
     }
 
     .logo {
       display: flex;
       align-items: center;
-      gap: 12px;
-      font-size: 22px;
+      gap: 10px;
+      font-size: 21px;
       font-weight: 800;
       letter-spacing: -0.5px;
+      flex-shrink: 0;
+      white-space: nowrap !important;
     }
 
     .logo-img {
@@ -139,6 +143,7 @@
       height: 34px;
       border-radius: 8px;
       box-shadow: 0 0 14px var(--brand-glow);
+      flex-shrink: 0;
     }
 
     .logo-badge {
@@ -151,22 +156,29 @@
       border: 1px solid rgba(59, 130, 246, 0.3);
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      flex-shrink: 0;
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 30px;
+      gap: clamp(10px, 1.5vw, 22px);
       font-size: 14px;
       font-weight: 500;
       color: var(--text-secondary);
+      white-space: nowrap !important;
+      flex-wrap: nowrap;
+      flex-shrink: 1;
     }
 
     .nav-links a {
       transition: color 0.2s ease;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 4px;
+      white-space: nowrap !important;
+      word-break: keep-all;
+      flex-shrink: 0;
     }
 
     .nav-links a:hover {
@@ -176,7 +188,9 @@
     .nav-actions {
       display: flex;
       align-items: center;
-      gap: 14px;
+      gap: 12px;
+      flex-shrink: 0;
+      white-space: nowrap !important;
     }
 
     .btn {
@@ -1348,6 +1362,9 @@
 
     /* Responsive */
     @media (max-width: 1024px) {
+      .nav-links { gap: 10px; font-size: 12.5px; }
+      .nav-actions { gap: 8px; }
+      .nav-actions .btn { padding: 6px 12px !important; font-size: 12px !important; }
       .hero h1 { font-size: 42px; }
       .diff-grid, .pricing-grid, .use-cases-grid { grid-template-columns: repeat(2, 1fr); }
       .feature-row { grid-template-columns: 1fr; gap: 32px; }
@@ -1456,13 +1473,13 @@
       </a>
 
       <nav class="nav-links">
-        <a href="#video-showcase">🎬 Video Demos</a>
+        <a href="#video-showcase">🎬 90s Demo</a>
         <a href="#features">Features</a>
-        <a href="#comparison">Phantom vs Competitors</a>
+        <a href="#comparison">Comparison</a>
         <a href="#pricing">Pricing</a>
         <a href="#use-cases">Use Cases</a>
         <a href="#faq">FAQ</a>
-        <a href="https://github.com/phantom-stealth/phantom-desktop" target="_blank" rel="noopener">GitHub Releases</a>
+        <a href="https://github.com/phantom-stealth/phantom-desktop" target="_blank" rel="noopener">Releases</a>
       </nav>
 
       <div class="nav-actions">
@@ -1497,9 +1514,9 @@
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download for Windows (v1.0.0)
         </a>
-        <button type="button" onclick="openPromoModal('60')" class="btn btn-secondary" style="font-size: 16px; padding: 14px 28px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: 1px solid #005FF9; color: #FFFFFF; background: rgba(0, 95, 249, 0.15); box-shadow: 0 0 20px rgba(0, 95, 249, 0.25);">
+        <button type="button" onclick="openPromoModal('90')" class="btn btn-secondary" style="font-size: 16px; padding: 14px 28px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: 1px solid #005FF9; color: #FFFFFF; background: rgba(0, 95, 249, 0.15); box-shadow: 0 0 20px rgba(0, 95, 249, 0.25);">
           <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-          Watch Launch Trailers (30s / 60s / 90s)
+          Watch 90s Product Walkthrough
         </button>
         <a href="#pricing" class="btn btn-secondary" style="font-size: 16px; padding: 14px 28px;">
           Explore Pricing & Plans &rarr;
@@ -1513,20 +1530,12 @@
         <span><svg width="14" height="14" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Auto-Update Enabled</span>
       </div>
 
-      <!-- Live Mockup Showcase Tabs (All 11 Core Feature Suites + 3 Video Cuts) -->
+      <!-- Live Mockup Showcase Tabs (90s Walkthrough + Core Feature Suites) -->
       <div class="showcase-container">
         <div class="showcase-nav" style="flex-wrap: wrap; justify-content: center; gap: 8px;">
-          <div style="display: flex; gap: 6px; background: rgba(0, 95, 249, 0.12); padding: 4px; border-radius: 10px; border: 1px solid rgba(0, 95, 249, 0.3);">
-            <button class="showcase-tab active" id="tab-hero-video-60" onclick="switchShowcaseVideo('60', this)" style="border-color: #005FF9; background: #005FF9; color: #FFFFFF; padding: 6px 14px;">
-              🎬 60s Flagship
-            </button>
-            <button class="showcase-tab" id="tab-hero-video-30" onclick="switchShowcaseVideo('30', this)" style="padding: 6px 14px;">
-              ⚡ 30s Speedrun
-            </button>
-            <button class="showcase-tab" id="tab-hero-video-90" onclick="switchShowcaseVideo('90', this)" style="padding: 6px 14px;">
-              🔍 90s Walkthrough
-            </button>
-          </div>
+          <button class="showcase-tab active" id="tab-hero-video-90" onclick="switchShowcaseVideo('90', this)" style="border-color: #005FF9; background: #005FF9; color: #FFFFFF; padding: 8px 18px; font-weight: 700;">
+            🎬 90s Technical Walkthrough
+          </button>
           <span style="display: inline-block; width: 1px; height: 26px; background: var(--border-subtle); margin: 0 4px; align-self: center;"></span>
           <button class="showcase-tab" onclick="switchShowcase('profiles', this)">
             🌐 Browser Profiles
@@ -1567,8 +1576,8 @@
         </div>
 
         <div class="showcase-media">
-          <video id="showcase-video" class="showcase-video" controls playsinline preload="metadata" poster="assets/video/previews/still-reveal.png" style="width: 100%; height: 100%; object-fit: contain; background: #000;">
-            <source src="assets/video/phantom-promo-60s.mp4" type="video/mp4">
+          <video id="showcase-video" class="showcase-video" controls playsinline preload="metadata" poster="assets/video/previews/still-proxy.png" style="width: 100%; height: 100%; object-fit: contain; background: #000;">
+            <source src="assets/video/phantom-promo-90s.mp4" type="video/mp4">
             Your browser does not support HTML5 video.
           </video>
           <img id="showcase-img" src="assets/screenshots/browser-profiles.jpg" alt="Phantom Browser Profiles" class="showcase-img" style="display: none;">
@@ -1601,114 +1610,54 @@
     </div>
   </section>
 
-  <!-- Official Video Showcase Gallery (30s, 60s, 90s) -->
+  <!-- Official Video Showcase Section (Exclusive 90s Deep-Dive Architecture Walkthrough) -->
   <section class="video-gallery-section" id="video-showcase" style="background: linear-gradient(180deg, rgba(6, 11, 24, 0.4) 0%, rgba(4, 18, 44, 0.7) 50%, rgba(6, 11, 24, 0.4) 100%);">
     <div class="container">
       <div class="section-head">
         <span class="section-tag" style="background: rgba(0, 95, 249, 0.15); color: #60A5FA; border: 1px solid rgba(0, 95, 249, 0.4);">
-          Official Video Showcase &amp; Live Demos
+          Official Product Premiere • 90-Second Walkthrough
         </span>
-        <h2>Experience Phantom in Action Across 3 Dedicated Cuts</h2>
+        <h2>The Complete Phantom Architecture in 90 Seconds</h2>
         <p>
-          Whether you want an instant 30-second speedrun, the complete 60-second flagship product launch, or a comprehensive 90-second technical architecture tour — watch how Phantom redefines anti-detect browsing.
+          Experience how Phantom re-engineers anti-detect browsing: root W3C prototype cloaking, 31-target proxy cleanliness testing, native Android AVD fleet synchronization, private temp emails, and node-based visual RPA.
         </p>
       </div>
 
-      <div class="video-gallery-grid">
-        <!-- Card 1: 30s Speedrun -->
-        <div class="video-card">
-          <div class="video-card-thumb" onclick="openPromoModal('30')">
-            <img src="assets/video/previews/still-hook.png" alt="Phantom 30s Rapid Speedrun Preview">
-            <span class="video-duration-pill">0:30 • 1080p 60fps</span>
-            <div class="video-play-overlay" title="Play 30s Video">
-              <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-            </div>
-          </div>
-          <div class="video-card-body">
-            <div class="video-card-tags">
-              <span class="video-card-tag primary">⚡ Rapid Overview</span>
-              <span class="video-card-tag">Prototype Stealth</span>
-              <span class="video-card-tag">Anti-Ban</span>
-            </div>
-            <h3>⚡ 30s Rapid Speedrun</h3>
-            <p>
-              High-velocity breakdown of root W3C prototype spoofing, genuine PCI device IDs, and our 31-target proxy cleanliness tester in 30 action-packed seconds.
-            </p>
-            <div class="video-card-actions">
-              <button type="button" onclick="openPromoModal('30')" class="btn btn-primary" style="flex: 1; padding: 10px 16px; font-size: 13.5px;">
-                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                Watch 30s Cut
-              </button>
-              <button type="button" onclick="switchShowcaseVideo('30', document.getElementById('tab-hero-video-30')); window.scrollTo({top: 360, behavior: 'smooth'});" class="btn btn-secondary" style="padding: 10px 14px; font-size: 13.5px;" title="Load in Hero Player">
-                Preview Above
-              </button>
-            </div>
-          </div>
+      <!-- Spotlight Cinematic Showcase Player -->
+      <div style="max-width: 980px; margin: 0 auto; background: var(--bg-card); border: 1px solid rgba(0, 95, 249, 0.5); border-radius: var(--radius-xl); overflow: hidden; box-shadow: 0 24px 80px rgba(0, 0, 0, 0.7), 0 0 50px rgba(0, 95, 249, 0.25);">
+        <div style="position: relative; width: 100%; aspect-ratio: 16 / 9; background: #000;">
+          <video controls playsinline poster="assets/video/previews/still-proxy.png" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+            <source src="assets/video/phantom-promo-90s.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
         </div>
 
-        <!-- Card 2: 60s Flagship Trailer (Featured) -->
-        <div class="video-card featured">
-          <div style="position: absolute; top: 12px; left: 12px; z-index: 2; background: linear-gradient(135deg, #005FF9, #9647DB); color: #FFFFFF; font-size: 11px; font-weight: 800; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.5px; box-shadow: 0 4px 14px rgba(0, 95, 249, 0.5);">
-            ⭐ Official Flagship Cut
-          </div>
-          <div class="video-card-thumb" onclick="openPromoModal('60')">
-            <img src="assets/video/previews/still-reveal.png" alt="Phantom 60s Flagship Trailer Preview">
-            <span class="video-duration-pill">1:00 • 1080p 60fps</span>
-            <div class="video-play-overlay" title="Play 60s Flagship Video" style="width: 64px; height: 64px;">
-              <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+        <div style="padding: 32px; display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 16px;">
+            <div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 10px;">
+                <span class="video-card-tag primary">🔍 90s Technical Walkthrough</span>
+                <span class="video-card-tag accent">W3C Prototype Stealth</span>
+                <span class="video-card-tag">31-Target Proxy Verifier</span>
+                <span class="video-card-tag">Mobile AVD Fleet</span>
+                <span class="video-card-tag">Visual RPA Builder</span>
+              </div>
+              <h3 style="font-size: 24px; font-weight: 800; color: #FFFFFF; margin: 0;">Full Product Tour: From Stealth Kernel to Mobile Fleet</h3>
             </div>
-          </div>
-          <div class="video-card-body">
-            <div class="video-card-tags">
-              <span class="video-card-tag primary">🎬 Full Launch Trailer</span>
-              <span class="video-card-tag accent">Mobile AVD Fleet</span>
-              <span class="video-card-tag">CreepJS 100/100</span>
-            </div>
-            <h3>🎬 60s Official Flagship Launch</h3>
-            <p>
-              The comprehensive product premiere showcasing browser profile multilogin, native mobile Android AVD fleet, CreepJS verification, and private temp emails.
-            </p>
-            <div class="video-card-actions">
-              <button type="button" onclick="openPromoModal('60')" class="btn btn-primary" style="flex: 1; padding: 10px 16px; font-size: 13.5px; background: linear-gradient(135deg, #005FF9, #2563EB);">
-                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                Watch 60s Flagship
+            <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+              <button type="button" onclick="openPromoModal('90')" class="btn btn-primary" style="padding: 12px 22px; font-size: 14px;">
+                <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Watch Theater Mode
               </button>
-              <button type="button" onclick="switchShowcaseVideo('60', document.getElementById('tab-hero-video-60')); window.scrollTo({top: 360, behavior: 'smooth'});" class="btn btn-secondary" style="padding: 10px 14px; font-size: 13.5px;" title="Load in Hero Player">
-                Preview Above
-              </button>
+              <a href="https://github.com/phantom-stealth/phantom-desktop/releases/download/v1.0.0/Phantom-Setup-1.0.0.exe" class="btn btn-secondary" style="padding: 12px 22px; font-size: 14px;">
+                Download Windows .exe
+              </a>
             </div>
           </div>
-        </div>
 
-        <!-- Card 3: 90s Deep-Dive Architecture Walkthrough -->
-        <div class="video-card">
-          <div class="video-card-thumb" onclick="openPromoModal('90')">
-            <img src="assets/video/previews/still-proxy.png" alt="Phantom 90s Technical Deep Dive Preview">
-            <span class="video-duration-pill">1:30 • 1080p 60fps</span>
-            <div class="video-play-overlay" title="Play 90s Deep Dive">
-              <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
-            </div>
-          </div>
-          <div class="video-card-body">
-            <div class="video-card-tags">
-              <span class="video-card-tag primary">🔍 Architecture Deep-Dive</span>
-              <span class="video-card-tag">Visual RPA Builder</span>
-              <span class="video-card-tag">KYC Studio</span>
-            </div>
-            <h3>🔍 90s Technical Deep Dive</h3>
-            <p>
-              Step-by-step walkthrough covering the node-based Visual RPA builder, multi-window synchronizer, KYC biometric liveness emulation, and auto-update hub.
-            </p>
-            <div class="video-card-actions">
-              <button type="button" onclick="openPromoModal('90')" class="btn btn-primary" style="flex: 1; padding: 10px 16px; font-size: 13.5px;">
-                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
-                Watch 90s Deep Dive
-              </button>
-              <button type="button" onclick="switchShowcaseVideo('90', document.getElementById('tab-hero-video-90')); window.scrollTo({top: 360, behavior: 'smooth'});" class="btn btn-secondary" style="padding: 10px 14px; font-size: 13.5px;" title="Load in Hero Player">
-                Preview Above
-              </button>
-            </div>
-          </div>
+          <p style="font-size: 15px; color: var(--text-secondary); line-height: 1.7; margin: 0;">
+            Watch every layer of Phantom's multi-tenant engine in action: authentic GPU PCI device ID spoofing (RTX 4090, Apple Silicon), automated SimpleLogin alias provisioning, live GPS radar geolocation spoofing, and zero-detection automated multilogin workflows.
+          </p>
         </div>
       </div>
     </div>
@@ -2639,7 +2588,7 @@
       }
       const video = document.getElementById('showcase-video');
       const img = document.getElementById('showcase-img');
-      const data = promoSources[cut] || promoSources['60'];
+      const data = promoSources['90'];
 
       if (img) img.style.display = 'none';
       if (video) {
@@ -2663,13 +2612,7 @@
       const video = document.getElementById('showcase-video');
       const img = document.getElementById('showcase-img');
 
-      if (key === 'video' || key === 'video_60') {
-        switchShowcaseVideo('60', btn);
-        return;
-      } else if (key === 'video_30') {
-        switchShowcaseVideo('30', btn);
-        return;
-      } else if (key === 'video_90') {
+      if (key === 'video' || key === 'video_60' || key === 'video_30' || key === 'video_90') {
         switchShowcaseVideo('90', btn);
         return;
       }
@@ -2725,16 +2668,14 @@
 
     // Promo Video Modal Controller
     const promoSources = {
-      '60': { src: 'assets/video/phantom-promo-60s.mp4', poster: 'assets/video/previews/still-reveal.png' },
-      '30': { src: 'assets/video/phantom-promo-30s.mp4', poster: 'assets/video/previews/still-hook.png' },
       '90': { src: 'assets/video/phantom-promo-90s.mp4', poster: 'assets/video/previews/still-proxy.png' }
     };
 
-    function openPromoModal(cut = '60') {
+    function openPromoModal(cut = '90') {
       const modal = document.getElementById('promo-video-modal');
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
-      setModalVideo(cut);
+      setModalVideo('90');
     }
 
     function closePromoModal() {
@@ -2753,13 +2694,9 @@
       }
     }
 
-    function setModalVideo(cut) {
+    function setModalVideo(cut = '90') {
       const player = document.getElementById('modal-promo-player');
-      const data = promoSources[cut] || promoSources['60'];
-
-      document.querySelectorAll('.promo-modal-tab').forEach(tab => tab.classList.remove('active'));
-      const activeTab = document.getElementById('tab-modal-' + cut);
-      if (activeTab) activeTab.classList.add('active');
+      const data = promoSources['90'];
 
       if (player) {
         player.src = data.src;
@@ -2884,7 +2821,7 @@
     });
   </script>
 
-  <!-- Promo Video Popup Modal Dialog -->
+  <!-- Promo Video Popup Modal Dialog (Exclusive 90s Cut) -->
   <div id="promo-video-modal" class="promo-modal-overlay" onclick="handlePromoModalBackdrop(event)">
     <div class="promo-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-promo-title">
       <div class="promo-modal-header">
@@ -2893,23 +2830,23 @@
             <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
           </span>
           <div>
-            <h3 id="modal-promo-title" style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin: 0;">Phantom Launch Showcase</h3>
-            <span style="font-size: 12px; color: var(--text-tertiary);">Official High-Fidelity 1080p Product Trailer</span>
+            <h3 id="modal-promo-title" style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin: 0;">Phantom Architecture Walkthrough</h3>
+            <span style="font-size: 12px; color: var(--text-tertiary);">Official 90s High-Fidelity 1080p Product Tour</span>
           </div>
         </div>
 
-        <div class="promo-modal-tabs">
-          <button class="promo-modal-tab active" id="tab-modal-60" onclick="setModalVideo('60')">60s Flagship</button>
-          <button class="promo-modal-tab" id="tab-modal-30" onclick="setModalVideo('30')">30s Speedrun</button>
-          <button class="promo-modal-tab" id="tab-modal-90" onclick="setModalVideo('90')">90s Walkthrough</button>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <span style="background: rgba(0, 95, 249, 0.15); border: 1px solid rgba(0, 229, 255, 0.4); color: #00E5FF; padding: 4px 12px; border-radius: 999px; font-size: 12px; font-weight: 700; letter-spacing: 0.5px;">
+            90s Walkthrough
+          </span>
         </div>
 
         <button class="promo-modal-close" onclick="closePromoModal()" aria-label="Close Modal">&times;</button>
       </div>
 
       <div class="promo-modal-video-box">
-        <video id="modal-promo-player" controls playsinline poster="assets/video/previews/still-reveal.png">
-          <source id="modal-video-src" src="assets/video/phantom-promo-60s.mp4" type="video/mp4">
+        <video id="modal-promo-player" controls playsinline poster="assets/video/previews/still-proxy.png">
+          <source id="modal-video-src" src="assets/video/phantom-promo-90s.mp4" type="video/mp4">
           Your browser does not support HTML5 video.
         </video>
       </div>
