@@ -1,0 +1,2015 @@
+[
+  {
+    "name": "automation",
+    "type": "dir",
+    "children": [
+      {
+        "name": "ai-caption-engine.ts",
+        "type": "file"
+      },
+      {
+        "name": "ama",
+        "type": "dir",
+        "children": [
+          {
+            "name": "content-repurposing-engine.ts",
+            "type": "file"
+          },
+          {
+            "name": "image-router.ts",
+            "type": "file"
+          },
+          {
+            "name": "index.ts",
+            "type": "file"
+          },
+          {
+            "name": "instagram-engine.ts",
+            "type": "file"
+          },
+          {
+            "name": "market-data-fetcher.ts",
+            "type": "file"
+          },
+          {
+            "name": "ollama-client.ts",
+            "type": "file"
+          },
+          {
+            "name": "safety-monitor.ts",
+            "type": "file"
+          },
+          {
+            "name": "threads-engine.ts",
+            "type": "file"
+          },
+          {
+            "name": "tiktok-engine.ts",
+            "type": "file"
+          },
+          {
+            "name": "twitter-engine.ts",
+            "type": "file"
+          },
+          {
+            "name": "unsloth-image-client.ts",
+            "type": "file"
+          },
+          {
+            "name": "warming-protocol.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "automation-hub.ts",
+        "type": "file"
+      },
+      {
+        "name": "cookie-robot.ts",
+        "type": "file"
+      },
+      {
+        "name": "cross-platform-bridge.ts",
+        "type": "file"
+      },
+      {
+        "name": "dating",
+        "type": "dir",
+        "children": [
+          {
+            "name": "ai-bio-generator.ts",
+            "type": "file"
+          },
+          {
+            "name": "bumble-automation.ts",
+            "type": "file"
+          },
+          {
+            "name": "dating-engine.ts",
+            "type": "file"
+          },
+          {
+            "name": "dating-message-engine.ts",
+            "type": "file"
+          },
+          {
+            "name": "engines",
+            "type": "dir",
+            "children": [
+              {
+                "name": "badoo.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "bumble.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "catholicmatch.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "christianmingle.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "cmb.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "eharmony.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "elitesingles.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "facebook_dating.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "farmersonly.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "feeld.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "grindr.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "her.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "hinge.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "match.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "meetme.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "okcupid.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "pof.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "theleague.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "tinder.engine.ts",
+                "type": "file"
+              },
+              {
+                "name": "zoosk.engine.ts",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "hinge-automation.ts",
+            "type": "file"
+          },
+          {
+            "name": "index.ts",
+            "type": "file"
+          },
+          {
+            "name": "shadowban-detector.ts",
+            "type": "file"
+          },
+          {
+            "name": "tinder-automation.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "facebook",
+        "type": "dir",
+        "children": [
+          {
+            "name": "fb-account-factory.ts",
+            "type": "file"
+          },
+          {
+            "name": "fb-engagement-bot.ts",
+            "type": "file"
+          },
+          {
+            "name": "fb-group-manager.ts",
+            "type": "file"
+          },
+          {
+            "name": "fb-manager.ts",
+            "type": "file"
+          },
+          {
+            "name": "fb-messenger-bot.ts",
+            "type": "file"
+          },
+          {
+            "name": "fb-page-manager.ts",
+            "type": "file"
+          },
+          {
+            "name": "fb-post-scheduler.ts",
+            "type": "file"
+          },
+          {
+            "name": "fb-profile-bot.ts",
+            "type": "file"
+          },
+          {
+            "name": "index.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "human-timing.ts",
+        "type": "file"
+      },
+      {
+        "name": "index.ts",
+        "type": "file"
+      },
+      {
+        "name": "instagram",
+        "type": "dir",
+        "children": [
+          {
+            "name": "ig-account-factory.ts",
+            "type": "file"
+          },
+          {
+            "name": "ig-dm-automator.ts",
+            "type": "file"
+          },
+          {
+            "name": "ig-engagement-bot.ts",
+            "type": "file"
+          },
+          {
+            "name": "ig-hashtag-intel.ts",
+            "type": "file"
+          },
+          {
+            "name": "ig-manager.ts",
+            "type": "file"
+          },
+          {
+            "name": "ig-post-engine.ts",
+            "type": "file"
+          },
+          {
+            "name": "ig-reels-engine.ts",
+            "type": "file"
+          },
+          {
+            "name": "ig-scheduler.ts",
+            "type": "file"
+          },
+          {
+            "name": "ig-story-engine.ts",
+            "type": "file"
+          },
+          {
+            "name": "index.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "jamvesting",
+        "type": "dir",
+        "children": [
+          {
+            "name": "JamVestingProAdvisorEngine.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "linkedin",
+        "type": "dir",
+        "children": [
+          {
+            "name": "linkedin-bot.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "one-click-workflow.ts",
+        "type": "file"
+      },
+      {
+        "name": "publisher-daemon.ts",
+        "type": "file"
+      },
+      {
+        "name": "reddit",
+        "type": "dir",
+        "children": [
+          {
+            "name": "reddit-bot.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "reply-engine",
+        "type": "dir",
+        "children": [
+          {
+            "name": "adapters",
+            "type": "dir",
+            "children": [
+              {
+                "name": "adapter.interface.ts",
+                "type": "file"
+              },
+              {
+                "name": "threads-adapter.ts",
+                "type": "file"
+              },
+              {
+                "name": "x-adapter.ts",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "cta-rotator.ts",
+            "type": "file"
+          },
+          {
+            "name": "dedupe-ledger.ts",
+            "type": "file"
+          },
+          {
+            "name": "index.ts",
+            "type": "file"
+          },
+          {
+            "name": "qc-validator.ts",
+            "type": "file"
+          },
+          {
+            "name": "rate-governor.ts",
+            "type": "file"
+          },
+          {
+            "name": "reply-composer.ts",
+            "type": "file"
+          },
+          {
+            "name": "risk-scorer.ts",
+            "type": "file"
+          },
+          {
+            "name": "schedule-engine.ts",
+            "type": "file"
+          },
+          {
+            "name": "schedules",
+            "type": "dir",
+            "children": [
+              {
+                "name": "sched_finance_14d_threads.json",
+                "type": "file"
+              },
+              {
+                "name": "sched_finance_14d_x.json",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "target-scorer.ts",
+            "type": "file"
+          },
+          {
+            "name": "types.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "social-hub.ts",
+        "type": "file"
+      },
+      {
+        "name": "task-queue.ts",
+        "type": "file"
+      },
+      {
+        "name": "tiktok",
+        "type": "dir",
+        "children": [
+          {
+            "name": "account-factory.ts",
+            "type": "file"
+          },
+          {
+            "name": "ai-content-studio.ts",
+            "type": "file"
+          },
+          {
+            "name": "autotok-scheduler.ts",
+            "type": "file"
+          },
+          {
+            "name": "piper-tts.ts",
+            "type": "file"
+          },
+          {
+            "name": "reach-optimizer.ts",
+            "type": "file"
+          },
+          {
+            "name": "shadowhash.ts",
+            "type": "file"
+          },
+          {
+            "name": "taktik-bot.ts",
+            "type": "file"
+          },
+          {
+            "name": "tiktok-manager.ts",
+            "type": "file"
+          },
+          {
+            "name": "tokpilot-comments.ts",
+            "type": "file"
+          },
+          {
+            "name": "video-studio.ts",
+            "type": "file"
+          },
+          {
+            "name": "yt-clip-manager.ts",
+            "type": "file"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "browser",
+    "type": "dir",
+    "children": [
+      {
+        "name": "engine.ts",
+        "type": "file"
+      },
+      {
+        "name": "launcher.ts",
+        "type": "file"
+      },
+      {
+        "name": "synchronizer.ts",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "cli",
+    "type": "dir",
+    "children": [
+      {
+        "name": "installCamoufox.ts",
+        "type": "file"
+      },
+      {
+        "name": "installFork.ts",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "config.ts",
+    "type": "file"
+  },
+  {
+    "name": "core",
+    "type": "dir",
+    "children": [
+      {
+        "name": "account.ts",
+        "type": "file"
+      },
+      {
+        "name": "admin",
+        "type": "dir",
+        "children": [
+          {
+            "name": "AdminTelemetryEngine.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "ai",
+        "type": "dir",
+        "children": [
+          {
+            "name": "CostTracker.ts",
+            "type": "file"
+          },
+          {
+            "name": "local-api-scanner.ts",
+            "type": "file"
+          },
+          {
+            "name": "ModelRouter.ts",
+            "type": "file"
+          },
+          {
+            "name": "PromptRegistry.ts",
+            "type": "file"
+          },
+          {
+            "name": "ProviderHealthMonitor.ts",
+            "type": "file"
+          },
+          {
+            "name": "UnslothClient.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "ai-config.ts",
+        "type": "file"
+      },
+      {
+        "name": "analytics",
+        "type": "dir",
+        "children": [
+          {
+            "name": "AnalyticsStore.ts",
+            "type": "file"
+          },
+          {
+            "name": "GrowthIntelligence.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "api-key-manager.ts",
+        "type": "file"
+      },
+      {
+        "name": "automationExecutor.ts",
+        "type": "file"
+      },
+      {
+        "name": "automationStore.ts",
+        "type": "file"
+      },
+      {
+        "name": "avd",
+        "type": "dir",
+        "children": [
+          {
+            "name": "AVDManager.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "cache",
+        "type": "dir",
+        "children": [
+          {
+            "name": "ResponseCache.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "camera",
+        "type": "dir",
+        "children": [
+          {
+            "name": "VirtualCameraEngine.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "captcha",
+        "type": "dir",
+        "children": [
+          {
+            "name": "ChallengeHandler.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "cloud-cookie-vault.ts",
+        "type": "file"
+      },
+      {
+        "name": "compliance",
+        "type": "dir",
+        "children": [
+          {
+            "name": "SOC2EvidenceEngine.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "cookie.ts",
+        "type": "file"
+      },
+      {
+        "name": "cronScheduler.ts",
+        "type": "file"
+      },
+      {
+        "name": "dating",
+        "type": "dir",
+        "children": [
+          {
+            "name": "ab-testing",
+            "type": "dir",
+            "children": [
+              {
+                "name": "ABTestEngine.ts",
+                "type": "file"
+              },
+              {
+                "name": "ABTestStore.ts",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "AutoSwipeEngine.ts",
+            "type": "file"
+          },
+          {
+            "name": "ConversationAI.ts",
+            "type": "file"
+          },
+          {
+            "name": "dating-messaging.ts",
+            "type": "file"
+          },
+          {
+            "name": "dating-persona.ts",
+            "type": "file"
+          },
+          {
+            "name": "dating-proxy-rotator.ts",
+            "type": "file"
+          },
+          {
+            "name": "dating-store.ts",
+            "type": "file"
+          },
+          {
+            "name": "DatingBiometrics.ts",
+            "type": "file"
+          },
+          {
+            "name": "DatingFleetOrchestrator.ts",
+            "type": "file"
+          },
+          {
+            "name": "DatingPlatformBase.ts",
+            "type": "file"
+          },
+          {
+            "name": "escalation",
+            "type": "dir",
+            "children": [
+              {
+                "name": "EscalationEngine.ts",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "GhostingRecovery.ts",
+            "type": "file"
+          },
+          {
+            "name": "i18n",
+            "type": "dir",
+            "children": [
+              {
+                "name": "LocaleEngine.ts",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "index.ts",
+            "type": "file"
+          },
+          {
+            "name": "MatchPipeline.ts",
+            "type": "file"
+          },
+          {
+            "name": "MatchStore.ts",
+            "type": "file"
+          },
+          {
+            "name": "MessagingEngine.ts",
+            "type": "file"
+          },
+          {
+            "name": "metadata-cleaner.ts",
+            "type": "file"
+          },
+          {
+            "name": "ProfileOptimizer.ts",
+            "type": "file"
+          },
+          {
+            "name": "ProfileScorer.ts",
+            "type": "file"
+          },
+          {
+            "name": "roi",
+            "type": "dir",
+            "children": [
+              {
+                "name": "DatingROITracker.ts",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "social",
+            "type": "dir",
+            "children": [
+              {
+                "name": "SocialProofNetwork.ts",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "SwipeSessionStore.ts",
+            "type": "file"
+          },
+          {
+            "name": "types.ts",
+            "type": "file"
+          },
+          {
+            "name": "voice",
+            "type": "dir",
+            "children": [
+              {
+                "name": "VoiceNoteEngine.ts",
+                "type": "file"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "db",
+        "type": "dir",
+        "children": [
+          {
+            "name": "AnalyticsQueries.ts",
+            "type": "file"
+          },
+          {
+            "name": "Database.ts",
+            "type": "file"
+          },
+          {
+            "name": "JsonToSqliteMigration.ts",
+            "type": "file"
+          },
+          {
+            "name": "repositories",
+            "type": "dir",
+            "children": [
+              {
+                "name": "ApiKeyRepository.ts",
+                "type": "file"
+              },
+              {
+                "name": "BaseRepository.ts",
+                "type": "file"
+              },
+              {
+                "name": "EventLogRepository.ts",
+                "type": "file"
+              },
+              {
+                "name": "MatchRepository.ts",
+                "type": "file"
+              },
+              {
+                "name": "MessageRepository.ts",
+                "type": "file"
+              },
+              {
+                "name": "PersonaRepository.ts",
+                "type": "file"
+              },
+              {
+                "name": "ProxyRepository.ts",
+                "type": "file"
+              },
+              {
+                "name": "TenantRepository.ts",
+                "type": "file"
+              },
+              {
+                "name": "UsageRepository.ts",
+                "type": "file"
+              },
+              {
+                "name": "WebhookRepository.ts",
+                "type": "file"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "docs",
+        "type": "dir",
+        "children": [
+          {
+            "name": "OpenAPISpec.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "email",
+        "type": "dir",
+        "children": [
+          {
+            "name": "EmailEngine.ts",
+            "type": "file"
+          },
+          {
+            "name": "templates",
+            "type": "dir",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "fingerprint",
+        "type": "dir",
+        "children": [
+          {
+            "name": "generator.ts",
+            "type": "file"
+          },
+          {
+            "name": "types.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "folderStore.ts",
+        "type": "file"
+      },
+      {
+        "name": "geo.ts",
+        "type": "file"
+      },
+      {
+        "name": "health",
+        "type": "dir",
+        "children": [
+          {
+            "name": "AccountHealthScore.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "health-checker.ts",
+        "type": "file"
+      },
+      {
+        "name": "identity",
+        "type": "dir",
+        "children": [
+          {
+            "name": "SyntheticIdentityManager.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "importer.ts",
+        "type": "file"
+      },
+      {
+        "name": "infra",
+        "type": "dir",
+        "children": [
+          {
+            "name": "CloudBackupEngine.ts",
+            "type": "file"
+          },
+          {
+            "name": "DisasterRecoveryEngine.ts",
+            "type": "file"
+          },
+          {
+            "name": "GracefulShutdownManager.ts",
+            "type": "file"
+          },
+          {
+            "name": "RemoteBackupEngine.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "media",
+        "type": "dir",
+        "children": [
+          {
+            "name": "index.ts",
+            "type": "file"
+          },
+          {
+            "name": "phash-mutator.ts",
+            "type": "file"
+          },
+          {
+            "name": "VideoProfileGenerator.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "mobile",
+        "type": "dir",
+        "children": [
+          {
+            "name": "MobileEmulator.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "native",
+        "type": "dir",
+        "children": [
+          {
+            "name": "AndroidEmulatorManager.ts",
+            "type": "file"
+          },
+          {
+            "name": "AppiumSessionManager.ts",
+            "type": "file"
+          },
+          {
+            "name": "NativeAutomationBridge.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "observability",
+        "type": "dir",
+        "children": [
+          {
+            "name": "Logger.ts",
+            "type": "file"
+          },
+          {
+            "name": "MetricsCollector.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "orchestrator",
+        "type": "dir",
+        "children": [
+          {
+            "name": "CampaignOrchestrator.ts",
+            "type": "file"
+          },
+          {
+            "name": "CampaignStore.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "persona",
+        "type": "dir",
+        "children": [
+          {
+            "name": "persona-store.ts",
+            "type": "file"
+          },
+          {
+            "name": "PersonaEngine.ts",
+            "type": "file"
+          },
+          {
+            "name": "PersonaStore.ts",
+            "type": "file"
+          },
+          {
+            "name": "templates",
+            "type": "dir",
+            "children": [
+              {
+                "name": "finance-strategist.json",
+                "type": "file"
+              },
+              {
+                "name": "fitness-coach.json",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "types.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "privacy",
+        "type": "dir",
+        "children": [
+          {
+            "name": "GDPREngine.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "profile.ts",
+        "type": "file"
+      },
+      {
+        "name": "profileMeta.ts",
+        "type": "file"
+      },
+      {
+        "name": "protection",
+        "type": "dir",
+        "children": [
+          {
+            "name": "AdaptiveBanPrevention.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "proxy",
+        "type": "dir",
+        "children": [
+          {
+            "name": "ProxyHealthMonitor.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "proxy-api-providers.ts",
+        "type": "file"
+      },
+      {
+        "name": "proxy.ts",
+        "type": "file"
+      },
+      {
+        "name": "ratelimit",
+        "type": "dir",
+        "children": [
+          {
+            "name": "RateLimiterEngine.ts",
+            "type": "file"
+          },
+          {
+            "name": "RateLimitMiddleware.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "scheduler",
+        "type": "dir",
+        "children": [
+          {
+            "name": "ContentScheduler.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "security",
+        "type": "dir",
+        "children": [
+          {
+            "name": "EncryptionEngine.ts",
+            "type": "file"
+          },
+          {
+            "name": "InputSanitizer.ts",
+            "type": "file"
+          },
+          {
+            "name": "RateLimiter.ts",
+            "type": "file"
+          },
+          {
+            "name": "SessionManager.ts",
+            "type": "file"
+          },
+          {
+            "name": "ThreatDetectionEngine.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "sms",
+        "type": "dir",
+        "children": [
+          {
+            "name": "index.ts",
+            "type": "file"
+          },
+          {
+            "name": "sms-hub.ts",
+            "type": "file"
+          },
+          {
+            "name": "webhook-validator.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "sse.ts",
+        "type": "file"
+      },
+      {
+        "name": "stealth",
+        "type": "dir",
+        "children": [
+          {
+            "name": "index.ts",
+            "type": "file"
+          },
+          {
+            "name": "tls-impersonate.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "store.ts",
+        "type": "file"
+      },
+      {
+        "name": "team-manager.ts",
+        "type": "file"
+      },
+      {
+        "name": "validate.ts",
+        "type": "file"
+      },
+      {
+        "name": "vault",
+        "type": "dir",
+        "children": [
+          {
+            "name": "index.ts",
+            "type": "file"
+          },
+          {
+            "name": "key-derivation.ts",
+            "type": "file"
+          },
+          {
+            "name": "types.ts",
+            "type": "file"
+          },
+          {
+            "name": "vault-manager.ts",
+            "type": "file"
+          },
+          {
+            "name": "vault-resolver.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "verification",
+        "type": "dir",
+        "children": [
+          {
+            "name": "captcha-solver.ts",
+            "type": "file"
+          },
+          {
+            "name": "email-gateway.ts",
+            "type": "file"
+          },
+          {
+            "name": "sms-manager.ts",
+            "type": "file"
+          },
+          {
+            "name": "VerificationDetector.ts",
+            "type": "file"
+          },
+          {
+            "name": "VerificationSolver.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "warming",
+        "type": "dir",
+        "children": [
+          {
+            "name": "cookie-farmer.ts",
+            "type": "file"
+          },
+          {
+            "name": "index.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "webhooks",
+        "type": "dir",
+        "children": [
+          {
+            "name": "WebhookDeliveryEngine.ts",
+            "type": "file"
+          },
+          {
+            "name": "WebhookDLQ.ts",
+            "type": "file"
+          },
+          {
+            "name": "WebhookDLQEngine.ts",
+            "type": "file"
+          },
+          {
+            "name": "WebhookRetryCron.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "workflow",
+        "type": "dir",
+        "children": [
+          {
+            "name": "ama-persona.ts",
+            "type": "file"
+          },
+          {
+            "name": "index.ts",
+            "type": "file"
+          },
+          {
+            "name": "persona-workflow-store.ts",
+            "type": "file"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "create.ts",
+    "type": "file"
+  },
+  {
+    "name": "dashboard",
+    "type": "dir",
+    "children": [
+      {
+        "name": "automation",
+        "type": "dir",
+        "children": []
+      },
+      {
+        "name": "components",
+        "type": "dir",
+        "children": [
+          {
+            "name": "ui",
+            "type": "dir",
+            "children": []
+          }
+        ]
+      },
+      {
+        "name": "lib",
+        "type": "dir",
+        "children": []
+      },
+      {
+        "name": "pages",
+        "type": "dir",
+        "children": []
+      },
+      {
+        "name": "styles",
+        "type": "dir",
+        "children": []
+      },
+      {
+        "name": "vault",
+        "type": "dir",
+        "children": []
+      }
+    ]
+  },
+  {
+    "name": "desktop",
+    "type": "dir",
+    "children": [
+      {
+        "name": "electron.d.ts",
+        "type": "file"
+      },
+      {
+        "name": "grid-manager.ts",
+        "type": "file"
+      },
+      {
+        "name": "main.ts",
+        "type": "file"
+      },
+      {
+        "name": "preload.ts",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "docs",
+    "type": "dir",
+    "children": [
+      {
+        "name": "openapi.ts",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "gateway",
+    "type": "dir",
+    "children": [
+      {
+        "name": "ApiGateway.ts",
+        "type": "file"
+      },
+      {
+        "name": "TenantStore.ts",
+        "type": "file"
+      },
+      {
+        "name": "WebhookDelivery.ts",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "index.ts",
+    "type": "file"
+  },
+  {
+    "name": "jamvestingpro",
+    "type": "dir",
+    "children": [
+      {
+        "name": "AdvisorTrainingEngine.ts",
+        "type": "file"
+      },
+      {
+        "name": "ClientLifecycleEngine.ts",
+        "type": "file"
+      },
+      {
+        "name": "ClosingScriptEngine.ts",
+        "type": "file"
+      },
+      {
+        "name": "JamVestingProOrchestrator.ts",
+        "type": "file"
+      },
+      {
+        "name": "migrations",
+        "type": "dir",
+        "children": []
+      },
+      {
+        "name": "ObjectionHandlerEngine.ts",
+        "type": "file"
+      },
+      {
+        "name": "ProspectingAutomationEngine.ts",
+        "type": "file"
+      },
+      {
+        "name": "SalesPipelineEngine.ts",
+        "type": "file"
+      },
+      {
+        "name": "types.ts",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "log.ts",
+    "type": "file"
+  },
+  {
+    "name": "middleware",
+    "type": "dir",
+    "children": [
+      {
+        "name": "admin-auth.ts",
+        "type": "file"
+      },
+      {
+        "name": "auth.ts",
+        "type": "file"
+      },
+      {
+        "name": "ownership.ts",
+        "type": "file"
+      },
+      {
+        "name": "path-guard.ts",
+        "type": "file"
+      },
+      {
+        "name": "rate-limiter.ts",
+        "type": "file"
+      },
+      {
+        "name": "security-headers.ts",
+        "type": "file"
+      },
+      {
+        "name": "validate-body.ts",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "modules",
+    "type": "dir",
+    "children": []
+  },
+  {
+    "name": "ops.ts",
+    "type": "file"
+  },
+  {
+    "name": "saas",
+    "type": "dir",
+    "children": [
+      {
+        "name": "AffiliateAntiFraudEngine.ts",
+        "type": "file"
+      },
+      {
+        "name": "AffiliateEngine.ts",
+        "type": "file"
+      },
+      {
+        "name": "BillingEngine.ts",
+        "type": "file"
+      },
+      {
+        "name": "CommissionApprovalWorkflow.ts",
+        "type": "file"
+      },
+      {
+        "name": "SaaSOnboarding.ts",
+        "type": "file"
+      },
+      {
+        "name": "TenantPortalEngine.ts",
+        "type": "file"
+      },
+      {
+        "name": "UsageMeteringAlerts.ts",
+        "type": "file"
+      },
+      {
+        "name": "WhiteLabelEngine.ts",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "sdk",
+    "type": "dir",
+    "children": [
+      {
+        "name": "PhantomClient.ts",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "server.ts",
+    "type": "file"
+  },
+  {
+    "name": "telemetry",
+    "type": "dir",
+    "children": [
+      {
+        "name": "survival.ts",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "types",
+    "type": "dir",
+    "children": [
+      {
+        "name": "automation.ts",
+        "type": "file"
+      }
+    ]
+  },
+  {
+    "name": "ui",
+    "type": "dir",
+    "children": [
+      {
+        "name": "App.tsx",
+        "type": "file"
+      },
+      {
+        "name": "components",
+        "type": "dir",
+        "children": [
+          {
+            "name": "ActivityFeed",
+            "type": "dir",
+            "children": [
+              {
+                "name": "ActivityFeed.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "CommandPalette",
+            "type": "dir",
+            "children": [
+              {
+                "name": "CommandPalette.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "FingerprintScore",
+            "type": "dir",
+            "children": [
+              {
+                "name": "FingerprintScore.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "Navigation",
+            "type": "dir",
+            "children": [
+              {
+                "name": "Sidebar.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "PageTransition",
+            "type": "dir",
+            "children": [
+              {
+                "name": "PageTransition.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "ProfileCard",
+            "type": "dir",
+            "children": [
+              {
+                "name": "ProfileCard.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "ProfileDrawer",
+            "type": "dir",
+            "children": [
+              {
+                "name": "index.ts",
+                "type": "file"
+              },
+              {
+                "name": "ProfileDrawer.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "ProjectFolderSelector",
+            "type": "dir",
+            "children": [
+              {
+                "name": "ProjectFolderSelector.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "RunningModal",
+            "type": "dir",
+            "children": [
+              {
+                "name": "index.ts",
+                "type": "file"
+              },
+              {
+                "name": "RunningProfilesModal.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "SkeletonLoader",
+            "type": "dir",
+            "children": [
+              {
+                "name": "SkeletonLoader.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "Table",
+            "type": "dir",
+            "children": [
+              {
+                "name": "Table.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "Toast",
+            "type": "dir",
+            "children": [
+              {
+                "name": "ToastProvider.tsx",
+                "type": "file"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "hooks",
+        "type": "dir",
+        "children": [
+          {
+            "name": "useApi.ts",
+            "type": "file"
+          },
+          {
+            "name": "usePhantomEvents.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "index.tsx",
+        "type": "file"
+      },
+      {
+        "name": "lib",
+        "type": "dir",
+        "children": [
+          {
+            "name": "api.ts",
+            "type": "file"
+          }
+        ]
+      },
+      {
+        "name": "pages",
+        "type": "dir",
+        "children": [
+          {
+            "name": "Admin",
+            "type": "dir",
+            "children": [
+              {
+                "name": "AdminPortalPage.tsx",
+                "type": "file"
+              },
+              {
+                "name": "SOC2BundlePage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "Affiliates",
+            "type": "dir",
+            "children": [
+              {
+                "name": "AffiliatesPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "AllPersonasPage.tsx",
+            "type": "file"
+          },
+          {
+            "name": "Automation",
+            "type": "dir",
+            "children": [
+              {
+                "name": "AutomationHubPage.tsx",
+                "type": "file"
+              },
+              {
+                "name": "AutomationRulePage.tsx",
+                "type": "file"
+              },
+              {
+                "name": "RunHistoryPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "BrowserProfilesPage.tsx",
+            "type": "file"
+          },
+          {
+            "name": "CreateProfilePage.tsx",
+            "type": "file"
+          },
+          {
+            "name": "DashboardPage.tsx",
+            "type": "file"
+          },
+          {
+            "name": "Dating",
+            "type": "dir",
+            "children": [
+              {
+                "name": "DatingFleetPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "EscalationTrackerPage.tsx",
+            "type": "file"
+          },
+          {
+            "name": "FraudLeaderboardPage.tsx",
+            "type": "file"
+          },
+          {
+            "name": "InvoicesPage.tsx",
+            "type": "file"
+          },
+          {
+            "name": "Native",
+            "type": "dir",
+            "children": [
+              {
+                "name": "NativeFleetPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "Personas",
+            "type": "dir",
+            "children": [
+              {
+                "name": "PersonaBuilderPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "ProfileDetailPage.tsx",
+            "type": "file"
+          },
+          {
+            "name": "ProfileGroupsPage.tsx",
+            "type": "file"
+          },
+          {
+            "name": "Proxy",
+            "type": "dir",
+            "children": [
+              {
+                "name": "ProxyManagerPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "ROI",
+            "type": "dir",
+            "children": [
+              {
+                "name": "ROITrackerPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "Security",
+            "type": "dir",
+            "children": [
+              {
+                "name": "EvasionHubPage.tsx",
+                "type": "file"
+              },
+              {
+                "name": "IPBlocklistPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "Settings",
+            "type": "dir",
+            "children": [
+              {
+                "name": "SettingsPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "SOC2BundlePage.tsx",
+            "type": "file"
+          },
+          {
+            "name": "Social",
+            "type": "dir",
+            "children": [
+              {
+                "name": "SocialMediaPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "SyntheticIdentityLab",
+            "type": "dir",
+            "children": [
+              {
+                "name": "SyntheticIdentityLabPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "TenantPortal",
+            "type": "dir",
+            "children": [
+              {
+                "name": "TenantPortalPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "ThreatMonitor",
+            "type": "dir",
+            "children": [
+              {
+                "name": "ThreatMonitorPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "TikTok",
+            "type": "dir",
+            "children": [
+              {
+                "name": "TikTokStudioPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "UsagePage.tsx",
+            "type": "file"
+          },
+          {
+            "name": "Vault",
+            "type": "dir",
+            "children": [
+              {
+                "name": "MediaVaultPage.tsx",
+                "type": "file"
+              }
+            ]
+          },
+          {
+            "name": "Workspaces",
+            "type": "dir",
+            "children": [
+              {
+                "name": "ProjectWorkspacePage.tsx",
+                "type": "file"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "router.tsx",
+        "type": "file"
+      },
+      {
+        "name": "tokens",
+        "type": "dir",
+        "children": [
+          {
+            "name": "css-variables.ts",
+            "type": "file"
+          },
+          {
+            "name": "design-tokens.ts",
+            "type": "file"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "verify",
+    "type": "dir",
+    "children": [
+      {
+        "name": "harness.ts",
+        "type": "file"
+      }
+    ]
+  }
+]

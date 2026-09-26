@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Phantom Architecture & Codebase Map</title>
+  <style>
+    :root {
+      --bg: #0E1018; --bg-card: rgba(26, 31, 48, 0.95); --text: #F8FAFC; --text-muted: #94A3B8;
+      --brand: #4A9EFF; --brand-light: #7EBAFF; --brand-glow: rgba(74, 158, 255, 0.28);
+    }
+    body { font-family: -apple-system, system-ui, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 40px; }
+    h1 { margin-top: 0; font-size: 2rem; color: var(--text); display: flex; align-items: center; gap: 12px; }
+    h1 svg { color: var(--brand); }
+    .container { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .card { background: var(--bg-card); border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; padding: 24px; box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    .card-title { font-size: 1.25rem; font-weight: 600; margin: 0 0 20px 0; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 12px; }
+    
+    /* Tree View */
+    ul { list-style: none; padding-left: 20px; margin: 0; }
+    .folder-content { display: none; margin-top: 4px; }
+    .folder-item.open > .folder-content { display: block; }
+    .folder-header, .file-item { display: flex; align-items: center; gap: 8px; padding: 6px; cursor: pointer; border-radius: 6px; transition: background 0.2s; }
+    .folder-header:hover, .file-item:hover { background: rgba(255,255,255,0.05); }
+    .folder-header svg { color: var(--brand-light); }
+    .file-item svg { color: var(--text-muted); }
+    .name { font-size: 0.9rem; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
+    
+    /* Feature List */
+    .feature-list { display: flex; flex-direction: column; gap: 16px; }
+    .feature-item { background: rgba(255,255,255,0.02); padding: 16px; border-radius: 8px; border-left: 3px solid var(--brand); }
+    .feature-name { font-weight: 600; color: var(--brand-light); margin-bottom: 4px; }
+    .feature-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <h2 class="card-title">📂 Interactive Codebase Map (src/)</h2>
+      <div class="tree-root" id="tree-root">
+        <!-- JS will populate tree -->
+      </div>
+    </div>
+    <div class="card">
+      <h2 class="card-title">🚀 Core Features & Subsystems</h2>
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-name">Core AI Orchestrator (src/core/ai)</div>
+          <div class="feature-desc">Dynamic model router mapping tasks to cloud (OpenAI, Claude, Opencode) and local endpoints (Python Runner, Ollama). Uses Round-Robin load balancing and cost tracking.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-name">Synthetic Identity Engine (src/core/persona)</div>
+          <div class="feature-desc">Generates deep fake identities with historically consistent backgrounds, matching geolocation details, and synthesizes images/videos using SDXL/Flux and Wan2.1.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-name">Stealth & Evasion Hub (src/core/security)</div>
+          <div class="feature-desc">Manages Antidetect profiles, WebRTC obfuscation, Canvas fingerprint perturbation, hardware spoofing, and IP proxies to evade Cloudflare/Datadome.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-name">Social & Dating Automation (src/automation)</div>
+          <div class="feature-desc">Automated interaction engines for Tinder, Bumble, TikTok, IG, and Twitter. Includes Shadowhash bypassing, AI reply engines, and escalation strategies.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-name">SaaS & Billing Engine (src/saas)</div>
+          <div class="feature-desc">Tenant isolation, Stripe checkout integration, usage metering (per API call), and automated onboarding flows for agency-level clients.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-name">Native Mobile Fleet (src/browser)</div>
+          <div class="feature-desc">Appium/Android AVD bridge to run automation on natively emulated mobile devices rather than Chromium instances for maximum trust score.</div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-name">React Dashboard (src/ui)</div>
+          <div class="feature-desc">A premium glassmorphism UI built with React Router, 8pt grid token system, and deep state management for administering the Phantom backend.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    fetch('tree.json')
+      .then(res => res.json())
+      .then(tree => {
+        function buildHtml(nodes, depth=0) {
+          let html = `<ul class="folder-content" ${depth === 0 ? "style='display:block;'" : ""}>`;
+          nodes.sort((a,b) => (a.type === b.type ? a.name.localeCompare(b.name) : a.type === "dir" ? -1 : 1)).forEach(n => {
+            if (n.type === "dir") {
+              html += `
+                <li class="folder-item">
+                  <div class="folder-header" onclick="this.parentElement.classList.toggle('open')">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    <span class="name">${n.name}</span>
+                  </div>
+                  ${buildHtml(n.children, depth+1)}
+                </li>`;
+            } else {
+              html += `
+                <li class="file-item">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                  <span class="name">${n.name}</span>
+                </li>`;
+            }
+          });
+          html += `</ul>`;
+          return html;
+        }
+        document.getElementById('tree-root').innerHTML = buildHtml(tree);
+      });
+  </script>
+</body>
+</html>

@@ -368,6 +368,296 @@
       transition: opacity 0.3s ease;
     }
 
+    /* Promo Video Modal */
+    .promo-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(1, 14, 39, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .promo-modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .promo-modal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.9), 0 0 50px rgba(0, 95, 249, 0.35);
+      width: 100%;
+      max-width: 1080px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      animation: modalPopIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes modalPopIn {
+      0% { transform: scale(0.94); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .promo-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 24px;
+      background: var(--bg-dark);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .promo-modal-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .promo-modal-tab {
+      padding: 6px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .promo-modal-tab:hover {
+      color: var(--text-primary);
+      border-color: var(--brand-primary);
+    }
+
+    .promo-modal-tab.active {
+      color: #FFFFFF;
+      background: var(--brand-primary);
+      border-color: var(--brand-primary);
+      box-shadow: 0 0 14px rgba(0, 95, 249, 0.5);
+    }
+
+    .promo-modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-tertiary);
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: var(--radius-sm);
+      transition: color 0.2s;
+    }
+
+    .promo-modal-close:hover {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .promo-modal-video-box {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      position: relative;
+    }
+
+    .promo-modal-video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .promo-modal-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      padding: 14px 24px;
+      background: var(--bg-dark);
+      border-top: 1px solid var(--border-subtle);
+      font-size: 13px;
+      color: var(--text-secondary);
+    }
+
+    /* Video Showcase Gallery Section */
+    .video-gallery-section {
+      padding: 80px 0;
+      position: relative;
+    }
+
+    .video-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    @media (max-width: 980px) {
+      .video-gallery-grid {
+        grid-template-columns: 1fr;
+        max-width: 620px;
+        margin: 0 auto;
+      }
+    }
+
+    .video-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+      position: relative;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    }
+
+    .video-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--brand-primary);
+      box-shadow: 0 20px 50px rgba(0, 95, 249, 0.25);
+    }
+
+    .video-card.featured {
+      border-color: rgba(0, 95, 249, 0.6);
+      box-shadow: 0 0 35px rgba(0, 95, 249, 0.25);
+    }
+
+    .video-card-thumb {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #000;
+      overflow: hidden;
+      cursor: pointer;
+    }
+
+    .video-card-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease, filter 0.3s ease;
+    }
+
+    .video-card:hover .video-card-thumb img {
+      transform: scale(1.05);
+      filter: brightness(0.85);
+    }
+
+    .video-duration-pill {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      background: rgba(0, 0, 0, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 9px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      backdrop-filter: blur(6px);
+    }
+
+    .video-play-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: rgba(0, 95, 249, 0.9);
+      border: 2px solid #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      box-shadow: 0 0 25px rgba(0, 95, 249, 0.8);
+      transition: all 0.25s ease;
+      cursor: pointer;
+    }
+
+    .video-card-thumb:hover .video-play-overlay {
+      transform: translate(-50%, -50%) scale(1.12);
+      background: #00E5FF;
+      color: #000000;
+      box-shadow: 0 0 35px rgba(0, 229, 255, 0.9);
+    }
+
+    .video-card-body {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .video-card-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+
+    .video-card-tag {
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.06);
+      color: var(--text-tertiary);
+      border: 1px solid var(--border-subtle);
+    }
+
+    .video-card-tag.primary {
+      background: rgba(0, 95, 249, 0.15);
+      color: #60A5FA;
+      border-color: rgba(0, 95, 249, 0.35);
+    }
+
+    .video-card-tag.accent {
+      background: rgba(16, 185, 129, 0.15);
+      color: #34D399;
+      border-color: rgba(16, 185, 129, 0.35);
+    }
+
+    .video-card h3 {
+      font-size: 19px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .video-card p {
+      font-size: 14px;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      margin-bottom: 20px;
+      flex-grow: 1;
+    }
+
+    .video-card-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: auto;
+    }
+
     /* Trust Stats Bar */
     .trust-bar {
       padding: 40px 0;
@@ -1075,6 +1365,76 @@
       .footer-grid { grid-template-columns: 1fr; }
       .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
     }
+
+    /* Crypto Payment Modal */
+    .crypto-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 5, 18, 0.85);
+      backdrop-filter: blur(14px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .crypto-modal-overlay.open {
+      display: flex;
+    }
+    .crypto-modal-card {
+      background: #071636;
+      border: 1px solid rgba(0, 95, 249, 0.4);
+      border-radius: 20px;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.75), 0 0 40px rgba(0, 95, 249, 0.25);
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      color: #FFFFFF;
+      position: relative;
+    }
+    .crypto-modal-header {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .crypto-modal-body {
+      padding: 24px;
+    }
+    .crypto-net-pill {
+      padding: 8px 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .crypto-net-pill.active {
+      background: rgba(0, 95, 249, 0.2);
+      border-color: #005FF9;
+      color: #FFFFFF;
+      box-shadow: 0 0 14px rgba(0, 95, 249, 0.35);
+    }
+    .crypto-input {
+      width: 100%;
+      background: rgba(1, 14, 39, 0.8);
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      padding: 10px 14px;
+      color: #FFFFFF;
+      font-size: 13.5px;
+      margin-top: 6px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+    .crypto-input:focus {
+      border-color: #005FF9;
+    }
   </style>
 </head>
 <body>
@@ -1096,6 +1456,7 @@
       </a>
 
       <nav class="nav-links">
+        <a href="#video-showcase">🎬 Video Demos</a>
         <a href="#features">Features</a>
         <a href="#comparison">Phantom vs Competitors</a>
         <a href="#pricing">Pricing</a>
@@ -1136,6 +1497,10 @@
           <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
           Download for Windows (v1.0.0)
         </a>
+        <button type="button" onclick="openPromoModal('60')" class="btn btn-secondary" style="font-size: 16px; padding: 14px 28px; display: inline-flex; align-items: center; gap: 8px; cursor: pointer; border: 1px solid #005FF9; color: #FFFFFF; background: rgba(0, 95, 249, 0.15); box-shadow: 0 0 20px rgba(0, 95, 249, 0.25);">
+          <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          Watch Launch Trailers (30s / 60s / 90s)
+        </button>
         <a href="#pricing" class="btn btn-secondary" style="font-size: 16px; padding: 14px 28px;">
           Explore Pricing & Plans &rarr;
         </a>
@@ -1148,10 +1513,22 @@
         <span><svg width="14" height="14" fill="#10B981" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg> Auto-Update Enabled</span>
       </div>
 
-      <!-- Live Mockup Showcase Tabs (All 11 Core Feature Suites) -->
+      <!-- Live Mockup Showcase Tabs (All 11 Core Feature Suites + 3 Video Cuts) -->
       <div class="showcase-container">
         <div class="showcase-nav" style="flex-wrap: wrap; justify-content: center; gap: 8px;">
-          <button class="showcase-tab active" onclick="switchShowcase('profiles', this)">
+          <div style="display: flex; gap: 6px; background: rgba(0, 95, 249, 0.12); padding: 4px; border-radius: 10px; border: 1px solid rgba(0, 95, 249, 0.3);">
+            <button class="showcase-tab active" id="tab-hero-video-60" onclick="switchShowcaseVideo('60', this)" style="border-color: #005FF9; background: #005FF9; color: #FFFFFF; padding: 6px 14px;">
+              🎬 60s Flagship
+            </button>
+            <button class="showcase-tab" id="tab-hero-video-30" onclick="switchShowcaseVideo('30', this)" style="padding: 6px 14px;">
+              ⚡ 30s Speedrun
+            </button>
+            <button class="showcase-tab" id="tab-hero-video-90" onclick="switchShowcaseVideo('90', this)" style="padding: 6px 14px;">
+              🔍 90s Walkthrough
+            </button>
+          </div>
+          <span style="display: inline-block; width: 1px; height: 26px; background: var(--border-subtle); margin: 0 4px; align-self: center;"></span>
+          <button class="showcase-tab" onclick="switchShowcase('profiles', this)">
             🌐 Browser Profiles
           </button>
           <button class="showcase-tab" onclick="switchShowcase('proxy', this)">
@@ -1190,7 +1567,11 @@
         </div>
 
         <div class="showcase-media">
-          <img id="showcase-img" src="assets/screenshots/browser-profiles.jpg" alt="Phantom Browser Profiles" class="showcase-img">
+          <video id="showcase-video" class="showcase-video" controls playsinline preload="metadata" poster="assets/video/previews/still-reveal.png" style="width: 100%; height: 100%; object-fit: contain; background: #000;">
+            <source src="assets/video/phantom-promo-60s.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+          </video>
+          <img id="showcase-img" src="assets/screenshots/browser-profiles.jpg" alt="Phantom Browser Profiles" class="showcase-img" style="display: none;">
         </div>
       </div>
     </div>
@@ -1215,6 +1596,119 @@
         <div class="stat-card">
           <h3 class="gradient-text">58+</h3>
           <p>Integrated Stealth &amp; Growth Tools</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Official Video Showcase Gallery (30s, 60s, 90s) -->
+  <section class="video-gallery-section" id="video-showcase" style="background: linear-gradient(180deg, rgba(6, 11, 24, 0.4) 0%, rgba(4, 18, 44, 0.7) 50%, rgba(6, 11, 24, 0.4) 100%);">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-tag" style="background: rgba(0, 95, 249, 0.15); color: #60A5FA; border: 1px solid rgba(0, 95, 249, 0.4);">
+          Official Video Showcase &amp; Live Demos
+        </span>
+        <h2>Experience Phantom in Action Across 3 Dedicated Cuts</h2>
+        <p>
+          Whether you want an instant 30-second speedrun, the complete 60-second flagship product launch, or a comprehensive 90-second technical architecture tour — watch how Phantom redefines anti-detect browsing.
+        </p>
+      </div>
+
+      <div class="video-gallery-grid">
+        <!-- Card 1: 30s Speedrun -->
+        <div class="video-card">
+          <div class="video-card-thumb" onclick="openPromoModal('30')">
+            <img src="assets/video/previews/still-hook.png" alt="Phantom 30s Rapid Speedrun Preview">
+            <span class="video-duration-pill">0:30 • 1080p 60fps</span>
+            <div class="video-play-overlay" title="Play 30s Video">
+              <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+            </div>
+          </div>
+          <div class="video-card-body">
+            <div class="video-card-tags">
+              <span class="video-card-tag primary">⚡ Rapid Overview</span>
+              <span class="video-card-tag">Prototype Stealth</span>
+              <span class="video-card-tag">Anti-Ban</span>
+            </div>
+            <h3>⚡ 30s Rapid Speedrun</h3>
+            <p>
+              High-velocity breakdown of root W3C prototype spoofing, genuine PCI device IDs, and our 31-target proxy cleanliness tester in 30 action-packed seconds.
+            </p>
+            <div class="video-card-actions">
+              <button type="button" onclick="openPromoModal('30')" class="btn btn-primary" style="flex: 1; padding: 10px 16px; font-size: 13.5px;">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Watch 30s Cut
+              </button>
+              <button type="button" onclick="switchShowcaseVideo('30', document.getElementById('tab-hero-video-30')); window.scrollTo({top: 360, behavior: 'smooth'});" class="btn btn-secondary" style="padding: 10px 14px; font-size: 13.5px;" title="Load in Hero Player">
+                Preview Above
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: 60s Flagship Trailer (Featured) -->
+        <div class="video-card featured">
+          <div style="position: absolute; top: 12px; left: 12px; z-index: 2; background: linear-gradient(135deg, #005FF9, #9647DB); color: #FFFFFF; font-size: 11px; font-weight: 800; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; letter-spacing: 0.5px; box-shadow: 0 4px 14px rgba(0, 95, 249, 0.5);">
+            ⭐ Official Flagship Cut
+          </div>
+          <div class="video-card-thumb" onclick="openPromoModal('60')">
+            <img src="assets/video/previews/still-reveal.png" alt="Phantom 60s Flagship Trailer Preview">
+            <span class="video-duration-pill">1:00 • 1080p 60fps</span>
+            <div class="video-play-overlay" title="Play 60s Flagship Video" style="width: 64px; height: 64px;">
+              <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+            </div>
+          </div>
+          <div class="video-card-body">
+            <div class="video-card-tags">
+              <span class="video-card-tag primary">🎬 Full Launch Trailer</span>
+              <span class="video-card-tag accent">Mobile AVD Fleet</span>
+              <span class="video-card-tag">CreepJS 100/100</span>
+            </div>
+            <h3>🎬 60s Official Flagship Launch</h3>
+            <p>
+              The comprehensive product premiere showcasing browser profile multilogin, native mobile Android AVD fleet, CreepJS verification, and private temp emails.
+            </p>
+            <div class="video-card-actions">
+              <button type="button" onclick="openPromoModal('60')" class="btn btn-primary" style="flex: 1; padding: 10px 16px; font-size: 13.5px; background: linear-gradient(135deg, #005FF9, #2563EB);">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Watch 60s Flagship
+              </button>
+              <button type="button" onclick="switchShowcaseVideo('60', document.getElementById('tab-hero-video-60')); window.scrollTo({top: 360, behavior: 'smooth'});" class="btn btn-secondary" style="padding: 10px 14px; font-size: 13.5px;" title="Load in Hero Player">
+                Preview Above
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: 90s Deep-Dive Architecture Walkthrough -->
+        <div class="video-card">
+          <div class="video-card-thumb" onclick="openPromoModal('90')">
+            <img src="assets/video/previews/still-proxy.png" alt="Phantom 90s Technical Deep Dive Preview">
+            <span class="video-duration-pill">1:30 • 1080p 60fps</span>
+            <div class="video-play-overlay" title="Play 90s Deep Dive">
+              <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><polygon points="6 4 20 12 6 20 6 4"/></svg>
+            </div>
+          </div>
+          <div class="video-card-body">
+            <div class="video-card-tags">
+              <span class="video-card-tag primary">🔍 Architecture Deep-Dive</span>
+              <span class="video-card-tag">Visual RPA Builder</span>
+              <span class="video-card-tag">KYC Studio</span>
+            </div>
+            <h3>🔍 90s Technical Deep Dive</h3>
+            <p>
+              Step-by-step walkthrough covering the node-based Visual RPA builder, multi-window synchronizer, KYC biometric liveness emulation, and auto-update hub.
+            </p>
+            <div class="video-card-actions">
+              <button type="button" onclick="openPromoModal('90')" class="btn btn-primary" style="flex: 1; padding: 10px 16px; font-size: 13.5px;">
+                <svg width="15" height="15" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Watch 90s Deep Dive
+              </button>
+              <button type="button" onclick="switchShowcaseVideo('90', document.getElementById('tab-hero-video-90')); window.scrollTo({top: 360, behavior: 'smooth'});" class="btn btn-secondary" style="padding: 10px 14px; font-size: 13.5px;" title="Load in Hero Player">
+                Preview Above
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1659,7 +2153,7 @@
             </tr>
             <tr>
               <td><strong>Price for 50 Profiles</strong></td>
-              <td class="highlight-col"><strong>$19/mo</strong> ($15 billed annual)</td>
+              <td class="highlight-col"><strong>$29/mo</strong> ($24 billed annual)</td>
               <td>$49/mo</td>
               <td>$29/mo (Pro 50)</td>
               <td>$25/mo</td>
@@ -1667,7 +2161,7 @@
             </tr>
             <tr>
               <td><strong>Free Tier Available</strong></td>
-              <td class="highlight-col"><span class="check-yes">10 Profiles Free Forever</span></td>
+              <td class="highlight-col"><span class="check-yes">5 Profiles Free Forever</span></td>
               <td>3 Profiles Free</td>
               <td>5 Profiles Free</td>
               <td>2 Profiles Free</td>
@@ -1685,7 +2179,7 @@
       <div class="section-head">
         <span class="section-tag">Predictable & Fair</span>
         <h2>Transparent Pricing for Every Scale</h2>
-        <p>No arbitrary seat lockouts or hidden cloud phone charges. Pay for what you use, or stay on our Free Forever Community tier.</p>
+        <p>Start completely free with 5 stealth browser profiles. Upgrade with USDT crypto to unlock unlimited profiles, proxy verification, mobile AVD fleet, and automated workflows.</p>
       </div>
 
       <div class="pricing-toggle-wrap">
@@ -1698,7 +2192,7 @@
         <!-- Plan 1: Free Community -->
         <div class="price-card">
           <h3>Community</h3>
-          <p class="desc">Ideal for solo individuals, researchers, and basic privacy protection.</p>
+          <p class="desc">Ideal for solo individuals, researchers, and evaluating Phantom prototype stealth.</p>
           <div class="price-amount-wrap">
             <span class="price-amount">$0</span>
             <span class="price-period">/forever</span>
@@ -1706,7 +2200,7 @@
           <ul class="price-features-list">
             <li class="highlight">
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>10 Browser Profiles</strong></span>
+              <span><strong>5 Stealth Browser Profiles</strong></span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -1714,22 +2208,22 @@
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span>10 Proxy Verifier Scans / Day</span>
+              <span>Unlimited Profile Runs & Sessions</span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span>Temp Email Engine (Public Catch-all)</span>
+              <span>Zero Credit Card Required</span>
             </li>
-            <li>
-              <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span>1 Active Mobile AVD Instance</span>
+            <li style="opacity: 0.6;">
+              <svg fill="#64748B" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+              <span>Proxy Verifier & Mobile Fleet Locked</span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
               <span>Automated GitHub Background Updates</span>
             </li>
           </ul>
-          <a href="#downloads" class="btn btn-secondary">Get Started Free</a>
+          <a href="#downloads" class="btn btn-secondary">Download Free (.exe)</a>
         </div>
 
         <!-- Plan 2: Solo / Starter -->
@@ -1737,7 +2231,7 @@
           <h3>Solo Pro</h3>
           <p class="desc">For independent growth marketers, media buyers, and affiliate creators.</p>
           <div class="price-amount-wrap">
-            <span class="price-amount price-val" data-monthly="19" data-annual="15">$19</span>
+            <span class="price-amount price-val" data-monthly="29" data-annual="24">$29</span>
             <span class="price-period">/month</span>
           </div>
           <ul class="price-features-list">
@@ -1747,11 +2241,11 @@
             </li>
             <li class="highlight">
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>3 Team Member Seats</strong></span>
+              <span><strong>3 Team Member Devices</strong></span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span>Unlimited 31-Target Proxy Verifier</span>
+              <span>Full Access to 31-Target Proxy Verifier</span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -1766,7 +2260,7 @@
               <span>AI Gateway (Bring Your Own Key)</span>
             </li>
           </ul>
-          <a href="#downloads" class="btn btn-primary">Start 7-Day Free Trial</a>
+          <button type="button" onclick="openCryptoPayment('solo_pro')" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">Upgrade with USDT</button>
         </div>
 
         <!-- Plan 3: Team / Agency (Featured) -->
@@ -1775,7 +2269,7 @@
           <h3>Agency Team</h3>
           <p class="desc">Engineered for digital marketing agencies, scraping operations, and media teams.</p>
           <div class="price-amount-wrap">
-            <span class="price-amount price-val" data-monthly="49" data-annual="39">$49</span>
+            <span class="price-amount price-val" data-monthly="69" data-annual="55">$69</span>
             <span class="price-period">/month</span>
           </div>
           <ul class="price-features-list">
@@ -1785,7 +2279,7 @@
             </li>
             <li class="highlight">
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>10 Team Member Seats</strong></span>
+              <span><strong>10 Team Member Devices</strong></span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -1804,7 +2298,7 @@
               <span>Priority 24/7 Discord & Telegram Support</span>
             </li>
           </ul>
-          <a href="#downloads" class="btn btn-primary" style="box-shadow: 0 4px 18px rgba(59, 130, 246, 0.7);">Start 7-Day Free Trial</a>
+          <button type="button" onclick="openCryptoPayment('agency_team')" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer; box-shadow: 0 4px 18px rgba(59, 130, 246, 0.7);">Upgrade with USDT</button>
         </div>
 
         <!-- Plan 4: Scale Enterprise -->
@@ -1812,7 +2306,7 @@
           <h3>Scale Enterprise</h3>
           <p class="desc">Unlimited capacity for large-scale crawling, automated farms, and fintech operators.</p>
           <div class="price-amount-wrap">
-            <span class="price-amount price-val" data-monthly="99" data-annual="79">$99</span>
+            <span class="price-amount price-val" data-monthly="149" data-annual="119">$149</span>
             <span class="price-period">/month</span>
           </div>
           <ul class="price-features-list">
@@ -1822,7 +2316,7 @@
             </li>
             <li class="highlight">
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
-              <span><strong>Unlimited Team Seats</strong></span>
+              <span><strong>20 Team Member Devices</strong></span>
             </li>
             <li>
               <svg fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
@@ -1841,7 +2335,7 @@
               <span>Dedicated Technical Account Manager</span>
             </li>
           </ul>
-          <a href="#downloads" class="btn btn-secondary">Contact Enterprise Sales</a>
+          <button type="button" onclick="openCryptoPayment('scale_enterprise')" class="btn btn-secondary" style="width: 100%; border: 1px solid var(--border-glow); cursor: pointer;">Upgrade with USDT</button>
         </div>
       </div>
     </div>
@@ -2130,16 +2624,69 @@
       }
     };
 
-    function switchShowcase(key, btn) {
-      document.querySelectorAll('.showcase-tab').forEach(t => t.classList.remove('active'));
-      btn.classList.add('active');
+    function switchShowcaseVideo(cut, btn) {
+      document.querySelectorAll('.showcase-tab').forEach(t => {
+        t.classList.remove('active');
+        t.style.background = '';
+        t.style.borderColor = '';
+        t.style.color = '';
+      });
+      if (btn) {
+        btn.classList.add('active');
+        btn.style.background = '#005FF9';
+        btn.style.borderColor = '#005FF9';
+        btn.style.color = '#FFFFFF';
+      }
+      const video = document.getElementById('showcase-video');
       const img = document.getElementById('showcase-img');
-      img.style.opacity = '0.3';
-      setTimeout(() => {
-        img.src = showcaseData[key].src;
-        img.alt = showcaseData[key].alt;
-        img.style.opacity = '1';
-      }, 150);
+      const data = promoSources[cut] || promoSources['60'];
+
+      if (img) img.style.display = 'none';
+      if (video) {
+        video.style.display = 'block';
+        video.src = data.src;
+        video.poster = data.poster;
+        video.currentTime = 0;
+        video.load();
+        video.play().catch(() => {});
+      }
+    }
+
+    function switchShowcase(key, btn) {
+      document.querySelectorAll('.showcase-tab').forEach(t => {
+        t.classList.remove('active');
+        t.style.background = '';
+        t.style.borderColor = '';
+        t.style.color = '';
+      });
+      if (btn) btn.classList.add('active');
+      const video = document.getElementById('showcase-video');
+      const img = document.getElementById('showcase-img');
+
+      if (key === 'video' || key === 'video_60') {
+        switchShowcaseVideo('60', btn);
+        return;
+      } else if (key === 'video_30') {
+        switchShowcaseVideo('30', btn);
+        return;
+      } else if (key === 'video_90') {
+        switchShowcaseVideo('90', btn);
+        return;
+      }
+
+      if (video) {
+        video.pause();
+        video.style.display = 'none';
+      }
+      if (img && showcaseData[key]) {
+        img.style.display = 'block';
+        img.style.opacity = '0.3';
+        setTimeout(() => {
+          img.src = showcaseData[key].src;
+          img.alt = showcaseData[key].alt;
+          img.style.opacity = '1';
+        }, 150);
+      }
     }
 
     // Billing toggle
@@ -2175,6 +2722,341 @@
       const item = questionEl.parentElement;
       item.classList.toggle('open');
     }
+
+    // Promo Video Modal Controller
+    const promoSources = {
+      '60': { src: 'assets/video/phantom-promo-60s.mp4', poster: 'assets/video/previews/still-reveal.png' },
+      '30': { src: 'assets/video/phantom-promo-30s.mp4', poster: 'assets/video/previews/still-hook.png' },
+      '90': { src: 'assets/video/phantom-promo-90s.mp4', poster: 'assets/video/previews/still-proxy.png' }
+    };
+
+    function openPromoModal(cut = '60') {
+      const modal = document.getElementById('promo-video-modal');
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      setModalVideo(cut);
+    }
+
+    function closePromoModal() {
+      const modal = document.getElementById('promo-video-modal');
+      const player = document.getElementById('modal-promo-player');
+      if (player) {
+        player.pause();
+      }
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function handlePromoModalBackdrop(e) {
+      if (e.target.id === 'promo-video-modal') {
+        closePromoModal();
+      }
+    }
+
+    function setModalVideo(cut) {
+      const player = document.getElementById('modal-promo-player');
+      const data = promoSources[cut] || promoSources['60'];
+
+      document.querySelectorAll('.promo-modal-tab').forEach(tab => tab.classList.remove('active'));
+      const activeTab = document.getElementById('tab-modal-' + cut);
+      if (activeTab) activeTab.classList.add('active');
+
+      if (player) {
+        player.src = data.src;
+        player.poster = data.poster;
+        player.load();
+        player.play().catch(() => {});
+      }
+    }
+
+    // Crypto Payment Checkout Modal Logic
+    const cryptoAddresses = {
+      trc20: 'TQQcN4KhNKc6c4BPWzCDjhNm4YPGSWLrqi',
+      erc20: '0x96d294E27D4Bb2959897aC11FFCE03606324380B'
+    };
+
+    const planPrices = {
+      solo_pro: { name: 'Solo Pro', monthly: 29, annual: 24, totalAnnual: 288 },
+      agency_team: { name: 'Agency Team', monthly: 69, annual: 55, totalAnnual: 660 },
+      scale_enterprise: { name: 'Scale Enterprise', monthly: 149, annual: 119, totalAnnual: 1428 }
+    };
+
+    let selectedPlanId = 'solo_pro';
+    let selectedNetwork = 'trc20';
+
+    function openCryptoPayment(planId) {
+      if (planId && planPrices[planId]) {
+        selectedPlanId = planId;
+      }
+      const select = document.getElementById('crypto-plan-select');
+      if (select) select.value = selectedPlanId;
+      updateCryptoModalUI();
+      const modal = document.getElementById('crypto-payment-modal');
+      if (modal) {
+        modal.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeCryptoPayment() {
+      const modal = document.getElementById('crypto-payment-modal');
+      if (modal) {
+        modal.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function handleCryptoModalBackdrop(e) {
+      if (e.target.id === 'crypto-payment-modal') {
+        closeCryptoPayment();
+      }
+    }
+
+    function setCryptoNetwork(network) {
+      selectedNetwork = network;
+      document.querySelectorAll('.crypto-net-pill').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById('net-pill-' + network);
+      if (activeBtn) activeBtn.classList.add('active');
+      updateCryptoModalUI();
+    }
+
+    function handlePlanSelectChange(e) {
+      selectedPlanId = e.target.value;
+      updateCryptoModalUI();
+    }
+
+    function updateCryptoModalUI() {
+      const plan = planPrices[selectedPlanId] || planPrices.solo_pro;
+      const addr = cryptoAddresses[selectedNetwork] || cryptoAddresses.trc20;
+      const isAnnual = isAnnualBilling;
+      const amount = isAnnual ? plan.totalAnnual : plan.monthly;
+
+      const addrEl = document.getElementById('crypto-deposit-addr');
+      if (addrEl) addrEl.textContent = addr;
+
+      const qrImg = document.getElementById('crypto-qr-img');
+      if (qrImg) qrImg.src = selectedNetwork === 'trc20' ? 'assets/qr/usdt-trc20.svg' : 'assets/qr/usdt-erc20.svg';
+
+      const amountDisplay = document.getElementById('crypto-payable-amount');
+      if (amountDisplay) amountDisplay.textContent = `$${amount} USDT`;
+
+      const cycleDisplay = document.getElementById('crypto-payable-cycle');
+      if (cycleDisplay) cycleDisplay.textContent = isAnnual ? '(Annual Billing - 20% Saved)' : '(Monthly Billing)';
+
+      const inputAmount = document.getElementById('crypto-form-amount');
+      if (inputAmount) inputAmount.value = amount;
+    }
+
+    function copyCryptoAddress() {
+      const addr = cryptoAddresses[selectedNetwork];
+      navigator.clipboard.writeText(addr).then(() => {
+        const btn = document.getElementById('crypto-copy-btn');
+        if (btn) {
+          const original = btn.innerHTML;
+          btn.innerHTML = '✓ Copied!';
+          setTimeout(() => { btn.innerHTML = original; }, 2000);
+        }
+      });
+    }
+
+    function handleCryptoSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('crypto-form-email').value;
+      const txid = document.getElementById('crypto-form-txid').value;
+      const amount = document.getElementById('crypto-form-amount').value;
+
+      const formBox = document.getElementById('crypto-form-container');
+      const successBox = document.getElementById('crypto-success-container');
+
+      if (formBox && successBox) {
+        formBox.style.display = 'none';
+        successBox.style.display = 'block';
+        const confEmail = document.getElementById('crypto-conf-email');
+        if (confEmail) confEmail.textContent = email;
+      }
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closePromoModal();
+        closeCryptoPayment();
+      }
+    });
   </script>
+
+  <!-- Promo Video Popup Modal Dialog -->
+  <div id="promo-video-modal" class="promo-modal-overlay" onclick="handlePromoModalBackdrop(event)">
+    <div class="promo-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-promo-title">
+      <div class="promo-modal-header">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 8px; background: rgba(0, 95, 249, 0.2); color: #005FF9;">
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+          </span>
+          <div>
+            <h3 id="modal-promo-title" style="font-size: 16px; font-weight: 700; color: #FFFFFF; margin: 0;">Phantom Launch Showcase</h3>
+            <span style="font-size: 12px; color: var(--text-tertiary);">Official High-Fidelity 1080p Product Trailer</span>
+          </div>
+        </div>
+
+        <div class="promo-modal-tabs">
+          <button class="promo-modal-tab active" id="tab-modal-60" onclick="setModalVideo('60')">60s Flagship</button>
+          <button class="promo-modal-tab" id="tab-modal-30" onclick="setModalVideo('30')">30s Speedrun</button>
+          <button class="promo-modal-tab" id="tab-modal-90" onclick="setModalVideo('90')">90s Walkthrough</button>
+        </div>
+
+        <button class="promo-modal-close" onclick="closePromoModal()" aria-label="Close Modal">&times;</button>
+      </div>
+
+      <div class="promo-modal-video-box">
+        <video id="modal-promo-player" controls playsinline poster="assets/video/previews/still-reveal.png">
+          <source id="modal-video-src" src="assets/video/phantom-promo-60s.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+
+      <div class="promo-modal-footer">
+        <div style="display: flex; align-items: center; gap: 16px; flex-wrap: wrap;">
+          <span style="display: inline-flex; align-items: center; gap: 6px; color: #10B981; font-weight: 600;">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Root W3C Prototype Cloak
+          </span>
+          <span style="display: inline-flex; align-items: center; gap: 6px; color: #00E5FF; font-weight: 600;">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            31-Target Proxy Verifier
+          </span>
+          <span style="display: inline-flex; align-items: center; gap: 6px; color: #9647DB; font-weight: 600;">
+            <svg width="14" height="14" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+            Mobile AVD Fleet (PiP)
+          </span>
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <a href="https://github.com/phantom-stealth/phantom-desktop/releases/download/v1.0.0/Phantom-Setup-1.0.0.exe" class="btn btn-primary" style="font-size: 13px; padding: 8px 16px;">
+            Download Installer &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dedicated Crypto Payment Modal Dialog -->
+  <div id="crypto-payment-modal" class="crypto-modal-overlay" onclick="handleCryptoModalBackdrop(event)">
+    <div class="crypto-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-crypto-title">
+      <div class="crypto-modal-header">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; border-radius: 9px; background: rgba(0, 95, 249, 0.2); color: #38BDF8;">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+          </span>
+          <div>
+            <h3 id="modal-crypto-title" style="font-size: 17px; font-weight: 700; color: #FFFFFF; margin: 0;">USDT Crypto Checkout</h3>
+            <span style="font-size: 12px; color: var(--text-tertiary);">Direct On-Chain Payment & Automated License Provisioning</span>
+          </div>
+        </div>
+        <button class="promo-modal-close" onclick="closeCryptoPayment()" aria-label="Close Modal">&times;</button>
+      </div>
+
+      <div class="crypto-modal-body">
+        <div id="crypto-form-container">
+          <!-- Step 1: Select Plan & Network -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 20px;">
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 6px;">Select Plan</label>
+              <select id="crypto-plan-select" onchange="handlePlanSelectChange(event)" class="crypto-input" style="font-weight: 600;">
+                <option value="solo_pro">Solo Pro ($29/mo - 50 Profiles)</option>
+                <option value="agency_team">Agency Team ($69/mo - 200 Profiles)</option>
+                <option value="scale_enterprise">Scale Enterprise ($149/mo - Unlimited)</option>
+              </select>
+            </div>
+            <div>
+              <label style="display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-secondary); margin-bottom: 6px;">Network</label>
+              <div style="display: flex; gap: 8px;">
+                <button type="button" id="net-pill-trc20" onclick="setCryptoNetwork('trc20')" class="crypto-net-pill active" style="flex: 1;">USDT TRC20</button>
+                <button type="button" id="net-pill-erc20" onclick="setCryptoNetwork('erc20')" class="crypto-net-pill" style="flex: 1;">USDT ERC20</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2: Barcode & Deposit Address -->
+          <div style="background: rgba(1, 14, 39, 0.7); border: 1px solid rgba(0, 95, 249, 0.3); border-radius: 14px; padding: 20px; margin-bottom: 24px; display: flex; gap: 20px; align-items: center;">
+            <div style="background: #FFFFFF; padding: 8px; border-radius: 12px; flex-shrink: 0; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);">
+              <img id="crypto-qr-img" src="assets/qr/usdt-trc20.svg" alt="USDT Deposit Barcode QR" style="width: 130px; height: 130px; display: block;">
+            </div>
+
+            <div style="flex: 1; min-width: 0;">
+              <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 6px;">
+                <span id="crypto-payable-amount" style="font-size: 22px; font-weight: 800; color: #FFFFFF;">$29 USDT</span>
+                <span id="crypto-payable-cycle" style="font-size: 12px; color: var(--text-tertiary);">(Monthly Billing)</span>
+              </div>
+              <div style="font-size: 12px; color: var(--text-secondary); margin-bottom: 10px;">
+                Scan QR or transfer exact amount to deposit address:
+              </div>
+
+              <div style="display: flex; align-items: center; gap: 8px; background: rgba(0, 0, 0, 0.4); border: 1px solid var(--border-subtle); border-radius: 8px; padding: 8px 12px;">
+                <code id="crypto-deposit-addr" style="font-family: monospace; font-size: 12px; color: #38BDF8; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1;">
+                  TQQcN4KhNKc6c4BPWzCDjhNm4YPGSWLrqi
+                </code>
+                <button type="button" id="crypto-copy-btn" onclick="copyCryptoAddress()" style="background: rgba(0, 95, 249, 0.2); border: 1px solid rgba(0, 95, 249, 0.4); color: #FFFFFF; font-size: 11px; font-weight: 700; padding: 4px 10px; border-radius: 6px; cursor: pointer; white-space: nowrap;">
+                  Copy
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3: Payment Completed Submission Form -->
+          <form onsubmit="handleCryptoSubmit(event)">
+            <h4 style="font-size: 14px; font-weight: 700; margin: 0 0 12px; color: #FFFFFF; display: flex; align-items: center; gap: 6px;">
+              <span>Submit Payment Completed Details</span>
+              <span style="font-size: 11px; font-weight: 500; color: #34D399; background: rgba(16, 185, 129, 0.15); padding: 2px 8px; border-radius: 10px;">Auto-Provisioning</span>
+            </h4>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px;">
+              <div>
+                <label style="font-size: 12px; color: var(--text-secondary); font-weight: 600;">Account Email *</label>
+                <input type="email" id="crypto-form-email" required placeholder="name@domain.com" class="crypto-input">
+              </div>
+              <div>
+                <label style="font-size: 12px; color: var(--text-secondary); font-weight: 600;">Telegram / Discord (Optional)</label>
+                <input type="text" id="crypto-form-telegram" placeholder="@handle" class="crypto-input">
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 14px; margin-bottom: 16px;">
+              <div>
+                <label style="font-size: 12px; color: var(--text-secondary); font-weight: 600;">Transaction Hash (TxID) *</label>
+                <input type="text" id="crypto-form-txid" required placeholder="e.g. 7f8a3c4..." class="crypto-input" style="font-family: monospace;">
+              </div>
+              <div>
+                <label style="font-size: 12px; color: var(--text-secondary); font-weight: 600;">Amount Paid (USDT) *</label>
+                <input type="number" id="crypto-form-amount" required value="29" class="crypto-input">
+              </div>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+              <label style="font-size: 12px; color: var(--text-secondary); font-weight: 600;">Upload Transfer Receipt / Screenshot</label>
+              <input type="file" id="crypto-form-file" accept="image/*" class="crypto-input" style="padding: 7px 12px;">
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%; padding: 12px; font-size: 15px; font-weight: 700; border: none; cursor: pointer; box-shadow: 0 4px 20px rgba(0, 95, 249, 0.4);">
+              Submit Payment for Immediate Approval
+            </button>
+          </form>
+        </div>
+
+        <!-- Success Confirmation State -->
+        <div id="crypto-success-container" style="display: none; text-align: center; padding: 30px 10px;">
+          <div style="width: 60px; height: 60px; border-radius: 50%; background: rgba(16, 185, 129, 0.2); border: 2px solid #10B981; display: inline-flex; align-items: center; justify-content: center; color: #10B981; margin-bottom: 16px;">
+            <svg width="32" height="32" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <h3 style="font-size: 20px; font-weight: 800; color: #FFFFFF; margin: 0 0 8px;">Payment Details Submitted!</h3>
+          <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; max-width: 480px; margin: 0 auto 20px;">
+            Thank you! Your transaction is being verified on the blockchain. Your license key and access credentials will be delivered to <strong id="crypto-conf-email" style="color: #38BDF8;"></strong> within 15–30 minutes.
+          </p>
+          <button type="button" onclick="closeCryptoPayment()" class="btn btn-primary" style="padding: 10px 24px; border: none; cursor: pointer;">
+            Close &amp; Return to Home
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 </html>

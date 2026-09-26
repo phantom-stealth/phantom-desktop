@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>◈ PHANTOM — Interactive Architecture Codemap & AI Blueprint</title>
+  <style>
+    :root {
+      --bg-dark: #090a0f;
+      --bg-card: #12141e;
+      --bg-card-hover: #1a1d2d;
+      --bg-header: #0d0f17;
+      --border: #232738;
+      --border-accent: #3a4163;
+      --text-main: #f0f2f8;
+      --text-muted: #8c93ad;
+      --accent: #7c5cfc;
+      --accent-glow: rgba(124, 92, 252, 0.25);
+      --tiktok: #00f2fe;
+      --instagram: #e1306c;
+      --facebook: #1877f2;
+      --vault: #10b981;
+      --stealth: #f59e0b;
+      --danger: #ef4444;
+      --radius: 10px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    body { background: var(--bg-dark); color: var(--text-main); min-height: 100vh; overflow-x: hidden; display: flex; flex-direction: column; }
+    
+    /* Top Header */
+    header { background: var(--bg-header); border-bottom: 1px solid var(--border); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 700; font-size: 18px; letter-spacing: 0.5px; }
+    .brand-icon { width: 32px; height: 32px; background: linear-gradient(135deg, var(--accent), #3b82f6); border-radius: 8px; display: grid; place-items: center; font-size: 18px; box-shadow: 0 0 15px var(--accent-glow); }
+    .search-box { position: relative; width: 340px; }
+    .search-box input { width: 100%; background: #05060a; border: 1px solid var(--border); border-radius: 8px; padding: 8px 14px 8px 36px; color: #fff; font-size: 13px; outline: none; transition: border-color 0.2s; }
+    .search-box input:focus { border-color: var(--accent); box-shadow: 0 0 10px var(--accent-glow); }
+    .search-icon { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); font-size: 14px; color: var(--text-muted); }
+    .btn-export { background: linear-gradient(135deg, #2563eb, var(--accent)); color: #fff; border: none; padding: 8px 16px; border-radius: 8px; font-weight: 600; font-size: 13px; cursor: pointer; display: flex; align-items: center; gap: 6px; }
+    
+    /* Subheader Navigation */
+    nav.subnav { background: #0c0e16; border-bottom: 1px solid var(--border); padding: 8px 24px; display: flex; gap: 8px; overflow-x: auto; }
+    .nav-btn { background: transparent; border: 1px solid transparent; color: var(--text-muted); padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 500; cursor: pointer; transition: all 0.2s; display: flex; align-items: center; gap: 6px; }
+    .nav-btn:hover { color: #fff; background: var(--bg-card); }
+    .nav-btn.active { color: #fff; background: var(--accent); border-color: var(--accent); font-weight: 600; }
+    
+    /* Metrics Bar */
+    .metrics-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 14px; padding: 20px 24px 0 24px; }
+    .metric-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); padding: 14px 18px; display: flex; flex-direction: column; gap: 4px; position: relative; overflow: hidden; }
+    .metric-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+    .metric-card.m-blue::before { background: #3b82f6; }
+    .metric-card.m-green::before { background: #10b981; }
+    .metric-card.m-purple::before { background: #8b5cf6; }
+    .metric-card.m-amber::before { background: #f59e0b; }
+    .metric-card.m-pink::before { background: #ec4899; }
+    .metric-title { font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 700; letter-spacing: 0.5px; }
+    .metric-value { font-size: 22px; font-weight: 700; color: #fff; }
+    .metric-sub { font-size: 12px; color: #10b981; font-weight: 500; }
+
+    /* Content Area */
+    main { padding: 24px; flex: 1; max-width: 1600px; margin: 0 auto; width: 100%; }
+    .tab-content { display: none; }
+    .tab-content.active { display: block; animation: fadeIn 0.25s ease-out; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* Architecture Visual Diagram */
+    .arch-container { background: #07080d; border: 1px solid var(--border); border-radius: 12px; padding: 28px; display: flex; flex-direction: column; gap: 28px; }
+    .arch-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+    .arch-block { background: var(--bg-card); border: 1px solid var(--border-accent); border-radius: 10px; padding: 18px; position: relative; transition: all 0.2s; cursor: pointer; }
+    .arch-block:hover { transform: translateY(-3px); border-color: var(--accent); box-shadow: 0 8px 25px rgba(0,0,0,0.5); }
+    .arch-badge { display: inline-block; font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 4px; margin-bottom: 10px; }
+    .badge-core { background: rgba(124, 92, 252, 0.2); color: #a78bfa; border: 1px solid #7c5cfc; }
+    .badge-social { background: rgba(0, 242, 254, 0.15); color: #00f2fe; border: 1px solid #00f2fe; }
+    .badge-vault { background: rgba(16, 185, 129, 0.15); color: #10b981; border: 1px solid #10b981; }
+    .badge-stealth { background: rgba(245, 158, 11, 0.15); color: #f59e0b; border: 1px solid #f59e0b; }
+    .badge-ext { background: rgba(236, 72, 153, 0.15); color: #ec4899; border: 1px solid #ec4899; }
+    .arch-title { font-size: 16px; font-weight: 700; margin-bottom: 8px; display: flex; align-items: center; justify-content: space-between; }
+    .arch-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 12px; }
+    .arch-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .arch-tag { font-size: 11px; background: #0a0b12; border: 1px solid var(--border); padding: 2px 8px; border-radius: 4px; color: #a1a8c3; }
+
+    /* Flow Connectors */
+    .flow-arrow { text-align: center; color: var(--accent); font-size: 20px; font-weight: bold; margin: -10px 0; }
+
+    /* Module Grid */
+    .modules-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+    .file-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; cursor: pointer; transition: all 0.2s; }
+    .file-card:hover { border-color: var(--accent); background: var(--bg-card-hover); }
+    .file-path { font-family: monospace; font-size: 13px; color: #60a5fa; font-weight: 600; margin-bottom: 6px; }
+    .file-desc { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+
+    /* API Table */
+    .api-table { width: 100%; border-collapse: collapse; background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); font-size: 13px; }
+    .api-table th { background: #0e101a; text-align: left; padding: 12px 16px; color: var(--text-muted); font-size: 11px; text-transform: uppercase; border-bottom: 1px solid var(--border); }
+    .api-table td { padding: 12px 16px; border-bottom: 1px solid #181b2a; vertical-align: top; }
+    .api-table tr:hover td { background: var(--bg-card-hover); }
+    .method-badge { font-weight: 700; font-size: 11px; padding: 3px 8px; border-radius: 4px; font-family: monospace; }
+    .m-get { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #3b82f6; }
+    .m-post { background: rgba(16, 185, 129, 0.2); color: #34d399; border: 1px solid #10b981; }
+    .m-patch { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #f59e0b; }
+    .m-delete { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+
+    /* Gap Analysis Matrix */
+    .gap-matrix { width: 100%; border-collapse: collapse; background: var(--bg-card); border-radius: 8px; overflow: hidden; border: 1px solid var(--border); font-size: 13px; margin-top: 14px; }
+    .gap-matrix th { background: #0c0e17; padding: 12px 16px; text-align: left; color: var(--text-muted); border-bottom: 1px solid var(--border); font-size: 12px; }
+    .gap-matrix td { padding: 12px 16px; border-bottom: 1px solid #181b2a; vertical-align: top; line-height: 1.5; }
+    .gap-matrix tr:hover td { background: var(--bg-card-hover); }
+    .priority-pill { display: inline-block; font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; }
+    .p-crit { background: rgba(239, 68, 68, 0.2); color: #f87171; border: 1px solid #ef4444; }
+    .p-high { background: rgba(245, 158, 11, 0.2); color: #fbbf24; border: 1px solid #f59e0b; }
+    .p-med { background: rgba(59, 130, 246, 0.2); color: #60a5fa; border: 1px solid #3b82f6; }
+
+    /* Inspector Modal */
+    .drawer-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); display: none; z-index: 200; }
+    .drawer-overlay.active { display: block; }
+    .drawer { position: fixed; right: 0; top: 0; bottom: 0; width: 620px; max-width: 90vw; background: #0e111a; border-left: 1px solid var(--border); z-index: 201; padding: 28px; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; box-shadow: -10px 0 40px rgba(0,0,0,0.8); }
+    .drawer-close { position: absolute; right: 20px; top: 20px; background: transparent; border: none; font-size: 24px; color: var(--text-muted); cursor: pointer; }
+    .drawer h2 { font-size: 20px; color: #fff; }
+    .code-block { background: #05060a; border: 1px solid var(--border); border-radius: 6px; padding: 14px; font-family: monospace; font-size: 12px; color: #38bdf8; overflow-x: auto; white-space: pre-wrap; }
+    
+    /* Footer */
+    footer { text-align: center; padding: 20px; color: var(--text-muted); font-size: 12px; border-top: 1px solid var(--border); background: var(--bg-header); }
+  </style>
+</head>
+<body>
+
+  <!-- Top Header -->
+  <header>
+    <div class="brand">
+      <div class="brand-icon">◈</div>
+      <div>PHANTOM v2.5 Enterprise Codemap & Spec</div>
+    </div>
+    <div class="search-box">
+      <span class="search-icon">⌕</span>
+      <input type="text" id="globalSearch" placeholder="Search files, routes, engines, schemas (Ctrl+K)...">
+    </div>
+    <button class="btn-export" onclick="copyFullAiSpec()">📋 Copy AI-Ready Spec</button>
+  </header>
+
+  <!-- Sub Navigation Tabs -->
+  <nav class="subnav">
+    <button class="nav-btn active" onclick="showTab('arch')">🗺️ Architecture Flow</button>
+    <button class="nav-btn" onclick="showTab('modules')">📦 Module Catalog</button>
+    <button class="nav-btn" onclick="showTab('api')">🌐 REST API Explorer (48+)</button>
+    <button class="nav-btn" onclick="showTab('stealth')">🛡️ Stealth & Fingerprint Engine</button>
+    <button class="nav-btn" onclick="showTab('social')">⚡ Social Automation Hub</button>
+    <button class="nav-btn" onclick="showTab('vault')">📁 Media Vault Tree</button>
+    <button class="nav-btn" onclick="showTab('gaps')">🎯 Gap Analysis & Roadmap</button>
+  </nav>
+
+  <!-- Metrics Bar -->
+  <div class="metrics-bar">
+    <div class="metric-card m-blue">
+      <div class="metric-title">Total Tests & Health</div>
+      <div class="metric-value">213 / 213</div>
+      <div class="metric-sub">✓ 100% Pass Rate (32 Suites)</div>
+    </div>
+    <div class="metric-card m-purple">
+      <div class="metric-title">REST API Surface</div>
+      <div class="metric-value">48 Endpoints</div>
+      <div class="metric-sub">Real-Time SSE Stream</div>
+    </div>
+    <div class="metric-card m-green">
+      <div class="metric-title">Browser Engines</div>
+      <div class="metric-value">3 Engines</div>
+      <div class="metric-sub">Chromium Fork, Camoufox, Stock</div>
+    </div>
+    <div class="metric-card m-amber">
+      <div class="metric-title">Social Networks</div>
+      <div class="metric-value">3 Platforms</div>
+      <div class="metric-sub">TikTok, Instagram, Facebook</div>
+    </div>
+    <div class="metric-card m-pink">
+      <div class="metric-title">Auto-Deduplication</div>
+      <div class="metric-value">ShadowHash</div>
+      <div class="metric-sub">Deterministic Video Mutation</div>
+    </div>
+  </div>
+
+  <!-- Main View Area -->
+  <main>
+
+    <!-- 1. ARCHITECTURE FLOW TAB -->
+    <div id="tab-arch" class="tab-content active">
+      <div class="arch-container">
+        <h3 style="color:#a78bfa; margin-bottom: 6px;">Tier 1: Presentation, UI & Ingestion Control Plane</h3>
+        <div class="arch-row">
+          <div class="arch-block" onclick="inspect('dashboard')">
+            <span class="arch-badge badge-core">UI Shell</span>
+            <div class="arch-title">Single-Page Dashboard <span>index.html</span></div>
+            <div class="arch-desc">Collapsible Navigation Rail, dynamic breadcrumbs, keyboard shortcuts (1-7), table/card profiles view, and real-time badge updates.</div>
+            <div class="arch-tags"><span class="arch-tag">src/dashboard/app.js</span><span class="arch-tag">styles.css</span></div>
+          </div>
+          <div class="arch-block" onclick="inspect('quickfill')">
+            <span class="arch-badge badge-ext">Chrome Extension</span>
+            <div class="arch-title">QuickFill Pro Extension <span>MV3</span></div>
+            <div class="arch-desc">Deep DOM & closed Shadow DOM traversal, React prototype descriptor bypass, 17-country persona generator, Mail.tm OTP scraper.</div>
+            <div class="arch-tags"><span class="arch-tag">extensions/quickfill-pro/</span><span class="arch-tag">content.js</span></div>
+          </div>
+          <div class="arch-block" onclick="inspect('server')">
+            <span class="arch-badge badge-core">HTTP & SSE</span>
+            <div class="arch-title">Phantom Core Server <span>src/server.ts</span></div>
+            <div class="arch-desc">48+ REST API endpoints, CSP cryptographic nonce generator, static asset resolver, and live SSE event stream dispatcher.</div>
+            <div class="arch-tags"><span class="arch-tag">port: 4173 / dynamic</span><span class="arch-tag">Server-Sent Events</span></div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">▼ Dispatches Tasks, Profile Launches & Vault Updates ▼</div>
+
+        <h3 style="color:#00f2fe; margin-bottom: 6px;">Tier 2: Orchestration, Social Automation & Physics Engines</h3>
+        <div class="arch-row">
+          <div class="arch-block" onclick="inspect('taskqueue')">
+            <span class="arch-badge badge-social">Task Engine</span>
+            <div class="arch-title">TaskQueue & Lock <span>task-queue.ts</span></div>
+            <div class="arch-desc">Mutual exclusion per profile ID, global concurrency bounds (max 6), FIFO rolling buffer (500 logs), and task cancellation.</div>
+            <div class="arch-tags"><span class="arch-tag">src/automation/task-queue.ts</span></div>
+          </div>
+          <div class="arch-block" onclick="inspect('humantiming')">
+            <span class="arch-badge badge-social">Biometrics</span>
+            <div class="arch-title">Human Physics Engine <span>human-timing.ts</span></div>
+            <div class="arch-desc">Box-Muller Gaussian delay distribution, 65 WPM typing cadence with 2% typos, Cubic Bézier mouse curves, 20-80% bounding box clicks.</div>
+            <div class="arch-tags"><span class="arch-tag">Gaussian Distribution</span><span class="arch-tag">Cubic Bézier</span></div>
+          </div>
+          <div class="arch-block" onclick="inspect('socialhub')">
+            <span class="arch-badge badge-social">Social Suite</span>
+            <div class="arch-title">Multi-Platform Suite <span>TikTok / IG / FB</span></div>
+            <div class="arch-desc">TikTok Studio, Instagram 5-Day Warm-up & Reels Engine, Facebook Profile/Page/Group Bot, Cross-Platform Syndication Bridge.</div>
+            <div class="arch-tags"><span class="arch-tag">tiktok-manager.ts</span><span class="arch-tag">ig-manager.ts</span><span class="arch-tag">fb-manager.ts</span></div>
+          </div>
+        </div>
+
+        <div class="flow-arrow">▼ Launches Coherent Stealth Browsers & Resolves Assets ▼</div>
+
+        <h3 style="color:#f59e0b; margin-bottom: 6px;">Tier 3: Multi-Engine Stealth Core, Egress Resolution & Vault</h3>
+        <div class="arch-row">
+          <div class="arch-block" onclick="inspect('geo')">
+            <span class="arch-badge badge-stealth">Coherence Gate</span>
+            <div class="arch-title">Egress Geo & 409 Gate <span>geo.ts / ops.ts</span></div>
+            <div class="arch-desc">Probes proxy exit node via ipinfo; derives real timezone, offset, and languages. Enforces 409 reject gate on regional contradictions.</div>
+            <div class="arch-tags"><span class="arch-tag">src/core/geo.ts</span><span class="arch-tag">Coherence Gate</span></div>
+          </div>
+          <div class="arch-block" onclick="inspect('engine')">
+            <span class="arch-badge badge-stealth">Browser Kernel</span>
+            <div class="arch-title">Multi-Engine Launcher <span>launcher.ts</span></div>
+            <div class="arch-desc">Spawns Fingerprint-Chromium C++ binary, Camoufox Gecko engine, or Stock Chrome with Win32 interactive HWND and CDP scripts.</div>
+            <div class="arch-tags"><span class="arch-tag">fingerprint-chromium</span><span class="arch-tag">camoufox</span></div>
+          </div>
+          <div class="arch-block" onclick="inspect('vault')">
+            <span class="arch-badge badge-vault">Storage</span>
+            <div class="arch-title">Isolated Media Vault <span>vault-manager.ts</span></div>
+            <div class="arch-desc">Account-isolated folder trees (posts, reels, stories, generated, archive), sidecar captions/hashtags, brand kits, and disk scanner.</div>
+            <div class="arch-tags"><span class="arch-tag">phantom-data/vault/</span><span class="arch-tag">Sidecars</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. MODULE CATALOG TAB -->
+    <div id="tab-modules" class="tab-content">
+      <div class="modules-grid" id="modulesGrid"></div>
+    </div>
+
+    <!-- 3. REST API EXPLORER TAB -->
+    <div id="tab-api" class="tab-content">
+      <div style="margin-bottom: 16px; display: flex; gap: 10px;">
+        <input type="text" id="apiSearch" placeholder="Filter endpoints (e.g. /vault, /instagram, POST)..." style="flex:1; background:#07080d; border:1px solid var(--border); border-radius:6px; padding:8px 12px; color:#fff; font-size:13px;">
+      </div>
+      <table class="api-table" id="apiTable">
+        <thead>
+          <tr>
+            <th style="width: 100px;">Method</th>
+            <th style="width: 280px;">Endpoint Route</th>
+            <th style="width: 220px;">Category</th>
+            <th>Description & Request Payload</th>
+          </tr>
+        </thead>
+        <tbody id="apiTableBody"></tbody>
+      </table>
+    </div>
+
+    <!-- 4. STEALTH & FINGERPRINT ENGINE TAB -->
+    <div id="tab-stealth" class="tab-content">
+      <div class="arch-container">
+        <h3 style="color:#f59e0b;">🛡️ Anti-Detect Fingerprint Defense Stack</h3>
+        <table class="gap-matrix">
+          <thead>
+            <tr>
+              <th>Subsystem</th>
+              <th>Technique & Implementation</th>
+              <th>Files</th>
+              <th>Stealth Guarantee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Egress Coherence</b></td>
+              <td>Pre-flight IP probe derives IANA Timezone ID, UTC offset, and primary languages from the live proxy exit node. 409 Gate blocks conflicting profiles.</td>
+              <td><code>src/core/geo.ts</code><br><code>src/ops.ts</code></td>
+              <td>100% geographic consistency (Zero proxy-to-timezone leaks)</td>
+            </tr>
+            <tr>
+              <td><b>Main-World JS Hooking</b></td>
+              <td>Injected via <code>evaluateOnNewDocument()</code>. Overrides <code>navigator.platform</code>, <code>languages</code>, <code>hardwareConcurrency</code>, <code>deviceMemory</code>, and deletes <code>navigator.webdriver</code>.</td>
+              <td><code>src/browser/launcher.ts</code></td>
+              <td>Passes basic CreepJS / Pixelscan probes</td>
+            </tr>
+            <tr>
+              <td><b>Canvas & WebGL Spoofing</b></td>
+              <td>Deterministic Linear Congruential Generator (LCG) noise applied to <code>getImageData</code> ($\pm 1$ byte noise) and WebGL unmasked vendor/renderer intercept.</td>
+              <td><code>src/core/fingerprint/</code></td>
+              <td>Stable, profile-unique Canvas & WebGL hashes</td>
+            </tr>
+            <tr>
+              <td><b>Native C++ Fork Execution</b></td>
+              <td>Executes Ungoogled-Chromium with native <code>--fingerprint=ph-&lt;hash&gt;</code> flags, compiling C++ seeds at the browser kernel level.</td>
+              <td><code>src/cli/installFork.ts</code><br><code>src/browser/engine.ts</code></td>
+              <td>Eliminates JavaScript prototype descriptor leaks in production</td>
+            </tr>
+            <tr>
+              <td><b>Windows Interactive Spawning</b></td>
+              <td>Uses <code>WScript.Shell.Run()</code> in PowerShell to spawn real interactive desktop window stations with Win32 HWND rather than headless services.</td>
+              <td><code>src/browser/launcher.ts</code></td>
+              <td>Bypasses headless heuristics and UI automation infobars</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5. SOCIAL AUTOMATION HUB TAB -->
+    <div id="tab-social" class="tab-content">
+      <div class="arch-container">
+        <h3 style="color:#00f2fe;">⚡ Multi-Platform Autonomous Growth Engines</h3>
+        <div class="arch-row">
+          <div class="arch-block">
+            <span class="arch-badge badge-social">TikTok Automation</span>
+            <div class="arch-title">TikTok Growth Engine</div>
+            <div class="arch-desc">
+              • <b>Account Factory:</b> Mail.tm automated signup with 6-digit OTP polling.<br>
+              • <b>AutoTok Scheduler:</b> Auto-scrubs video via ShadowHash & uploads to Creator Center.<br>
+              • <b>TokPilot:</b> Keyword-targeted comment scanner & AI auto-replies.<br>
+              • <b>Taktik Bot:</b> 5-minute organic For You feed browsing with stochastic likes.<br>
+              • <b>Reach Optimizer:</b> 3-day progressive warming protocol (180s $\to$ 240s $\to$ 300s).
+            </div>
+          </div>
+          <div class="arch-block">
+            <span class="arch-badge badge-social">Instagram Automation</span>
+            <div class="arch-title">Instagram Growth Engine</div>
+            <div class="arch-desc">
+              • <b>Account Factory:</b> Automated registration with birthday pickers & email verification.<br>
+              • <b>Post & Reels Engine:</b> Posts photos, carousels, and 9:16 vertical Reels from Media Vault.<br>
+              • <b>Engagement Bot:</b> Safe daily rate limits (80 likes, 40 follows, 30 unfollows, 15 comments).<br>
+              • <b>Hashtag Intel:</b> GPT-4o competition scoring & shadowban verification.
+            </div>
+          </div>
+          <div class="arch-block">
+            <span class="arch-badge badge-social">Facebook Automation</span>
+            <div class="arch-title">Facebook Growth Engine</div>
+            <div class="arch-desc">
+              • <b>Account Factory:</b> Automated profile creation at <code>facebook.com/r.php</code>.<br>
+              • <b>Profile & Page Bot:</b> Timeline posts and automated Page creation/announcements.<br>
+              • <b>Group Manager:</b> Group posting and member profile scraping.<br>
+              • <b>Syndication Bridge:</b> 1-click TikTok $\to$ IG $\to$ FB video broadcast with staggered timing.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6. MEDIA VAULT TREE TAB -->
+    <div id="tab-vault" class="tab-content">
+      <div class="arch-container">
+        <h3 style="color:#10b981;">📁 Account-Isolated Media Vault Hierarchy</h3>
+        <div class="code-block">
+phantom-data/vault/
+├── vault-db.json                       <-- Global index (vaults, brand kits, hashtag sets)
+├── _global/                            <-- Shared cross-platform assets
+│   ├── fonts/
+│   ├── watermarks/
+│   ├── music/
+│   └── brand-kits/
+│       └── [brand-name]/ (colors.json, logos/, fonts/)
+├── instagram/
+│   ├── _shared/ (templates/, music/, overlays/)
+│   └── {profileId.slice(0,8)}__{accountRef}/  <-- Account-Isolated Vault Root
+│       ├── posts/ (images/, carousels/, videos/)
+│       ├── reels/ (raw/, processed/, published/)  <-- Raw drops trigger auto-scrub!
+│       ├── stories/ (images/, videos/, templates/)
+│       ├── generated/ (captions/*.txt, hashtags/*.json, scripts/, thumbnails/)
+│       └── archive/ (published/, rejected/)
+└── facebook/
+    ├── profiles/{profileId.slice(0,8)}__{accountRef}/ (posts/, stories/, generated/, archive/)
+    └── pages/{profileId.slice(0,8)}__{accountRef}/ (posts/, generated/, archive/)
+        </div>
+      </div>
+    </div>
+
+    <!-- 7. GAP ANALYSIS & ROADMAP TAB -->
+    <div id="tab-gaps" class="tab-content">
+      <div class="arch-container">
+        <h3 style="color:#ef4444;">🎯 Industry Gap Analysis & Competitor Comparison</h3>
+        <table class="gap-matrix">
+          <thead>
+            <tr>
+              <th>Vertical</th>
+              <th>Feature Description</th>
+              <th>Current Phantom State</th>
+              <th>Competitor Benchmark</th>
+              <th>Priority</th>
+              <th>Action Plan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>Anti-Detect</b></td>
+              <td><b>TLS / JA3 / JA4 Fingerprint</b></td>
+              <td>Stock Chromium TLS stack</td>
+              <td>Multilogin / Octo Browser custom TLS stack</td>
+              <td><span class="priority-pill p-crit">Critical</span></td>
+              <td>Integrate CycleTLS or C++ network hooks in <code>fingerprint-chromium</code>.</td>
+            </tr>
+            <tr>
+              <td><b>Anti-Detect</b></td>
+              <td><b>User-Agent Client Hints</b></td>
+              <td>Overrides <code>navigator.userAgent</code> only</td>
+              <td>AdsPower / GoLogin native <code>Sec-CH-UA</code> headers</td>
+              <td><span class="priority-pill p-high">High</span></td>
+              <td>Patch <code>NavigatorUAData</code> and HTTP headers on Stock Chromium.</td>
+            </tr>
+            <tr>
+              <td><b>Anti-Detect</b></td>
+              <td><b>Canvas toDataURL Bypass</b></td>
+              <td>Patches <code>getImageData</code> only</td>
+              <td>Deep GPU shader emulation in Octo Browser</td>
+              <td><span class="priority-pill p-high">High</span></td>
+              <td>Intercept <code>HTMLCanvasElement.prototype.toDataURL</code> and <code>toBlob</code>.</td>
+            </tr>
+            <tr>
+              <td><b>Verification</b></td>
+              <td><b>SMS / PVA Number Gateway</b></td>
+              <td>Email only (Mail.tm)</td>
+              <td>SMS-Activate / 5SIM / DaisySMS API integrations</td>
+              <td><span class="priority-pill p-crit">Critical</span></td>
+              <td>Implement <code>sms-manager.ts</code> with auto-order, OTP polling, and auto-refund.</td>
+            </tr>
+            <tr>
+              <td><b>Verification</b></td>
+              <td><b>Automated CAPTCHA Solver</b></td>
+              <td>Manual intervention</td>
+              <td>CapSolver / 2Captcha integration in AdsPower RPA</td>
+              <td><span class="priority-pill p-high">High</span></td>
+              <td>Implement automated solver plugin for TikTok slider and Turnstile.</td>
+            </tr>
+            <tr>
+              <td><b>Automation</b></td>
+              <td><b>Automated Cookie Robot</b></td>
+              <td>None</td>
+              <td>Multilogin / Dolphin{anty} Cookie Robot</td>
+              <td><span class="priority-pill p-high">High</span></td>
+              <td>Build <code>cookie-robot.ts</code> crawling top 50 regional sites before social login.</td>
+            </tr>
+            <tr>
+              <td><b>Automation</b></td>
+              <td><b>TTS Voiceover Assembly</b></td>
+              <td>Text scripts only</td>
+              <td>AutoTok / CapCut auto voice generator</td>
+              <td><span class="priority-pill p-med">Medium</span></td>
+              <td>Integrate Edge-TTS to generate voiceovers and merge with video via FFmpeg.</td>
+            </tr>
+            <tr>
+              <td><b>UI & Cloud</b></td>
+              <td><b>Inline Spreadsheet Table Edit</b></td>
+              <td>Drawer / Modal editing</td>
+              <td>Dolphin{anty} high-speed cell editing</td>
+              <td><span class="priority-pill p-med">Medium</span></td>
+              <td>Implement double-click inline cell editing in <code>src/dashboard/app.js</code>.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Slide-Over Inspector Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+  <div class="drawer" id="inspectorDrawer" style="display:none;">
+    <button class="drawer-close" onclick="closeDrawer()">×</button>
+    <div id="drawerContent"></div>
+  </div>
+
+  <footer>
+    ◈ PHANTOM Anti-Detect Browser & Growth Operating System • Built for Autonomous AI Multi-Account Scale
+  </footer>
+
+  <script>
+    // Module Catalog Data
+    const modules = [
+      { path: "src/server.ts", category: "Core Server", desc: "48+ REST API routes, CSP nonce injector, SSE event stream, static asset handler." },
+      { path: "src/ops.ts", category: "Operations", desc: "PhantomOps lifecycle engine, 409 Coherence Gate, profile launches, and session tracking." },
+      { path: "src/core/geo.ts", category: "Network", desc: "Egress geo resolver using ipinfo.io, timezone mapping, and country-to-locale dictionary." },
+      { path: "src/core/proxy.ts", category: "Network", desc: "Universal proxy parser (HTTP/SOCKS5), CDP proxy authentication via Fetch.enable." },
+      { path: "src/core/fingerprint/generator.ts", category: "Fingerprint", desc: "Generates coherent fingerprints from OS templates and deterministic 32-bit LCG noise." },
+      { path: "src/core/fingerprint/types.ts", category: "Fingerprint", desc: "Data contracts for OS, Screen, WebGL GPU, Timezone, Fonts, and Noise settings." },
+      { path: "src/core/vault/vault-manager.ts", category: "Media Vault", desc: "Manages account-isolated directory trees, sidecar captions/hashtags, and disk scanners." },
+      { path: "src/core/vault/vault-resolver.ts", category: "Media Vault", desc: "Deterministic asset queue resolution (nextPostImage, nextReel, nextStory, captions)." },
+      { path: "src/browser/launcher.ts", category: "Browser Launcher", desc: "Compiles stealth flags, sanitizes user data dir, spawns Win32 GUI, injects main-world JS." },
+      { path: "src/browser/engine.ts", category: "Browser Launcher", desc: "Multi-engine abstraction resolving fingerprint-chromium, camoufox, or stock Chrome." },
+      { path: "src/automation/task-queue.ts", category: "Automation", desc: "Async task queue with mutual exclusion per profile ID and FIFO rolling log buffer." },
+      { path: "src/automation/human-timing.ts", category: "Automation", desc: "Box-Muller Gaussian delays, 65 WPM typing cadence, Cubic Bézier curves, inner box clicks." },
+      { path: "src/automation/tiktok/ai-content-studio.ts", category: "TikTok Suite", desc: "GPT-4o viral vertical script generator (Hooks, Scenes, CTA) and 30-day calendar builder." },
+      { path: "src/automation/tiktok/shadowhash.ts", category: "TikTok Suite", desc: "Deterministic profile-seeded video uniquifier (pixel crop, speed factor, pitch shift, EXIF strip)." },
+      { path: "src/automation/tiktok/autotok-scheduler.ts", category: "TikTok Suite", desc: "Schedules and uploads video assets to TikTok Creator Center with captions and tags." },
+      { path: "src/automation/tiktok/tokpilot-comments.ts", category: "TikTok Suite", desc: "Keyword-triggered AI comment replies and targeted video likes." },
+      { path: "src/automation/tiktok/taktik-bot.ts", category: "TikTok Suite", desc: "Organic For You feed browsing simulation with stochastic likes and follows." },
+      { path: "src/automation/instagram/ig-post-engine.ts", category: "Instagram Suite", desc: "Feed photo, carousel, and 9:16 vertical Reel publisher connected to Media Vault." },
+      { path: "src/automation/instagram/ig-engagement-bot.ts", category: "Instagram Suite", desc: "Safe daily rate-limited engagement (likes, follows, comments, story views) and 5-day warmup." },
+      { path: "src/automation/facebook/fb-page-manager.ts", category: "Facebook Suite", desc: "Automated Facebook Page creation, setup, and announcement posting." },
+      { path: "src/automation/cross-platform-bridge.ts", category: "Syndication", desc: "1-click TikTok to Instagram to Facebook video syndicator with staggered timing." },
+      { path: "extensions/quickfill-pro/content/content.js", category: "Extension", desc: "Deep DOM & closed Shadow DOM input finder, React prototype setter hook." },
+      { path: "extensions/quickfill-pro/lib/faker.js", category: "Extension", desc: "17-country persona generator (names, usernames, passwords, phone numbers)." },
+      { path: "extensions/quickfill-pro/lib/tempmail.js", category: "Extension", desc: "Mail.tm Hydra REST client with automatic 6-digit regex OTP extraction." }
+    ];
+
+    // API Catalog Data
+    const apiEndpoints = [
+      { method: "GET", path: "/api/overview", category: "Profiles", desc: "Full dashboard state overview with summary counts, profiles list, and folders." },
+      { method: "POST", path: "/api/profiles", category: "Profiles", desc: "Creates a new anti-detect profile with coherent fingerprint." },
+      { method: "PATCH", path: "/api/profiles/:id", category: "Profiles", desc: "Updates profile configuration and settings." },
+      { method: "DELETE", path: "/api/profiles/:id", category: "Profiles", desc: "Deletes a profile and associated storage." },
+      { method: "POST", path: "/api/profiles/:id/launch", category: "Profiles", desc: "Launches isolated browser instance with Win32 GUI." },
+      { method: "POST", path: "/api/profiles/:id/stop", category: "Profiles", desc: "Terminates running browser instance." },
+      { method: "POST", path: "/api/profiles/:id/verify", category: "Profiles", desc: "Runs CreepJS / Pixelscan stealth verification probe." },
+      { method: "POST", path: "/api/profiles/:id/recalibrate", category: "Profiles", desc: "Re-derives fingerprint timezone, offset, and language from proxy egress." },
+      { method: "POST", path: "/api/profiles/:id/clone", category: "Profiles", desc: "Clones profile with unique ID and fresh hardware seed." },
+      { method: "GET", path: "/api/profiles/:id/cookies", category: "Profiles", desc: "Exports Netscape & JSON cookies." },
+      { method: "POST", path: "/api/profiles/:id/cookies", category: "Profiles", desc: "Imports Netscape or JSON cookies." },
+      { method: "POST", path: "/api/profiles/batch-launch", category: "Batch Ops", desc: "Launches multiple browser profiles in parallel." },
+      { method: "POST", path: "/api/profiles/batch-stop", category: "Batch Ops", desc: "Stops multiple running browser instances." },
+      { method: "POST", path: "/api/proxy/check", category: "Proxies", desc: "Tests proxy latency, egress IP, country, and timezone." },
+      { method: "GET", path: "/api/automation/tasks", category: "Automation Queue", desc: "Lists all pending, running, completed, and failed tasks." },
+      { method: "POST", path: "/api/automation/task", category: "Automation Queue", desc: "Enqueues arbitrary automation task with profile lock." },
+      { method: "GET", path: "/api/automation/stream", category: "Automation Queue", desc: "Server-Sent Events (SSE) live task telemetry stream." },
+      { method: "POST", path: "/api/automation/studio/generate-script", category: "TikTok Studio", desc: "Generates high-retention 30-45s vertical video script via GPT-4o." },
+      { method: "POST", path: "/api/automation/studio/calendar", category: "TikTok Studio", desc: "Generates 30-day viral content calendar plan." },
+      { method: "POST", path: "/api/automation/shadowhash/scrub", category: "TikTok Studio", desc: "Applies anti-shadowban video pixel/audio perturbation." },
+      { method: "POST", path: "/api/automation/instagram/account-factory", category: "Instagram", desc: "Enqueues automated IG account creation with Mail.tm OTP." },
+      { method: "POST", path: "/api/automation/instagram/post", category: "Instagram", desc: "Publishes feed photo or carousel from Media Vault." },
+      { method: "POST", path: "/api/automation/instagram/reel", category: "Instagram", desc: "Publishes 9:16 vertical Reel with captions." },
+      { method: "POST", path: "/api/automation/instagram/warm-up", category: "Instagram", desc: "Launches 5-day progressive explore feed warm-up." },
+      { method: "POST", path: "/api/automation/facebook/post", category: "Facebook", desc: "Publishes timeline status or media to personal profile." },
+      { method: "POST", path: "/api/automation/facebook/page/create", category: "Facebook", desc: "Creates and configures a new Facebook Page." },
+      { method: "POST", path: "/api/automation/facebook/page/post", category: "Facebook", desc: "Publishes announcement post to Facebook Page." },
+      { method: "POST", path: "/api/automation/cross-platform/syndicate", category: "Syndication", desc: "1-click syndication across TikTok, IG Reels, and Facebook." },
+      { method: "POST", path: "/api/vault/create", category: "Media Vault", desc: "Creates platform-isolated account vault folder hierarchy." },
+      { method: "GET", path: "/api/vault/list", category: "Media Vault", desc: "Lists all account vaults and disk space stats." },
+      { method: "POST", path: "/api/vault/:id/files/add", category: "Media Vault", desc: "Ingests media file into vault subfolder and generates sidecar." },
+      { method: "POST", path: "/api/vault/:id/scan", category: "Media Vault", desc: "Scans disk directory and indexes physical files." },
+      { method: "GET", path: "/api/accounts", category: "Accounts Vault", desc: "Aggregates credentials across QuickFill Pro and profiles." }
+    ];
+
+    function showTab(tabId) {
+      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.nav-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById('tab-' + tabId).classList.add('active');
+      event.currentTarget.classList.add('active');
+    }
+
+    function renderModules() {
+      const grid = document.getElementById('modulesGrid');
+      grid.innerHTML = modules.map(m => `
+        <div class="file-card" onclick="inspectFile('${m.path}', '${m.category}', '${m.desc}')">
+          <div class="file-path">${m.path}</div>
+          <div style="font-size:11px; color:#a78bfa; font-weight:600; margin-bottom:4px;">${m.category}</div>
+          <div class="file-desc">${m.desc}</div>
+        </div>
+      `).join('');
+    }
+
+    function renderApi(filter = '') {
+      const tbody = document.getElementById('apiTableBody');
+      const filtered = apiEndpoints.filter(e => 
+        e.path.toLowerCase().includes(filter.toLowerCase()) || 
+        e.method.toLowerCase().includes(filter.toLowerCase()) ||
+        e.category.toLowerCase().includes(filter.toLowerCase()) ||
+        e.desc.toLowerCase().includes(filter.toLowerCase())
+      );
+      tbody.innerHTML = filtered.map(e => `
+        <tr>
+          <td><span class="method-badge m-${e.method.toLowerCase()}">${e.method}</span></td>
+          <td style="font-family:monospace; color:#38bdf8; font-weight:600;">${e.path}</td>
+          <td><span style="font-size:11px; background:#1e2235; padding:2px 6px; border-radius:4px; color:#c7d2fe;">${e.category}</span></td>
+          <td style="color:#94a3b8;">${e.desc}</td>
+        </tr>
+      `).join('');
+    }
+
+    function inspect(type) {
+      const drawer = document.getElementById('inspectorDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const content = document.getElementById('drawerContent');
+      
+      const data = {
+        dashboard: { title: "Dashboard Architecture", code: "src/dashboard/app.js\n- Manages switchTab(), updateBadgeCounts(), renderAccountsTabView()\n- History state pushState sync on '/', '/vault', '/automation', '/social'\n- Global shortcut listeners: 1-7 for tabs, Ctrl+K for search" },
+        quickfill: { title: "QuickFill Pro MV3 Extension", code: "extensions/quickfill-pro/\n- content.js: Recursive closed Shadow DOM traversal\n- setter hook: Object.getOwnPropertyDescriptor(HTMLInputElement.prototype, 'value').set\n- lib/faker.js: 17-country persona generator synchronized with proxy egress\n- lib/tempmail.js: Mail.tm Hydra API + 6-digit regex OTP extractor" },
+        server: { title: "Core REST Server & SSE", code: "src/server.ts\n- 48+ REST API routes with path-traversal sanitization\n- Dynamic CSP Cryptographic Nonce generation: default-src 'self'; script-src 'self' 'nonce-...'\n- GET /api/automation/stream: SSE real-time task queue broadcast" },
+        taskqueue: { title: "TaskQueue & Concurrency Engine", code: "src/automation/task-queue.ts\n- Mutual exclusion per profileId (runningProfiles Set)\n- Global concurrency ceiling: 6 concurrent tasks\n- Rolling in-memory log buffer: 500 lines per task" },
+        humantiming: { title: "Human Biometrics Physics Engine", code: "src/automation/human-timing.ts\n- Box-Muller Gaussian delay: delay = max(20, z0 * sigma + mu)\n- 65 WPM typing cadence with 2% simulated typos and backspace corrections\n- Cubic Bézier mouse curves: B(t) = (1-t)^3*P0 + 3(1-t)^2*t*P1 + 3(1-t)*t^2*P2 + t^3*P3\n- Inset bounding box clicks restricted to inner 20%-80% coordinates" },
+        socialhub: { title: "Multi-Platform Social Automation", code: "src/automation/tiktok/ + instagram/ + facebook/\n- TikTok: Account factory, AutoTok scheduler, TokPilot replies, Taktik FYP bot\n- Instagram: Account factory, Reels/Posts engine, 5-day warmup, hashtag intel\n- Facebook: Account factory, Page manager, Group scraper, Timeline bot\n- Syndication: 1-click staggered video broadcast across all 3 platforms" },
+        geo: { title: "Egress Geo & 409 Coherence Gate", code: "src/core/geo.ts + src/ops.ts\n- Pre-flight proxy probe via ipinfo.io\n- Derives real IANA timezone, UTC offset, and primary languages\n- Enforces strict 409 Conflict Gate preventing geographically conflicting profiles" },
+        engine: { title: "Multi-Engine Browser Kernel", code: "src/browser/launcher.ts + engine.ts\n- fingerprint-chromium: Pinned C++ Ungoogled-Chromium with native --fingerprint seed\n- camoufox: Pinned Firefox C++ anti-detect engine\n- Windows WScript.Shell interactive GUI spawning with dynamic DevToolsActivePort polling" },
+        vault: { title: "Account-Isolated Media Vault", code: "src/core/vault/vault-manager.ts\n- Platform directory trees (posts, reels, stories, generated, archive)\n- Sidecar metadata (*.caption.txt, *.hashtags.json, brand kits)\n- Disk scanner reconciles physical filesystem with JSON database" }
+      };
+
+      const item = data[type] || { title: "Component Inspector", code: "Select a component to view details." };
+      content.innerHTML = `
+        <h2>${item.title}</h2>
+        <div class="code-block">${item.code}</div>
+      `;
+      drawer.style.display = 'flex';
+      overlay.classList.add('active');
+    }
+
+    function inspectFile(path, cat, desc) {
+      const drawer = document.getElementById('inspectorDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const content = document.getElementById('drawerContent');
+      content.innerHTML = `
+        <h2>${path}</h2>
+        <div style="color:#a78bfa; font-weight:600; font-size:14px; margin-bottom:12px;">Category: ${cat}</div>
+        <p style="color:#94a3b8; font-size:14px; line-height:1.6; margin-bottom:16px;">${desc}</p>
+        <div class="code-block">// Absolute Path:\nc:/Users/Robocop/Desktop/Projects/Phantom/${path}</div>
+      `;
+      drawer.style.display = 'flex';
+      overlay.classList.add('active');
+    }
+
+    function closeDrawer() {
+      document.getElementById('inspectorDrawer').style.display = 'none';
+      document.getElementById('drawerOverlay').classList.remove('active');
+    }
+
+    function copyFullAiSpec() {
+      const text = `PHANTOM ANTI-DETECT BROWSER & AUTONOMOUS SOCIAL SUITE SPECIFICATION
+Version: 2.5 Enterprise | Codebase: TypeScript / Node.js
+Core Engines: Fingerprint-Chromium C++ Fork, Camoufox Gecko, Stock Chromium
+Social Networks: TikTok, Instagram, Facebook (Profiles & Pages)
+Architecture:
+- 48+ REST API Endpoints with SSE Live Telemetry
+- Egress Geo Coherence (409 Reject Gate on proxy-timezone contradiction)
+- ShadowHash Microservice: Profile-seeded video uniquification
+- Media Vault: Account-isolated subfolder hierarchies with sidecar captions
+- QuickFill Pro MV3 Extension: Closed Shadow DOM & React descriptor hooks
+- Human Physics Engine: Box-Muller Gaussian delays, Cubic Bézier mouse curves
+- Test Suite: 213/213 Tests Passing (100% Pass Rate across 32 suites)
+
+Full documentation available in docs/PROJECT_SPEC_AND_ARCHITECTURE.md`;
+      navigator.clipboard.writeText(text).then(() => {
+        alert("📋 Full AI-Ready Project Spec copied to clipboard!");
+      });
+    }
+
+    // Search Filtering
+    document.getElementById('globalSearch').addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      renderApi(q);
+      const cards = document.querySelectorAll('.file-card');
+      cards.forEach(c => {
+        const txt = c.textContent.toLowerCase();
+        c.style.display = txt.includes(q) ? 'block' : 'none';
+      });
+    });
+
+    document.getElementById('apiSearch').addEventListener('input', (e) => {
+      renderApi(e.target.value);
+    });
+
+    // Keyboard Shortcuts
+    window.addEventListener('keydown', (e) => {
+      if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+        e.preventDefault();
+        document.getElementById('globalSearch').focus();
+      }
+      if (e.key === 'Escape') closeDrawer();
+    });
+
+    // Initial Render
+    renderModules();
+    renderApi();
+  </script>
+</body>
+</html>

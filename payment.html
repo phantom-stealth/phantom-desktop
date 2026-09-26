@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crypto Checkout & License Provisioning — Phantom OS</title>
+  <meta name="description" content="Secure USDT ERC20 & TRC20 checkout gateway for Phantom Stealth OS license activation.">
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-page: #060B18;
+      --bg-card: rgba(7, 22, 54, 0.75);
+      --bg-surface: #04122C;
+      --border-subtle: #142E66;
+      --border-glow: #005FF9;
+      --brand-primary: #005FF9;
+      --brand-accent: #9647DB;
+      --brand-cyan: #38BDF8;
+      --brand-green: #10B981;
+      --text-primary: #F8FAFC;
+      --text-secondary: #CBD5E1;
+      --text-tertiary: #64748B;
+      --radius-sm: 8px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --font-main: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-page);
+      color: var(--text-primary);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.5;
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(0, 95, 249, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 85% 85%, rgba(150, 71, 219, 0.1) 0%, transparent 40%);
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    header {
+      height: 70px;
+      border-bottom: 1px solid var(--border-subtle);
+      background: rgba(6, 11, 24, 0.85);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #FFFFFF;
+      font-weight: 800;
+      font-size: 19px;
+      letter-spacing: -0.5px;
+    }
+
+    .logo img {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+    }
+
+    .badge-secure {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.35);
+      color: var(--brand-green);
+    }
+
+    main {
+      flex: 1;
+      padding: 48px 0 80px;
+    }
+
+    .checkout-hero {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .checkout-hero h1 {
+      font-size: 34px;
+      font-weight: 800;
+      margin-bottom: 10px;
+      letter-spacing: -0.5px;
+    }
+
+    .checkout-hero p {
+      font-size: 16px;
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .billing-toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: 30px;
+      padding: 4px 12px;
+      margin-top: 20px;
+    }
+
+    .billing-toggle button {
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .billing-toggle button.active {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(0, 95, 249, 0.4);
+    }
+
+    .save-tag {
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 6px;
+      border-radius: 10px;
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+    }
+
+    .checkout-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 1fr;
+      gap: 32px;
+      align-items: start;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .card-title {
+      font-size: 17px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .plan-selector-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .plan-card {
+      background: rgba(1, 14, 39, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 14px 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      position: relative;
+    }
+
+    .plan-card:hover {
+      border-color: rgba(0, 95, 249, 0.5);
+      background: rgba(1, 14, 39, 0.9);
+    }
+
+    .plan-card.active {
+      border-color: var(--brand-primary);
+      background: rgba(0, 95, 249, 0.15);
+      box-shadow: 0 0 16px rgba(0, 95, 249, 0.3);
+    }
+
+    .plan-card h4 {
+      font-size: 13.5px;
+      font-weight: 700;
+      margin-bottom: 4px;
+      color: #FFFFFF;
+    }
+
+    .plan-card .price {
+      font-size: 17px;
+      font-weight: 800;
+      color: var(--brand-cyan);
+    }
+
+    .plan-card .sub {
+      font-size: 10.5px;
+      color: var(--text-tertiary);
+      margin-top: 4px;
+    }
+
+    .network-pills {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+    }
+
+    .net-btn {
+      flex: 1;
+      padding: 10px;
+      border-radius: var(--radius-sm);
+      background: rgba(1, 14, 39, 0.7);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 13px;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .net-btn:hover {
+      border-color: rgba(0, 95, 249, 0.5);
+    }
+
+    .net-btn.active {
+      background: rgba(0, 95, 249, 0.2);
+      border-color: var(--brand-primary);
+      color: #FFFFFF;
+      box-shadow: 0 0 14px rgba(0, 95, 249, 0.3);
+    }
+
+    .qr-container {
+      background: rgba(1, 14, 39, 0.9);
+      border: 1px solid rgba(0, 95, 249, 0.35);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .qr-box {
+      background: #FFFFFF;
+      padding: 10px;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      margin-bottom: 16px;
+    }
+
+    .qr-box img {
+      width: 160px;
+      height: 160px;
+      display: block;
+    }
+
+    .deposit-amount-banner {
+      font-size: 26px;
+      font-weight: 800;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+
+    .deposit-cycle-banner {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      margin-bottom: 14px;
+    }
+
+    .address-copy-box {
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .address-copy-box code {
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      color: var(--brand-cyan);
+      word-break: break-all;
+      text-align: left;
+    }
+
+    .btn-copy {
+      background: rgba(0, 95, 249, 0.2);
+      border: 1px solid rgba(0, 95, 249, 0.45);
+      color: #FFFFFF;
+      font-size: 11.5px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 6px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+
+    .btn-copy:hover {
+      background: var(--brand-primary);
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 6px;
+    }
+
+    .form-input {
+      width: 100%;
+      background: rgba(1, 14, 39, 0.8);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      color: #FFFFFF;
+      font-size: 14px;
+      outline: none;
+      transition: border-color 0.2s ease;
+    }
+
+    .form-input:focus {
+      border-color: var(--brand-primary);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .btn-submit {
+      width: 100%;
+      background: linear-gradient(135deg, var(--brand-primary) 0%, var(--brand-accent) 100%);
+      border: none;
+      border-radius: var(--radius-sm);
+      padding: 14px;
+      color: #FFFFFF;
+      font-size: 15px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0, 95, 249, 0.4);
+      transition: all 0.2s ease;
+    }
+
+    .btn-submit:hover {
+      opacity: 0.95;
+      transform: translateY(-1px);
+    }
+
+    .step-item {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 16px;
+    }
+
+    .step-num {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(0, 95, 249, 0.2);
+      border: 1px solid rgba(0, 95, 249, 0.4);
+      color: var(--brand-cyan);
+      font-size: 12px;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .step-text h5 {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 2px;
+    }
+
+    .step-text p {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .success-panel {
+      display: none;
+      text-align: center;
+      padding: 40px 10px;
+    }
+
+    .success-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(16, 185, 129, 0.2);
+      border: 2px solid var(--brand-green);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-green);
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 860px) {
+      .checkout-grid {
+        grid-template-columns: 1fr;
+      }
+      .plan-selector-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img src="assets/icon.png" alt="Phantom Logo">
+        <span>Phantom</span>
+      </a>
+
+      <div class="badge-secure">
+        <svg width="12" height="12" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+        Direct USDT Verification
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="checkout-hero">
+        <h1>USDT Crypto Checkout Gateway</h1>
+        <p>Transfer USDT directly on TRC20 or ERC20. Once verified on the blockchain, your license key and device credentials will be issued immediately.</p>
+        
+        <div class="billing-toggle">
+          <button type="button" id="toggle-monthly" class="active" onclick="switchBilling(false)">Monthly</button>
+          <button type="button" id="toggle-annual" onclick="switchBilling(true)">Annual <span class="save-tag">20% OFF</span></button>
+        </div>
+      </div>
+
+      <div class="checkout-grid">
+        <!-- Left Column: Payment Address & QR Barcode -->
+        <div class="card">
+          <h3 class="card-title">
+            <span>1. Select Plan &amp; Network</span>
+          </h3>
+
+          <div class="plan-selector-grid">
+            <div class="plan-card active" id="card-solo_pro" onclick="selectPlan('solo_pro')">
+              <h4>Solo Pro</h4>
+              <div class="price" id="plan-price-solo_pro">$29</div>
+              <div class="sub">50 Profiles • 3 Devices</div>
+            </div>
+
+            <div class="plan-card" id="card-agency_team" onclick="selectPlan('agency_team')">
+              <h4>Agency Team</h4>
+              <div class="price" id="plan-price-agency_team">$69</div>
+              <div class="sub">200 Profiles • 10 Devices</div>
+            </div>
+
+            <div class="plan-card" id="card-scale_enterprise" onclick="selectPlan('scale_enterprise')">
+              <h4>Enterprise</h4>
+              <div class="price" id="plan-price-scale_enterprise">$149</div>
+              <div class="sub">Unlimited • 20 Devices</div>
+            </div>
+          </div>
+
+          <div class="network-pills">
+            <button type="button" class="net-btn active" id="btn-trc20" onclick="selectNetwork('trc20')">
+              <span>USDT (TRC20)</span>
+              <span style="font-size: 10px; color: #34D399; background: rgba(16, 185, 129, 0.2); padding: 2px 6px; border-radius: 4px;">Low Fee</span>
+            </button>
+            <button type="button" class="net-btn" id="btn-erc20" onclick="selectNetwork('erc20')">
+              <span>USDT (ERC20)</span>
+              <span style="font-size: 10px; color: #94A3B8;">Ethereum</span>
+            </button>
+          </div>
+
+          <div class="qr-container">
+            <div class="qr-box">
+              <img id="qr-barcode-img" src="assets/qr/usdt-trc20.svg" alt="USDT Barcode Deposit QR">
+            </div>
+
+            <div class="deposit-amount-banner" id="payable-amount-text">$29 USDT</div>
+            <div class="deposit-cycle-banner" id="payable-cycle-text">Monthly Billing Cycle</div>
+
+            <div class="address-copy-box">
+              <code id="deposit-address-text">TQQcN4KhNKc6c4BPWzCDjhNm4YPGSWLrqi</code>
+              <button type="button" class="btn-copy" id="copy-btn" onclick="copyAddress()">Copy</button>
+            </div>
+          </div>
+
+          <div style="background: rgba(0, 95, 249, 0.08); border: 1px solid rgba(0, 95, 249, 0.25); border-radius: var(--radius-sm); padding: 14px;">
+            <div class="step-item" style="margin-bottom: 10px;">
+              <div class="step-num">1</div>
+              <div class="step-text">
+                <h5>Send exact amount</h5>
+                <p>Ensure network matches: send TRC20 tokens to the TRC20 address or ERC20 to the ERC20 address.</p>
+              </div>
+            </div>
+            <div class="step-item" style="margin-bottom: 0;">
+              <div class="step-num">2</div>
+              <div class="step-text">
+                <h5>Save the Transaction ID (TxID)</h5>
+                <p>After your wallet or exchange confirms the transfer, paste the TxID in the form on the right.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Verification & License Provisioning Form -->
+        <div class="card">
+          <div id="form-wrapper">
+            <h3 class="card-title">
+              <span>2. Submit Payment Completed Form</span>
+            </h3>
+
+            <form onsubmit="handleFormSubmit(event)">
+              <div class="form-group">
+                <label>Account Email (License Delivery) *</label>
+                <input type="email" id="email" required placeholder="ceo@company.com" class="form-input">
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Selected Plan</label>
+                  <input type="text" id="display-plan" readonly value="Solo Pro ($29/mo)" class="form-input" style="opacity: 0.8; font-weight: 600;">
+                </div>
+                <div class="form-group">
+                  <label>Network</label>
+                  <input type="text" id="display-net" readonly value="USDT (TRC20)" class="form-input" style="opacity: 0.8; font-weight: 600;">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Amount Transferred (USDT) *</label>
+                  <input type="number" id="amount" required value="29" class="form-input">
+                </div>
+                <div class="form-group">
+                  <label>Telegram / Discord Handle</label>
+                  <input type="text" id="telegram" placeholder="@handle" class="form-input">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Transaction Hash / TxID *</label>
+                <input type="text" id="txid" required placeholder="e.g. 5d89f81a7b..." class="form-input" style="font-family: var(--font-mono);">
+              </div>
+
+              <div class="form-group">
+                <label>Upload Payment Receipt / Transfer Screenshot</label>
+                <input type="file" id="proof-file" accept="image/*" class="form-input" style="padding: 8px 12px;">
+              </div>
+
+              <button type="submit" class="btn-submit" id="submit-btn">
+                Confirm Payment &amp; Provision License
+              </button>
+            </form>
+          </div>
+
+          <div class="success-panel" id="success-panel">
+            <div class="success-icon">
+              <svg width="34" height="34" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 800; color: #FFFFFF; margin-bottom: 8px;">Payment Details Registered!</h3>
+            <p style="font-size: 14px; color: var(--text-secondary); line-height: 1.6; margin-bottom: 24px;">
+              Your deposit is being tracked on-chain. Your activated license key and activation payload will be dispatched to <strong id="success-email" style="color: var(--brand-cyan);"></strong> within 15–30 minutes.
+            </p>
+            <div style="background: rgba(1, 14, 39, 0.7); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 14px; text-align: left; margin-bottom: 20px;">
+              <div style="font-size: 12px; color: var(--text-tertiary);">Order Identifier:</div>
+              <div style="font-family: var(--font-mono); font-size: 13px; color: #FFFFFF;" id="success-order-id">ORD-77192847</div>
+            </div>
+            <a href="index.html" class="btn-copy" style="display: inline-block; padding: 10px 24px; text-decoration: none;">Return to Homepage</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const addresses = {
+      trc20: 'TQQcN4KhNKc6c4BPWzCDjhNm4YPGSWLrqi',
+      erc20: '0x96d294E27D4Bb2959897aC11FFCE03606324380B'
+    };
+
+    const planData = {
+      solo_pro: { name: 'Solo Pro', monthly: 29, annual: 24, totalAnnual: 288 },
+      agency_team: { name: 'Agency Team', monthly: 69, annual: 55, totalAnnual: 660 },
+      scale_enterprise: { name: 'Scale Enterprise', monthly: 149, annual: 119, totalAnnual: 1428 }
+    };
+
+    let isAnnual = false;
+    let currentPlan = 'solo_pro';
+    let currentNetwork = 'trc20';
+
+    function switchBilling(annual) {
+      isAnnual = annual;
+      document.getElementById('toggle-monthly').classList.toggle('active', !annual);
+      document.getElementById('toggle-annual').classList.toggle('active', annual);
+      
+      // Update plan cards prices
+      document.getElementById('plan-price-solo_pro').textContent = annual ? '$24/mo' : '$29';
+      document.getElementById('plan-price-agency_team').textContent = annual ? '$55/mo' : '$69';
+      document.getElementById('plan-price-scale_enterprise').textContent = annual ? '$119/mo' : '$149';
+
+      renderUI();
+    }
+
+    function selectPlan(planId) {
+      currentPlan = planId;
+      document.querySelectorAll('.plan-card').forEach(c => c.classList.remove('active'));
+      const activeCard = document.getElementById('card-' + planId);
+      if (activeCard) activeCard.classList.add('active');
+      renderUI();
+    }
+
+    function selectNetwork(net) {
+      currentNetwork = net;
+      document.getElementById('btn-trc20').classList.toggle('active', net === 'trc20');
+      document.getElementById('btn-erc20').classList.toggle('active', net === 'erc20');
+      renderUI();
+    }
+
+    function renderUI() {
+      const plan = planData[currentPlan];
+      const addr = addresses[currentNetwork];
+      const amount = isAnnual ? plan.totalAnnual : plan.monthly;
+
+      document.getElementById('deposit-address-text').textContent = addr;
+      document.getElementById('qr-barcode-img').src = currentNetwork === 'trc20' ? 'assets/qr/usdt-trc20.svg' : 'assets/qr/usdt-erc20.svg';
+      document.getElementById('payable-amount-text').textContent = `$${amount} USDT`;
+      document.getElementById('payable-cycle-text').textContent = isAnnual ? `Annual Billing ($${plan.annual}/mo billed $${plan.totalAnnual}/yr)` : 'Monthly Billing Cycle';
+
+      document.getElementById('display-plan').value = `${plan.name} ($${amount} USDT ${isAnnual ? 'Annual' : 'Monthly'})`;
+      document.getElementById('display-net').value = `USDT (${currentNetwork.toUpperCase()})`;
+      document.getElementById('amount').value = amount;
+    }
+
+    function copyAddress() {
+      const addr = addresses[currentNetwork];
+      navigator.clipboard.writeText(addr).then(() => {
+        const btn = document.getElementById('copy-btn');
+        const prev = btn.textContent;
+        btn.textContent = 'Copied!';
+        setTimeout(() => { btn.textContent = prev; }, 2000);
+      });
+    }
+
+    async function handleFormSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const txid = document.getElementById('txid').value;
+      const amount = document.getElementById('amount').value;
+      const telegram = document.getElementById('telegram').value;
+      const fileInput = document.getElementById('proof-file');
+
+      let proofBase64 = '';
+      if (fileInput.files && fileInput.files[0]) {
+        try {
+          proofBase64 = await toBase64(fileInput.files[0]);
+        } catch {}
+      }
+
+      // Submit to backend API if available, else mock local approval
+      try {
+        await fetch('/api/billing/crypto-payment', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            planId: currentPlan,
+            billingCycle: isAnnual ? 'annual' : 'monthly',
+            network: currentNetwork,
+            txid,
+            amount: Number(amount),
+            email,
+            telegramHandle: telegram,
+            screenshotBase64: proofBase64
+          })
+        });
+      } catch {}
+
+      document.getElementById('form-wrapper').style.display = 'none';
+      document.getElementById('success-panel').style.display = 'block';
+      document.getElementById('success-email').textContent = email;
+      document.getElementById('success-order-id').textContent = 'ORD-' + Math.random().toString(36).substring(2, 10).toUpperCase();
+    }
+
+    function toBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = error => reject(error);
+      });
+    }
+
+    // Auto-detect plan parameter from URL (?plan=agency_team)
+    window.addEventListener('DOMContentLoaded', () => {
+      const params = new URLSearchParams(window.location.search);
+      const plan = params.get('plan');
+      if (plan && planData[plan]) {
+        selectPlan(plan);
+      } else {
+        renderUI();
+      }
+    });
+  </script>
+</body>
+</html>
